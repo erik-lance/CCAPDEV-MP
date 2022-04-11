@@ -1,6 +1,13 @@
 .top_navbar {
-    background-color: blue;
+    background-color: rgb(42, 57, 80);
     overflow:hidden;
+    /* This fixes the navbar to the top of screen */
+    position: fixed;
+    top: 0;
+
+    height: auto;
+    width: 100%;
+    z-index: 1;
 }
 
 .top_navbar a {
@@ -13,11 +20,11 @@
 }
 
 .top_navbar a:hover {
-    background-color:aquamarine;
-    color:black;
+    background-color:rgb(255, 150, 120);
+    color:rgb(151, 64, 99);
 }
 
 .top_navbar a.active {
-    background-color: aqua;
-    color: crimson;
+    background-color: rgb(65, 67, 106);
+    color: rgb(245, 71, 104);
 }
