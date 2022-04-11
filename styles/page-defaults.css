@@ -1,7 +1,11 @@
+body {
+    margin: 0
+}
+
 #main-page {
     margin: auto;
     padding:10px;
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 900px;
     background-color:rgb(35, 43, 55);
@@ -11,11 +15,20 @@
 
 .post {
     background-color: rgb(42, 57, 80);
+    position: relative;
     margin: 10px;
     padding: 20px;
     min-height: 300px;
     max-height: 800px;
-    border: 10px white;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.post div.post-interact {
+    background-color:rgb(38, 49, 65);
+    margin: 0px -20px;
+    bottom: 0px;
+    width: auto;
 }
 
 .post p.post-header {
@@ -32,6 +45,8 @@
     color: rgb(183, 183, 183);
 }
 
-.post p.post-body {
+.post div.post-body {
     font-size: 18px;
+    margin: 20px 0;
+    min-height: 200px;
 }
