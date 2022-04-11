@@ -1,6 +1,13 @@
 .top_navbar {
     background-color: rgb(42, 57, 80);
     overflow:hidden;
+    /* This fixes the navbar to the top of screen */
+    position: fixed;
+    top: 0;
+
+    height: auto;
+    width: 100%;
+    z-index: 1;
 }
 
 .top_navbar a {
