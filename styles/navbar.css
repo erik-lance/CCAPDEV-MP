@@ -28,3 +28,7 @@
     background-color: rgb(65, 67, 106);
     color: rgb(245, 71, 104);
 }
+
+.top_profile {
+    float:right;
+}
