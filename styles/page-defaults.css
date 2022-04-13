@@ -13,22 +13,36 @@ body {
     color:white;
 }
 
-.post {
+.post-wrapper {
     background-color: rgb(42, 57, 80);
     position: relative;
+    display: flex;
+    flex-direction: column;
+
     margin: 10px;
-    padding: 20px;
-    min-height: 300px;
-    max-height: 800px;
+    
+    min-height: 200px;
+    max-height: 400px;
     border: 1px solid white;
     border-radius: 8px;
+
+    overflow: hidden;
 }
 
-.post div.post-interact {
+.post {
+    min-height: 100px;
+    padding: 20px;
+    flex-grow: 2;
+}
+
+.post-wrapper div.post-interact {
+    height: auto;
     background-color:rgb(38, 49, 65);
-    margin: 0px -20px;
     bottom: 0px;
     width: auto;
+    flex-grow: 1;
+
+    padding: 10px 10px;
 }
 
 .post p.post-header {
@@ -48,5 +62,5 @@ body {
 .post div.post-body {
     font-size: 18px;
     margin: 20px 0;
-    min-height: 200px;
+    min-height: 50px;
 }
