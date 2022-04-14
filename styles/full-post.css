@@ -56,8 +56,7 @@
     justify-content: flex-start;
 }
 
-#author-dets {
-    line-height: 40px;
+.author-dets {
     width: 100%;
     margin-left: 10px;
 }
@@ -68,9 +67,21 @@
     color: #FB8500;
 }
 
-#author-dets button {
+#author-id {
+    font-weight: 300;
+    font-size: 12px;
+    color: #864f10;
+}
+
+.author-dets button {
     background-color: #FFB703;
     border: none;
+    border-radius: 5px;
+}
+
+.author-dets button:hover {
+    color: white;
+    background-color: #d29e1c;
 }
 
 #author-header img {
