@@ -90,3 +90,15 @@
     width: auto;
     height: 100%;
 }
+
+/* Comment Section */
+#comment-section {
+    margin-top: 15px;
+    height: 100%;
+    background-color: white;
+}
+
+.comment-post {
+    width: 100%;
+    background-color: #163d51;
+}
