@@ -38,6 +38,8 @@
     font-style: normal;
     font-size: 16px;
     margin: 20px 0;
+    line-height: 25px;
+    text-align: justify;
     min-height: 50px;
 }
 
