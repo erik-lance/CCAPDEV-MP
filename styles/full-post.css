@@ -1,3 +1,9 @@
+/*
+    This file is the CSS of the page of a post. This is viewed
+    upon clicking a post on the feed  to show  the full post
+    content.
+*/
+
 #main-page {
     margin: auto;
     padding:20px;
