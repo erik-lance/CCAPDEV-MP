@@ -14,7 +14,7 @@ body {
 }
 
 .post-wrapper {
-    background-color: rgb(42, 57, 80);
+    background-color: #163d51;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ body {
 
 .post-wrapper div.post-interact {
     height: auto;
-    background-color:rgb(38, 49, 65);
+    background-color:#0e2c3b;
     bottom: 0px;
     width: auto;
     flex-grow: 1;
