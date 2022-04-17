@@ -49,6 +49,10 @@
     min-height: 50px;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Author CSS */
 #author-wrapper {
     background-color: #163d51;
