@@ -3,6 +3,9 @@
     upon clicking a post on the feed  to show  the full post
     content.
 */
+body {
+    margin: 0;
+}
 
 #main-page {
     margin: auto;
