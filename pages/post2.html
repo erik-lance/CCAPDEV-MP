@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>InFeed</title>
+    <base href="../" />
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/full-post.css">
+    <link rel="icon" href="images/web-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/navbar-init.js"></script>  
+
+</head>
+<body>
+    <div id="nav-bar"></div>
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <!-- This is to prevent posts being overlapped by navbar-->
+        <div style="height:50px"></div>
+        <div id="post-wrapper">
+            <div class="full-post">
+                <div class="header">
+                    you're welcome
+                    <span class="author">Emilio Aguinaldo</span>
+                </div>
+                <div class="body">
+                    <p> quote of the day by the great emilio. 
+                        We cannot free ourselves unless we move forward united in a single desire.
+                        *bow* 
+                    </p>
+                </div>
+                <div id="interactions">
+
+                </div>
+            </div>
+            <div id="author-wrapper">
+                <div id="author-header">
+                    <img src="images/emilio-aguinaldo.jpg">
+                    <div class="author-dets">    
+                        <a href="pages/profiles/eaguinaldo.html"><span id="author-name">Emilio Aguinaldo</span><br></a>
+                        <a href="pages/profiles/eaguinaldo.html"><span id="author-id">@eaguinaldo</span></a> <br><br>
+                        <button>Follow</button>
+                    </div>
+                </div>
+                
+                <p id="author-desc">Swipe right for your resident revolutionary, statesman, and military leader. 
+                </p>
+            </div>
+        
+        </div>
+
+        <div id="comment-section">
+            <div id ="comment-post">
+                <span id="Section">Comment Section</span>
+                <div id="comment-segment">
+                    <p id="comment">
+                        <span id="commentor-name">Emilio Aguinaldo</span><br>
+                        Galing mo self!
+                    </p>
+                    <p id="reply">
+                        <span id="commentor-name">Jose Rizal</span><br>
+                        amp
+                    </p>
+
+                </div>
+                <div id="comment-segment">
+                    <p id="comment">
+                        <span id="commentor-name">Gregorio Del Pilar</span><br>
+                        lodi
+                    </p>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
