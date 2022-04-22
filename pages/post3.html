@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>InFeed</title>
+    <base href="../" />
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/full-post.css">
+    <link rel="icon" href="images/web-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/navbar-init.js"></script>  
+
+</head>
+<body>
+    <div id="nav-bar"></div>
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <!-- This is to prevent posts being overlapped by navbar-->
+        <div style="height:50px"></div>
+        <div id="post-wrapper">
+            <div class="full-post">
+                <div class="header">
+                    Bet yall didnt know my real name
+                    <span class="author">Donatello</span>
+                </div>
+                <div class="body">
+                    <p> whoever guesses my full name will get 100 from me ;))
+                    </p>
+                </div>
+                <div id="interactions">
+
+                </div>
+            </div>
+            <div id="author-wrapper">
+                <div id="author-header">
+                    <img src="images/donatello.jpg">
+                    <div class="author-dets">    
+                        <a href="pages/profiles/donatello.html"><span id="author-name">Donatello</span><br></a>
+                        <a href="pages/profiles/donatello.html"><span id="author-id">@donatello</span></a> <br><br>
+                        <button>Follow</button>
+                    </div>
+                </div>
+                
+                <p id="author-desc">I am a Florentine sculptor of the Renaissance period. Born in Florence, 
+                    I studied classical sculpture and used this to develop a complete Renaissance style in sculpture. 
+                </p>
+            </div>
+        
+        </div>
+
+        <div id="comment-section">
+            <div id ="comment-post">
+                <span id="Section">Comment Section</span>
+                <div id="comment-segment">
+                    <p id="comment">
+                        <span id="commentor-name"><img src="images/michael-angelo.jpg" id="Comment-Picture"> Michael Angelo</span><br>
+                        baby
+                    <p id="reply">
+                        <span id="commentor-name"><img src="images/donatello.jpg" id="Comment-Picture"> Donatello</span><br>
+                        no.
+                    </p>
+
+                </div>
+                
+                <div id="comment-segment">
+                    <p id="comment">
+                        <span id="commentor-name"><img src="images/Leonardo.jpg" id="Comment-Picture"> Leonardo</span><br>
+                        donut bello
+                    </p>
+                    <p id="reply">
+                        <span id="commentor-name"><img src="images/donatello.jpg" id="Comment-Picture"> Donatello</span><br>
+                        No
+                    </p>
+
+                </div>
+
+                <div id="comment-segment">
+                    <p id="comment">
+                        <span id="commentor-name"><img src="images/raphael.jpg" id="Comment-Picture"> raphael</span><br>
+                        dm
+                    </p>
+                    <p id="reply">
+                        <span id="commentor-name"><img src="images/donatello.jpg" id="Comment-Picture"> Donatello</span><br>
+                        k go
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
