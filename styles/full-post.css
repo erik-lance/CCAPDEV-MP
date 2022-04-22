@@ -26,6 +26,7 @@ body {
 .full-post {
     padding: 10px;
     background-color: #163d51;
+    height: auto;
     width: 100%;
     min-width: 100px;
     max-width: 800px;
@@ -109,7 +110,7 @@ a {
 /* Comment Section */
 #comment-section {
     margin-top: 15px;
-    height: 100%;
+    height: auto;
     background-color: #163d51;
 }
 
@@ -120,8 +121,11 @@ a {
 }
 
 #comment-post {
+    height: auto;
     width: 100%;
     background-color: #163d51;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #commentor-name{
@@ -131,8 +135,7 @@ a {
 
 #comment-segment{
     margin-left: 15;
-    margin-top: 40;
-    margin-bottom: 0;
+    margin-bottom: 40;
 }
 
 #comment{
