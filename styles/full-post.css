@@ -114,8 +114,8 @@ a {
 }
 
 #comment-picture{
-    height: 20;
-    width: 20;
+    height: 40;
+    width: 40;
 }
 
 #comment-post {
@@ -135,10 +135,20 @@ a {
 }
 
 #comment{
+    display: flex;
+    margin-left: 10;
     margin-bottom: 5;
+    height: auto;
 }
 
 #reply{
-    margin-left: 15;
-    margin-top: 0%;
+    display: flex;
+    margin-left: 20;
+    margin-top: 10;
+}
+
+#comment-text{
+    display: inline-block;
+    width: 100%;
+    margin-left: 10;
 }
