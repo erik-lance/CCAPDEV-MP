@@ -113,7 +113,27 @@ a {
     background-color: white;
 }
 
-.comment-post {
+#comment-post {
     width: 100%;
     background-color: #163d51;
+}
+
+#commentor-name{
+    margin-top: 0;
+    color: lightgoldenrodyellow;
+}
+
+#comment-segment{
+    margin-left: 15;
+    margin-top: 10;
+    margin-bottom: 0;
+}
+
+#comment{
+    margin-bottom: 5;
+}
+
+#reply{
+    margin-left: 15;
+    margin-top: 0%;
 }
