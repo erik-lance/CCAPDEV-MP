@@ -10,7 +10,7 @@ body {
 #main-page {
     margin: auto;
     padding:20px;
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 900px;
     background-color:#031f2e;
@@ -110,7 +110,7 @@ a {
 #comment-section {
     margin-top: 15px;
     height: 100%;
-    background-color: white;
+    background-color: #163d51;
 }
 
 #comment-post {
@@ -125,7 +125,7 @@ a {
 
 #comment-segment{
     margin-left: 15;
-    margin-top: 10;
+    margin-top: 40;
     margin-bottom: 0;
 }
 
