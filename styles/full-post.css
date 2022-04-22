@@ -116,6 +116,7 @@ a {
 #comment-picture{
     height: 40;
     width: 40;
+    object-fit: cover;
 }
 
 #comment-post {
