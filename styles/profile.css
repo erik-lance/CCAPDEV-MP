@@ -1,11 +1,16 @@
+/*
+    This is for the profile page of a user. Should contain a list of posts on the left
+    and the main profile bio on the right
+*/
+
 body {
     margin: 0;
 }
 
 #main-page {
     margin: auto;
-    padding:10px;
-    height: 100%;
+    padding:20px;
+    height: auto;
     width: 100%;
     max-width: 900px;
     background-color:#031f2e;
@@ -13,55 +18,67 @@ body {
     color:white;
 }
 
-.post-wrapper {
-    background-color: #163d51;
-    position: relative;
+.page-wrapper {
     display: flex;
-    flex-direction: column;
+    gap: 50px;
 
-    margin: 10px;
-    
-    min-height: 200px;
-    max-height: 350px;
-    border: 1px solid white;
-    border-radius: 8px;
-
-    overflow: hidden;
 }
 
-.post {
-    min-height: 100px;
-    padding: 20px;
-    flex-grow: 2;
+#profile-posts {
+    padding: 10px;
+    background-color: #163d51;
+    width: 100%;
+    min-width: 100px;
+    max-width: 800px;
 }
 
-.post-wrapper div.post-interact {
-    height: auto;
-    background-color:#0e2c3b;
-    bottom: 0px;
-    width: auto;
-    flex-grow: 1;
+/* Author Section */
 
-    padding: 10px 10px;
+#profile-bio {
+    background-color: #163d51;
+    padding: 10px;
+    width: 100%;
+    min-width: 100px;
+    max-width: 300px;
+    max-height:400px;
 }
 
-.post p.post-header {
-    margin: 0;
-    font-size:25px;
+#author-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.author-dets {
+    width: 100%;
+    margin-left: 10px;
+}
+
+#author-name {
+    margin-bottom: 5px;
     font-weight: 700;
-    /*Erik note: Robot 700 is bold :)*/
+    color: #FB8500;
 }
 
-.post p span.author {
-    font-size: 14px;
-    font-style: italic;
+#author-id {
     font-weight: 300;
-    color: rgb(183, 183, 183);
+    font-size: 12px;
+    color: #864f10;
 }
 
-.post div.post-body {
-    font-size: 18px;
-    line-height: 30px;
-    margin: 20px 0;
-    min-height: 50px;
+.author-dets button {
+    background-color: #FFB703;
+    border: none;
+    border-radius: 5px;
+}
+
+.author-dets button:hover {
+    color: white;
+    background-color: #d29e1c;
+}
+
+#author-header img {
+    margin: auto;
+    max-height: 100px;
+    width: auto;
+    height: 100%;
 }
