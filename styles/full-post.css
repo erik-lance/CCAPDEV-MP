@@ -113,6 +113,11 @@ a {
     background-color: #163d51;
 }
 
+#comment-picture{
+    height: 20;
+    width: 20;
+}
+
 #comment-post {
     width: 100%;
     background-color: #163d51;
