@@ -114,6 +114,13 @@ a {
     background-color: #163d51;
 }
 
+#section{
+    color: white;
+    display: block;
+    text-align: center;
+    background-color: black;
+}
+
 #comment-picture{
     height: 40;
     width: 40;
