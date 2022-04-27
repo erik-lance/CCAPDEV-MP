@@ -47,6 +47,12 @@ body {
     overflow: hidden;
 }
 
+.post-comment-wrapper {
+    margin: 0 10px 0 40px;
+    padding: 0px 20px;
+    border-left: solid white;
+}
+
 .post {
     min-height: 100px;
     padding: 20px;
