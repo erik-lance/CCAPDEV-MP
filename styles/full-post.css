@@ -26,6 +26,7 @@ body {
 .full-post {
     padding: 10px;
     background-color: #163d51;
+    height: auto;
     width: 100%;
     min-width: 100px;
     max-width: 800px;
@@ -109,18 +110,29 @@ a {
 /* Comment Section */
 #comment-section {
     margin-top: 15px;
-    height: 100%;
+    height: auto;
     background-color: #163d51;
+}
+
+#section{
+    color: white;
+    display: block;
+    text-align: center;
+    background-color: black;
 }
 
 #comment-picture{
-    height: 20;
-    width: 20;
+    height: 40;
+    width: 40;
+    object-fit: cover;
 }
 
 #comment-post {
+    height: auto;
     width: 100%;
     background-color: #163d51;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #commentor-name{
@@ -130,15 +142,24 @@ a {
 
 #comment-segment{
     margin-left: 15;
-    margin-top: 40;
-    margin-bottom: 0;
+    margin-bottom: 40;
 }
 
 #comment{
+    display: flex;
+    margin-left: 10;
     margin-bottom: 5;
+    height: auto;
 }
 
 #reply{
-    margin-left: 15;
-    margin-top: 0%;
+    display: flex;
+    margin-left: 20;
+    margin-top: 10;
+}
+
+#comment-text{
+    display: inline-block;
+    width: 100%;
+    margin-left: 10;
 }

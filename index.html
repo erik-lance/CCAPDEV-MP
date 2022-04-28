@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>
     <script src="scripts/post-click.js"></script>
+    <script src="scripts/ui-button.js"></script>
 
     <!-- This page is the front page, so all posts should be seen here! -->
 </head>
@@ -26,8 +27,8 @@
         <!-- This is to prevent posts being overlapped by navbar-->
         <div style="height:50px"></div>
 
-        <div class="post-wrapper" onclick="open_post('post1')">
-            <div class="post">
+        <div class="post-wrapper" >
+            <div class="post" onclick="open_post('post1')">
                 <p class="post-header">Hello! <span class="author">theandrewryan</span></p>
                 <div class="post-body">I am Andrew Ryan and I am here to ask you a question:
                     Is a man not entitled to the sweat of his brow? No, says the man in Washington.
@@ -39,27 +40,136 @@
                     And with the sweat of your brow, Rapture can become your city as well.</div>
                 
             </div>
-            <div class="post-interact">Upvote / Downvote ; Comment; Share</div>
+            <div class="post-interact">
+                <div style="margin-right:20px;">
+                    <button class="ui-button">
+                        <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                    </button>
+                    
+                    &nbsp; 7 &nbsp;
+
+                    <button class="ui-button">
+                    <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                    </button>
+                    &nbsp;
+                </div>
+                
+                <button class="ui-button" style="display:flex">
+                    <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                    <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                </button>
+            </div>
         </div>
         
-        <div class="post-wrapper" onclick="open_post('post2')">
-            <div class="post">
+        <div class="post-wrapper">
+            <div class="post" onclick="open_post('post2')">
                 <p class="post-header">you're welcome <span class="author">eaguinaldo</span></p>
                 <div class="post-body">Quote of the day by the great emilio.
                     We cannot free ourselves unless we move forward united in a single desire.
                     *bow* </div>
                 
             </div>
-            <div class="post-interact">Upvote / Downvote ; Comment; Share</div>
+            <div class="post-interact">
+                <div style="margin-right:20px;">
+                    <button class="ui-button">
+                        <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                    </button>
+                    
+                    &nbsp; 2 &nbsp;
+
+                    <button class="ui-button">
+                    <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                    </button>
+                    &nbsp;
+                </div>
+                
+                <button class="ui-button" style="display:flex">
+                    <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                    <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                </button>
+            </div>
         </div>
         
-        <div class="post-wrapper" onclick="open_post('post3')">
-            <div class="post">
+        <div class="post-wrapper">
+            <div class="post" onclick="open_post('post3')">
                 <p class="post-header">Bet yall didnt know my real name <span class="author">donatello</span></p>
-                <div class="post-body">whoever guesses my full name will get 100 from me ;)) </div>
+                <div class="post-body">whoever guesses my full name will get 100 from me ;)) </div>                
+            </div>
+            <div class="post-interact">
+                <div style="margin-right:20px;">
+                    <button class="ui-button">
+                        <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                    </button>
+                    
+                    &nbsp; -1 &nbsp;
+
+                    <button class="ui-button">
+                    <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                    </button>
+                    &nbsp;
+                </div>
+                
+                <button class="ui-button" style="display:flex">
+                    <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                    <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="post-wrapper">
+            <div class="post" onclick="open_post('post4')">
+                <p class="post-header">I'm hungry <span class="author">blueleo</span></p>
+                <div class="post-body">let's get pizza! </div>              
+            </div>
+            <div class="post-interact">
+                <div style="margin-right:20px;">
+                    <button class="ui-button">
+                        <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                    </button>
+                    
+                    &nbsp; 1 &nbsp;
+
+                    <button class="ui-button">
+                    <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                    </button>
+                    &nbsp;
+                </div>
+                
+                <button class="ui-button" style="display:flex">
+                    <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                    <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="post-wrapper">
+            <div class="post" onclick="open_post('post5')">
+                <p class="post-header">quote of the day <span class="author">eaguinaldo</span></p>
+                <div class="post-body">We are no longer insurgents; we are no longer revolutionists; 
+                    that is to say, armed men desirous of destroying and annihilating the enemy. 
+                    We are from now on Republicans; that is to say, men of law, able to fraternize 
+                    with all other nations, with mutual respect and affection. </div>
                 
             </div>
-            <div class="post-interact">Upvote / Downvote ; Comment; Share</div>
+            <div class="post-interact">
+                <div style="margin-right:20px;">
+                    <button class="ui-button">
+                        <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                    </button>
+                    
+                    &nbsp; 4 &nbsp;
+
+                    <button class="ui-button">
+                    <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                    </button>
+                    &nbsp;
+                </div>
+                
+                <button class="ui-button" style="display:flex">
+                    <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                    <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                </button>
+            </div>
         </div>
     </div>
 
