@@ -12,13 +12,45 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>  
-    
+    <script src="scripts/post-click.js"></script>
+
 </head>
 <body>
     <div id="nav-bar"></div>
     <!-- Where the rest of the page is: -->
     <div id="main-page">
+        <div style="height:50px"></div>
 
+        <div class="page-wrapper">
+            <div id="profile-posts">
+                <div class="post-wrapper" onclick="open_post('post4')">
+                    <div class="post">
+                        <p class="post-header">I'm hungry<span class="author">Leonardo</span></p>
+                        <div class="post-body"> let's get pizza!</div>
+                    </div>
+                    <div class="post-interact">Upvote ; Downvote ; Comment ; Share</div>
+                </div>
+                <div class="post-comment-wrapper">
+                    yes lol. howd u know?
+                </div>
+                
+                
+            </div>
+            
+            <div id="profile-bio">
+                <div id="author-header">
+                    <img src="images/leonardo.jpg">
+                    <div class="author-dets">    
+                        <a href="pages/profiles/leonardo.html"><span id="author-name">Leonardo</span><br></a>
+                        <a href="pages/profiles/leonardo.html"><span id="author-id">@blueleo</span></a> <br><br>
+                        <button>Follow</button>
+                    </div>
+                </div>
+                <p id="author-desc">I am the oldest of my fourr borthers. I am their commander and tactical advisor.
+                    Yes I'm a superhero, so I am sure to catch u when u fall ;).
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
