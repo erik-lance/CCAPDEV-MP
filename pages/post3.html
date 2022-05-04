@@ -13,6 +13,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>  
+    <script src="scripts/ui-button.js"></script>
 
 </head>
 <body>
@@ -32,12 +33,29 @@
                     </p>
                 </div>
                 <div id="interactions">
-
+                    <div style="margin-right:20px; display:inline">
+                        <button class="ui-button">
+                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                        </button>
+                        
+                        &nbsp; -1 &nbsp;
+    
+                        <button class="ui-button">
+                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                        </button>
+                        &nbsp;
+                    </div>
+                    
+                    <button class="ui-button" style="display:flex">
+                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                    </button>
+                    
                 </div>
             </div>
             <div id="author-wrapper">
                 <div id="author-header">
-                    <img src="images/donatello.jpg">
+                    <img src="images/profile-imgs/donatello.jpg">
                     <div class="author-dets">    
                         <a href="pages/profiles/donatello.html"><span id="author-name">Donatello</span><br></a>
                         <a href="pages/profiles/donatello.html"><span id="author-id">@donatello</span></a> <br><br>
@@ -57,69 +75,21 @@
             <div id ="comment-post">
                 <div id="comment-segment">
                     <div id="comment">
-                        <img src="images/michael-angelo.jpg" id="Comment-Picture">
+                        <img src="images/profile-imgs/andrew-ryan.jpg" id="Comment-Picture">
                         <div id="comment-text">
-                            <span id="commentor-name">Michael Angelo</span><br>
-                            Baby
+                            <a href="pages/profiles/theandrewryan.html"><span id="commentor-name">Andrew Ryan</span></a><br>
+                            This is not how the site is supposed to work.
                         </div>
                     </div>
                     
                     <div id="reply">
-                        <img src="images/donatello.jpg" id="Comment-Picture">
+                        <img src="images/profile-imgs/donatello.jpg" id="Comment-Picture">
                         <div id="comment-text">
-                            <span id="commentor-name">Donatello</span><br>
-                            yes baby? jk get out.
+                            <a href="pages/profiles/donatello.html"><span id="commentor-name">Donatello</span></a><br>
+                            Sorry, still new!
                         </div>
                     </div>
-                </div>    
-                <div id="comment-segment">
-                    <div id="comment">
-                        <img src="images/leonardo.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Leonardo</span><br>
-                            Donut Bello
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/donatello.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Donatello</span><br>
-                            No
-                        </div>
-                    </div>
-                </div>    
-                <div id="comment-segment">
-                    <div id="comment">
-                        <img src="images/raphael.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Raphael</span><br>
-                            Dm
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/donatello.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Donatello</span><br>
-                            k Go
-                        </div>
-                    </div>
-                </div>    
-                <div id="comment-segment">
-                    <div id="comment">
-                        <img src="images/donatello.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Donatello</span><br>
-                            conrgats to @raphael for guessing my name!
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/raphael.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Raphael</span><br>
-                            ez 100
-                        </div>
-                    </div>
-                </div>    
+                </div>      
             </div>
             
         </div>

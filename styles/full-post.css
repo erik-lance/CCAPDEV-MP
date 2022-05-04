@@ -24,15 +24,20 @@ body {
 }
 
 .full-post {
-    padding: 10px;
+
     background-color: #163d51;
     height: auto;
     width: 100%;
     min-width: 100px;
     max-width: 800px;
+    
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+
 }
 
 .full-post .header {
+    padding: 10px;
     font-size:25px;
     font-weight: 700;
 }
@@ -45,13 +50,39 @@ body {
 }
 
 .full-post .body {
+    padding: 10px;
     font-style: normal;
     font-size: 16px;
-    margin: 20px 0;
     line-height: 25px;
     text-align: justify;
-    min-height: 50px;
+    min-height: 150px;
 }
+
+#interactions {
+    display:flex;
+    height: auto;
+    width: 100%;
+
+    padding: 8px 0;
+
+    background-color:#0e2c3b;
+    bottom: 0px;
+    width: auto;
+}
+
+.ui-icon {
+    max-height: 20px;
+    max-width: 20px;
+}
+
+.ui-button {
+    background: none;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+}
+
 
 a {
     text-decoration: none;
@@ -64,7 +95,11 @@ a {
     width: 100%;
     min-width: 100px;
     max-width: 300px;
-    max-height:400px;
+    max-height: 300px;
+
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+
 }
 
 #author-header {

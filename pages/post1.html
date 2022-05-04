@@ -13,6 +13,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>  
+    <script src="scripts/ui-button.js"></script>
 
 </head>
 <body>
@@ -37,12 +38,29 @@
                     </p>
                 </div>
                 <div id="interactions">
-
+                    <div style="margin-right:20px; display:inline">
+                        <button class="ui-button">
+                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                        </button>
+                        
+                        &nbsp; 7 &nbsp;
+    
+                        <button class="ui-button">
+                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                        </button>
+                        &nbsp;
+                    </div>
+                    
+                    <button class="ui-button" style="display:flex">
+                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                    </button>
+                    
                 </div>
             </div>
             <div id="author-wrapper">
                 <div id="author-header">
-                    <img src="images/andrew-ryan.jpg">
+                    <img src="images/profile-imgs/andrew-ryan.jpg">
                     <div class="author-dets">    
                         <a href="pages/profiles/theandrewryan.html"><span id="author-name">Andrew Ryan</span><br></a>
                         <a href="pages/profiles/theandrewryan.html"><span id="author-id">@theandrewryan</span></a> <br><br>
@@ -62,100 +80,27 @@
             <div id ="comment-post">
                 <div id="comment-segment">
                     <div id="comment">
-                        <img src="images/michael-angelo.jpg" id="Comment-Picture">
+                        <img src="images/profile-imgs/donatello.jpg" id="Comment-Picture">
                         <div id="comment-text">
-                            <span id="commentor-name">Michael Angelo</span><br>
+                            <a href="pages/profiles/donatello.html"><span id="commentor-name">Donatello</span></a><br>
                             Your post is quite interesting in that it induces a sense of fear of God but at the same time it reminds others of his love
                         </div>
                     </div>
-                    
+
                     <div id="reply">
-                        <img src="images/raphael.jpg" id="Comment-Picture">
+                        <img src="images/profile-imgs/andrew-ryan.jpg" id="Comment-Picture">
                         <div id="comment-text">
-                            <span id="commentor-name"> Raphael</span><br>
-                            Nerd
-                        </div>
-                    </div>
-                    
-                    <div id="reply">
-                        <img src="images/donatello.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name"> Donatello</span><br>
-                            Hoy @Raphael Tigilan mo nga si pareng Michael
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/leonardo.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name"> Leonardo</span><br>
-                            oo nga grabe ka kay brother michael
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/raphael.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name"> Raphael</span><br>
-                            Sorry na @Michael    
-                        </div>
-                        
-                    </div>
-                    <div id="reply">
-                        <img src="images/michael-angelo.jpg" id="Comment-Picture"> 
-                        <div id="comment-text">
-                            <span id="commentor-name">Michael Angelo</span><br>
-                            No worries Brodie    
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/andrew-ryan.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Andrew Ryan</span><br>
-                            Appreciated. @Michael   
+                            <a href="pages/profiles/theandrewryan.html"><span id="commentor-name">Andrew Ryan</span></a><br>
+                            Appreciated. @Donatello   
                         </div>
                     </div>
                 </div>
                 <div id="comment-segment">
                     <div id="comment">
-                        <img src="images/jose-rizal.jpg" id="Comment-Picture">
+                        <img src="images/profile-imgs/default-profile-pic.png" id="Comment-Picture">
                         <div id="comment-text">
-                            <span id="commentor-name">Jose Rizal</span><br>
-                            An interesting concept indeed
-                        </div>
-                    </div>
-
-                    <div id="reply">
-                        <img src="images/emilio-aguinaldo.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Emilio Aguinaldo</span><br>
-                            Tigilan mo nga yan kakascroll mo at tulungan mo kami dito
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/andres-bonifacio.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Andres Bonifacio</span><br>
-                            @Jose kailangan namin tulong mo pre sugat sugat na si Gregorio
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/gregorio.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Gregorio Del Pilar</span><br>
-                            Mga pare patulong natamaan ako sa tuhod
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/jose-rizal.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Jose Rizal</span><br>
-                            Pasensya mga kaibigan pansulat lang akin nahahawakan
-                        </div>
-                    </div>
-                    <div id="reply">
-                        <img src="images/emilio-aguinaldo.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <span id="commentor-name">Emilio Aguinaldo</span><br>
-                            Bahala ka na nga diyan halika na @Andres puntahan na natin si pareng Gregorio    
+                            <a href="pages/profiles/squashboy.html"><span id="commentor-name">Raymond</span></a><br>
+                            Hi, I'm new to this site, how do I make a post?
                         </div>
                     </div>
 
