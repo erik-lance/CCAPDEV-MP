@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>  
     <script src="scripts/post-click.js"></script>
+    <script src="scripts/ui-button.js"></script>
 
 </head>
 <body>
@@ -28,10 +29,28 @@
                         <p class="post-header">I'm hungry <span class="author">Leonardo</span></p>
                         <div class="post-body"> let's get pizza!</div>
                     </div>
-                    <div class="post-interact">Upvote ; Downvote ; Comment ; Share</div>
+                    <div class="post-interact">
+                        <div style="margin-right:20px;">
+                            <button class="ui-button">
+                                <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
+                            </button>
+                            
+                            &nbsp; 1 &nbsp;
+        
+                            <button class="ui-button">
+                            <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
+                            </button>
+                            &nbsp;
+                        </div>
+                        
+                        <button class="ui-button" style="display:flex">
+                            <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
+                            <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="post-comment-wrapper">
-                    yes lol. howd u know?
+                    pick me up in 5.
                 </div>
                 
                 
