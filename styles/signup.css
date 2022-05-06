@@ -9,7 +9,7 @@ body {
     padding:10px;
     height: 100%;
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     background-color:#163d51;
     font-family: Roboto;
     color:white;
@@ -20,21 +20,23 @@ body {
     min-height: 500px;
 }
 
+#headline {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 #log {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 180px;
 
     background-color: #163d51;
     width: 100%;
     height: 100%;
 
     min-height: 400px;
-
-    margin: 25px 70px;
     padding: 10px;
 
-    padding: 50px;
 }
 
 #log-header {
@@ -43,19 +45,24 @@ body {
     align-items: center;
 }
 
-#log-header img {
-    max-width: 100px;
-    height: 100px;
+#log img {
+    max-width: 400px;
+    height: 100%;
     border: 1px solid rgb(172, 172, 172);
     border-radius: 4px;
 }
 
 /* Log-Form Inputs*/
 
+#log-form {
+    display: flex;
+    flex-direction: column;
+}
+
 #log-form input{
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 10px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -69,11 +76,13 @@ body {
 /* Log-Form Buttons */
 
 #log-form div {
+    margin-top: 6px;
     display: flex;
     gap: 10px;
 }
 
 #log-form button {
+    margin-top: 7px;
     background-color: #fb8500;
     color: white;
 
@@ -91,4 +100,10 @@ body {
   
 #log-form button:hover {
     opacity:1;
+}
+
+#log-form a {
+    margin-top: 6px;
+    text-decoration: none;
+    color: #fb8500;
 }
