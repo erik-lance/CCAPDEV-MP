@@ -8,8 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/navbar-init.js"></script>
@@ -31,7 +30,8 @@
 
             <div class="post-wrapper" >
                 <div class="post" onclick="open_post('post1')">
-                    <p class="post-header">Hello! <span class="author">theandrewryan</span></p>
+                    <div class="post-dets">Posted by <span class="author">theandrewryan</span> 3 hours ago</div>
+                    <p class="post-header">Hello!</p>
                     <div class="post-body">I am Andrew Ryan and I am here to ask you a question:
                         Is a man not entitled to the sweat of his brow? No, says the man in Washington.
                         It belongs to the poor. No, says the man in the Vatican. It belongs to God.
@@ -43,8 +43,13 @@
                     
                 </div>
                 <div class="post-interact">
+                    <svg class="ui-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25"><defs><style>.cls-1{fill:#fff;}</style></defs>
+                        <path class="cls-1" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                    </svg>
                     <div style="margin-right:20px;">
-                        <button class="ui-button">
+                        
+                        
+                        <!-- <button class="ui-button">
                             <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
                         </button>
                         
@@ -53,13 +58,13 @@
                         <button class="ui-button">
                         <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
                         </button>
-                        &nbsp;
+                        &nbsp; -->
                     </div>
                     
-                    <button class="ui-button" style="display:flex">
+                    <!-- <button class="ui-button" style="display:flex">
                         <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
                         <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
             
