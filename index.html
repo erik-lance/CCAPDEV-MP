@@ -4,6 +4,7 @@
     <title>InFeed</title>
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/home-feed.css">
+    <link rel="stylesheet" href="styles/ui-vectors.css">
     <link rel="icon" href="images/web-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,153 +30,159 @@
             <div style="height:50px"></div>
 
             <div class="post-wrapper" >
-                <div class="post" onclick="open_post('post1')">
-                    <div class="post-dets">Posted by <span class="author">theandrewryan</span> 3 hours ago</div>
-                    <p class="post-header">Hello!</p>
-                    <div class="post-body">I am Andrew Ryan and I am here to ask you a question:
-                        Is a man not entitled to the sweat of his brow? No, says the man in Washington.
-                        It belongs to the poor. No, says the man in the Vatican. It belongs to God.
-                        No, says the man in Moscow. It belongs to everyone. I rejected those answers.
-                        Instead, I chose something different. I chose the impossible. I chose... Rapture.
-                        A city where the artist would not fear the censor. Where the scientist would not be
-                        bound by petty morality. Where the great would not be constrained by the small.
-                        And with the sweat of your brow, Rapture can become your city as well.</div>
-                    
-                </div>
-                <div class="post-interact">
-                    <svg class="ui-icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25"><defs><style>.cls-1{fill:#fff;}</style></defs>
-                        <path class="cls-1" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                <div class="rate">
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                        <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
                     </svg>
-                    <div style="margin-right:20px;">
-                        
-                        
-                        <!-- <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
-                        
-                        &nbsp; 7 &nbsp;
-    
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp; -->
-                    </div>
-                    
-                    <!-- <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button> -->
+
+
+                    <div>7</div>
+
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                        <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                    </svg>
                 </div>
+                <div class="full-post">
+                    <div class="post" onclick="open_post('post1')">
+                        <div class="post-dets">
+                            <img style="max-height: 100%; vertical-align: middle;"src="images/profile-imgs/andrew-ryan.jpg">
+                            <a class="author" href="pages/profiles/theandrewryan.html">theandrewryan</a> • Posted 3 hours ago
+                        </div>
+    
+                        <p class="post-header">Hello!</p>
+                        <div class="post-body">I am Andrew Ryan and I am here to ask you a question:
+                            Is a man not entitled to the sweat of his brow? No, says the man in Washington.
+                            It belongs to the poor. No, says the man in the Vatican. It belongs to God.
+                            No, says the man in Moscow. It belongs to everyone. I rejected those answers.
+                            Instead, I chose something different. I chose the impossible. I chose... Rapture.
+                            A city where the artist would not fear the censor. Where the scientist would not be
+                            bound by petty morality. Where the great would not be constrained by the small.
+                            And with the sweat of your brow, Rapture can become your city as well.</div>
+                        
+                    </div>
+                    <div class="post-interact">
+                        Comment &nbsp; Share
+                    </div>
+                </div>
+                
             </div>
             
             <div class="post-wrapper">
-                <div class="post" onclick="open_post('post2')">
-                    <p class="post-header">you're welcome <span class="author">eaguinaldo</span></p>
-                    <div class="post-body">Quote of the day by the great emilio.
-                        We cannot free ourselves unless we move forward united in a single desire.
-                        *bow* </div>
-                    
+                <div class="rate">
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                        <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                    </svg>
+
+
+                    <div>2</div>
+
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                        <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                    </svg>
                 </div>
-                <div class="post-interact">
-                    <div style="margin-right:20px;">
-                        <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
+                <div class="full-post">
+                    <div class="post" onclick="open_post('post2')">
+                        <p class="post-header">you're welcome <span class="author">eaguinaldo</span></p>
+                        <div class="post-body">Quote of the day by the great emilio.
+                            We cannot free ourselves unless we move forward united in a single desire.
+                            *bow* </div>
                         
-                        &nbsp; 2 &nbsp;
-    
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp;
                     </div>
-                    
-                    <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
+                    <div class="post-interact">
+                        Comment &nbsp; Share
+                    </div>
                 </div>
+                
             </div>
             
             <div class="post-wrapper">
-                <div class="post" onclick="open_post('post3')">
-                    <p class="post-header">Bet yall didnt know my real name <span class="author">donatello</span></p>
-                    <div class="post-body">whoever guesses my full name will get 100 from me ;)) </div>                
+                <div class="rate">
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                        <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                    </svg>
+
+
+                    <div> -1 </div>
+
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                        <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                    </svg>
                 </div>
-                <div class="post-interact">
-                    <div style="margin-right:20px;">
-                        <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
-                        
-                        &nbsp; -1 &nbsp;
-    
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp;
+                
+                <div class="full-post">
+                    <div class="post" onclick="open_post('post3')">
+                        <p class="post-header">Bet yall didnt know my real name <span class="author">donatello</span></p>
+                        <div class="post-body">whoever guesses my full name will get 100 from me ;)) </div>                
                     </div>
-                    
-                    <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
+                    <div class="post-interact">
+                        Comment &nbsp; Share
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="post-wrapper">
+                <div class="rate">
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                        <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                    </svg>
+
+
+                    <div> 1 </div>
+
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                        <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                    </svg>
+                </div>
+
+                <div class="full-post">
+                    <div class="post" onclick="open_post('post4')">
+                        <p class="post-header">I'm hungry <span class="author">blueleo</span></p>
+                        <div class="post-body">let's get pizza! </div>              
+                    </div>
+                    <div class="post-interact">
+                        Comment &nbsp; Share
+                    </div>
                 </div>
             </div>
     
             <div class="post-wrapper">
-                <div class="post" onclick="open_post('post4')">
-                    <p class="post-header">I'm hungry <span class="author">blueleo</span></p>
-                    <div class="post-body">let's get pizza! </div>              
+                <div class="rate">
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                        <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                    </svg>
+
+
+                    <div> 4 </div>
+
+                    <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                        <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                        <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                    </svg>
                 </div>
-                <div class="post-interact">
-                    <div style="margin-right:20px;">
-                        <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
+
+                <div class="full-post">
+                    <div class="post" onclick="open_post('post5')">
+                        <p class="post-header">quote of the day <span class="author">eaguinaldo</span></p>
+                        <div class="post-body">We are no longer insurgents; we are no longer revolutionists; 
+                            that is to say, armed men desirous of destroying and annihilating the enemy. 
+                            We are from now on Republicans; that is to say, men of law, able to fraternize 
+                            with all other nations, with mutual respect and affection. </div>
                         
-                        &nbsp; 1 &nbsp;
-    
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp;
                     </div>
                     
-                    <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
-                </div>
-            </div>
-    
-            <div class="post-wrapper">
-                <div class="post" onclick="open_post('post5')">
-                    <p class="post-header">quote of the day <span class="author">eaguinaldo</span></p>
-                    <div class="post-body">We are no longer insurgents; we are no longer revolutionists; 
-                        that is to say, armed men desirous of destroying and annihilating the enemy. 
-                        We are from now on Republicans; that is to say, men of law, able to fraternize 
-                        with all other nations, with mutual respect and affection. </div>
-                    
-                </div>
-                <div class="post-interact">
-                    <div style="margin-right:20px;">
-                        <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
-                        
-                        &nbsp; 4 &nbsp;
-    
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp;
+                    <div class="post-interact">
+                        Comment &nbsp; Share
                     </div>
-                    
-                    <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
                 </div>
             </div>
         
