@@ -1,16 +1,19 @@
 body {
     margin: 0;
-    background-color: #031f2e;
+    background-color: #111213;
 }
 
 #main-page {
     display: flex;
+    gap: 20px;
+    justify-content: center;
+
     margin: auto;
     padding:10px;
     height: auto;
     width: 100%;
-    max-width: 920px;
-    background-color:#031f2e;
+    max-width: 1000px;
+    /* background-color:#031f2e; */
     font-family: 'Segoe UI';
     color:white;
 }
@@ -24,20 +27,40 @@ body {
 }
 
 #profile-page {
-    padding: 10px;
+    padding: 10px 0;
     height: auto;
     width: 100%;
     min-width: 250px;
-    max-width: 400px;
+    max-width: 250px;
 }
+
+/* Post Rate CSS */
+
+.post-wrapper .rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    height:100%;
+    min-width: 30px;
+    max-width: 40px;
+    width:100%;
+    background-color: #0e2c3b;
+}
+
+.rate div {
+    font-size: 12px;
+}
+
+/* Post CSS */
 
 .post-wrapper {
     background-color: #163d51;
     position: relative;
     display: flex;
-    flex-direction: column;
 
-    margin: 15px;
+    margin: 15px 0;
     
     min-height: 150px;
     max-height: 350px;
@@ -52,6 +75,11 @@ body {
     cursor: pointer;
 }
 
+.full-post {
+    display:flex;
+    flex-direction: column;
+}
+
 .post {
     display:flex;
     flex-direction: column;
@@ -60,14 +88,16 @@ body {
     flex-grow: 2;
 }
 
-.post-wrapper div.post-interact {
+.full-post div.post-interact {
+    display:inline-flex;
     height: auto;
-    background-color:#0e2c3b;
+    /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
     flex-grow: 1;
 
-    padding: 10px 10px;
+    padding: 10px 15px;
+    /* box-shadow: 0px -6px 12px 0px #0e2c3b; */
 }
 
 .post-dets {
@@ -76,6 +106,8 @@ body {
     font-weight: 300;
     color: rgb(183, 183, 183);
     margin-bottom: 10px;
+
+    max-height: 18.4px;
 }
 
 .post p.post-header {
@@ -85,10 +117,8 @@ body {
     /*Erik note: Robot 700 is bold :)*/
 }
 
-.post span.author {
-    font-size: 14px;
-    color: rgb(183, 183, 183);
-}
+.author       { font-size: 14px; color: rgb(183, 183, 183); }
+.author:hover { text-decoration: underline; }
 
 .post div.post-body {
     font-family: Rubik;
@@ -99,26 +129,19 @@ body {
     min-height: 60px;
 }
 
-.post-interact {
-    display:inline-flex;
-    /* box-shadow: 0px -6px 12px 0px #0e2c3b; */
-}
-
-.ui-icon {
-    max-height: 20px;
-    max-width: 20px;
-}
-
-.ui-icon path {
-    fill:#fb8500;
-}
-
 .ui-button {
     background: none;
+    padding:none;
     text-decoration: none;
     border: none;
     cursor: pointer;
 
+    max-height: 100%;
+    width: 40px;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Profile Page (Right Hand Side of Page) */
