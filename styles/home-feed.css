@@ -110,6 +110,12 @@ body {
     max-height: 18.4px;
 }
 
+.post-dets img {
+    object-fit: cover;
+    max-height:100%;
+    vertical-align: middle;
+}
+
 .post p.post-header {
     margin: 0;
     font-size:25px;
