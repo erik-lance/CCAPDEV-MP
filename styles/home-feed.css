@@ -90,14 +90,35 @@ body {
 
 .full-post div.post-interact {
     display:inline-flex;
+    min-height: 30px;
     height: auto;
     /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
     flex-grow: 1;
 
-    padding: 10px 15px;
+    padding-left: 16px;
     /* box-shadow: 0px -6px 12px 0px #0e2c3b; */
+}
+
+.interact-btn {
+    text-decoration: none;
+    height: 100%;
+    border: none;
+    background-color: #163d51;
+    
+    padding: 4px 8px;
+
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    color: white;
+    opacity: 72%;
+}
+
+.interact-btn:hover {
+    background-color: #1c4b62;
+    text-decoration: none;
+    cursor:pointer;
 }
 
 .post-dets {
@@ -121,6 +142,7 @@ body {
     font-size:25px;
     font-weight: 700;
     /*Erik note: Robot 700 is bold :)*/
+    opacity: 82%;
 }
 
 .author       { font-size: 14px; color: rgb(183, 183, 183); }
@@ -133,6 +155,7 @@ body {
     line-height: 25px;
     margin: 10px 0 10px 0;
     min-height: 60px;
+    opacity: 72%;
 }
 
 .ui-button {
