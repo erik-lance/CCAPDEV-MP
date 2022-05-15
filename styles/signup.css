@@ -6,13 +6,13 @@ body {
 
 #main-page {
     margin: auto;
-    padding:10px;
+    padding:40px;
     height: 100%;
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     background-color:#163d51;
     font-family: Roboto;
-    color:white;
+    color:black;
 }
 
 .main-wrapper {
@@ -27,16 +27,14 @@ body {
 }
 
 #log {
-    display: flex;
-    gap: 180px;
-
-    background-color: #163d51;
-    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(241, 241, 241);
     height: 100%;
 
     min-height: 400px;
-    padding: 10px;
+    padding: 30px;
 
+    box-shadow: 0px 4px 47px -3px rgba(0,0,0,0.75);
 }
 
 #log-header {
@@ -45,8 +43,8 @@ body {
     align-items: center;
 }
 
-#log img {
-    max-width: 400px;
+#log-header img {
+    max-width: 100px;
     height: 100%;
     border: 1px solid rgb(172, 172, 172);
     border-radius: 4px;
@@ -57,6 +55,8 @@ body {
 #log-form {
     display: flex;
     flex-direction: column;
+    width: 400px;
+    min-width: 200px;
 }
 
 #log-form input{
@@ -64,7 +64,9 @@ body {
     padding: 15px;
     margin: 5px 0 10px 0;
     display: inline-block;
-    border: none;
+    border-style: none;
+    outline: none;
+    border-bottom: 1px solid black;
     background: #f1f1f1;
 }
 
@@ -82,7 +84,7 @@ body {
 }
 
 #log-form button {
-    margin-top: 7px;
+    margin-top: 10px;
     background-color: #fb8500;
     color: white;
 
@@ -106,4 +108,5 @@ body {
     margin-top: 6px;
     text-decoration: none;
     color: #fb8500;
+    font-weight: bold;
 }
