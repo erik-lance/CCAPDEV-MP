@@ -14,97 +14,177 @@ body {
     height: auto;
     width: 100%;
     max-width: 900px;
-    background-color:#031f2e;
+    /* background-color:#031f2e; */
     font-family: Roboto;
     color:white;
 }
 
 .page-wrapper {
     display: flex;
-    gap: 50px;
+    gap: 30px;
 }
 
 #profile-posts {
     padding: 10px;
-    background-color: #163d51;
+    /* background-color: #163d51; */
     width: 100%;
     min-width: 100px;
     max-width: 800px;
 }
 
+/* Post Rate */
+
+.post-wrapper .rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    min-width: 30px;
+    max-width: 40px;
+    width:100%;
+    background-color: #0e2c3b;
+    z-index: 2;
+}
+
+.rate div {
+    font-size: 12px;
+}
+
+.post-comment-wrapper {
+    background-color: #163d51;
+    border: 1px solid rgb(172, 172, 172);
+    padding: 10px 0;
+}
+
+.comment {
+    margin: 0 10px 0 20px;
+    padding: 0 40px;
+    border-left: solid white;
+    opacity: 72%;
+}
+
+/* Post CSS */
+
+.complete-post-wrapper {
+    margin-top: 15px;
+    border: 1px solid rgb(172, 172, 172);
+    display:flex;
+    flex-direction: column  ;
+}
+
+.complete-post-wrapper .post-comment-wrapper { border-left: none; border-right: none; border-bottom: none;}
+
+.complete-post-wrapper:hover { border: 1px solid white; cursor: pointer; }
+.complete-post-wrapper:hover .post-comment-wrapper { border-top: 1px solid white; }
+
 .post-wrapper {
     background-color: #163d51;
     position: relative;
     display: flex;
-    flex-direction: column;
-
-    margin: 10px;
     
-    min-height: 200px;
+    min-height: 150px;
     max-height: 350px;
-    border: 1px solid white;
-    border-radius: 8px;
 
     overflow: hidden;
 }
 
-.post-comment-wrapper {
-    margin: 0 10px 0 40px;
-    padding: 0px 20px;
-    border-left: solid white;
+.full-post {
+    display:flex;
+    flex-direction: column;
 }
 
 .post {
-    min-height: 100px;
-    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    min-height: 50px;
+    padding: 20px 20px 0 20px;
     flex-grow: 2;
+}
+.post-wrapper div.post-interact {
+    display:inline-flex;
+    min-height: 30px;
+    height: auto;
+    /* background-color:#0e2c3b; */
+    bottom: 0px;
+    width: auto;
+    flex-grow: 1;
+
+    padding-left: 16px;
+    box-shadow: 0px -16px 16px 0px #163d51;;
+    z-index: 1;
+}
+
+.interact-btn {
+    text-decoration: none;
+    height: 100%;
+    border: none;
+    background-color: #163d51;
+    
+    padding: 4px 8px;
+
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    color: white;
+    opacity: 72%;
+}
+
+.interact-btn:hover {
+    background-color: #1c4b62;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.post-dets {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(183, 183, 183);
+    margin-bottom: 10px;
+
+    max-height: 18.4px;
+}
+
+.post-dets img {
+    object-fit: cover;
+    max-height:100%;
+    vertical-align: middle;
 }
 
 .post p.post-header {
     margin: 0;
     font-size:25px;
     font-weight: 700;
+    /*Erik note: Robot 700 is bold :)*/
+    opacity: 82%;
 }
 
-.post p span.author {
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 300;
-    color: rgb(183, 183, 183);
-}
+.author       { font-size: 14px; color: rgb(183, 183, 183); }
+.author:hover { text-decoration: underline; }
 
 .post div.post-body {
-    margin: 20px 0;
-    min-height: 50px;
-}
-
-.post-wrapper div.post-interact {
-    height: auto;
-    background-color:#0e2c3b;
-    bottom: 0px;
-    width: auto;
-    flex-grow: 1;
-
-    padding: 10px 10px;
-}
-
-.post-interact {
-    display:inline-flex;
-    box-shadow: 0px -6px 15px 0px #0e2c3b;
-}
-
-.ui-icon {
-    max-height: 20px;
-    max-width: 20px;
+    font-family: Rubik;
+    font-size: 15px;
+    text-align: justify;
+    line-height: 25px;
+    margin-top: 10px;
+    min-height: 60px;
+    opacity: 72%;
 }
 
 .ui-button {
     background: none;
+    padding:none;
     text-decoration: none;
     border: none;
     cursor: pointer;
 
+    max-height: 100%;
+    width: 40px;
 }
+
+a { text-decoration: none; }
+
 
 /* Author Section */
 
