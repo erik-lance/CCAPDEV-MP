@@ -25,22 +25,25 @@ body {
 }
 
 #profile-posts {
-    padding: 10px;
     /* background-color: #163d51; */
     width: 100%;
     min-width: 100px;
     max-width: 800px;
 }
 
+.complete-post-wrapper:first-child {
+    margin-top:0;   
+}
+
 /* Post Rate */
 
-.post-wrapper .rate {
+.rate {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     padding-top: 10px;
-    min-width: 30px;
+    min-width: 40px;
     max-width: 40px;
     width:100%;
     background-color: #0e2c3b;
@@ -52,7 +55,7 @@ body {
 }
 
 .post-comment-wrapper {
-    background-color: #163d51;
+    background-color: #183848;
     border: 1px solid rgb(172, 172, 172);
     padding: 10px 0;
 }
@@ -185,6 +188,42 @@ body {
 
 a { text-decoration: none; }
 
+
+/* Comment-type Posts */
+.comment-post {
+    background-color: #163d51;
+    display: flex;
+    max-height: 350px;
+
+    overflow: hidden;
+}
+
+.comment-post .rate {
+    display:block;
+}
+
+.comment-post .content {
+    background-color: #163d51;
+}
+
+.comment-post .content .comment-header {
+    font-size: 12px;
+    color: rgb(183, 183, 183);
+    padding: 8px 10px;
+    opacity: 82%;
+}
+
+.comment-post .content .comment-header span{
+    font-weight: bold;
+}
+
+.comment-post .content .comment {
+    font-size: 14px;
+    opacity: 72%;
+    border: none;
+    padding: 0 10px 8px 10px;
+    margin: 0;
+}
 
 /* Author Section */
 
