@@ -5,6 +5,7 @@
 */
 body {
     margin: 0;
+    background-color: #111213;
 }
 
 #main-page {
@@ -12,60 +13,96 @@ body {
     padding:20px;
     height: auto;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     background-color:#031f2e;
-    font-family: Roboto;
+    font-family: 'Segoe UI';
     color:white;
 }
 
 #post-wrapper {
     display: flex;
-    gap: 50px;
+    gap: 25px;
 }
 
-.full-post {
+#post {
+    width:100%;
+}
 
+#full-post {
+    display: flex;
+}
+
+.post-content-wrapper {
+    display:flex;
+    flex-direction: column;
     background-color: #163d51;
     height: auto;
     width: 100%;
-    min-width: 100px;
-    max-width: 800px;
     
-    border: 1px solid rgb(172, 172, 172);
-    border-radius: 4px;
+    padding: 15px;
+    /* border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px; */
 
 }
 
-.full-post .header {
-    padding: 10px;
-    font-size:25px;
+#rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    min-width: 30px;
+    max-width: 40px;
+    width:100%;
+    background-color: #0e2c3b;
+    height: auto;
+}
+
+#rate div {
+    font-size: 12px;
+}
+
+
+.post-content-wrapper .header {
+    font-size:22px;
     font-weight: 700;
+    opacity: 82%;
 }
 
-.full-post .author {
-    font-size: 14px;
-    font-style: italic;
+.post-dets {
+    font-family: 'Segoe UI';
+    font-size: 12px;
     font-weight: 300;
     color: rgb(183, 183, 183);
+    margin: 10px 0;
+
+    max-height: 18.4px;
 }
 
-.full-post .body {
-    padding: 10px;
+.post-dets img {
+    max-height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.post-dets .author      { color: rgb(183, 183, 183); }
+.post-dets .author:hover{ text-decoration: underline;}
+
+.post-content-wrapper .body {
+    font-family: Rubik;
     font-style: normal;
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 15px;
+    line-height: 24px;
     text-align: justify;
     min-height: 150px;
+    opacity: 72%;
 }
 
 #interactions {
     display:flex;
     height: auto;
-    width: 100%;
 
-    padding: 8px 0;
-
-    background-color:#0e2c3b;
+    /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
 }
@@ -116,12 +153,13 @@ a {
     margin-bottom: 5px;
     font-weight: 700;
     color: #FB8500;
+    opacity: 82%;
 }
 
 #author-id {
-    font-weight: 300;
     font-size: 12px;
     color: #864f10;
+    opacity: 82%;
 }
 
 .author-dets button {
@@ -142,11 +180,15 @@ a {
     height: 100%;
 }
 
+#author-desc { opacity: 60%;}
+
 /* Comment Section */
 #comment-section {
     margin-top: 15px;
     height: auto;
     background-color: #163d51;
+    font-family: Rubik;
+    font-size: 14px;
 }
 
 #section{
@@ -157,8 +199,8 @@ a {
 }
 
 #comment-picture{
-    height: 40;
-    width: 40;
+    height: 100%;
+    width: 20px;
     object-fit: cover;
 }
 
@@ -175,26 +217,27 @@ a {
     color: lightgoldenrodyellow;
 }
 
-#comment-segment{
-    margin-left: 15;
-    margin-bottom: 40;
-}
-
 #comment{
     display: flex;
-    margin-left: 10;
-    margin-bottom: 5;
     height: auto;
+
+    padding: 4px;
+    padding-left: 10px;
+    padding: 4px 10px;
 }
+
+#comment:hover { background-color: #1c4b62; }
 
 #reply{
     display: flex;
-    margin-left: 20;
-    margin-top: 10;
+    padding: 4px 24px;
 }
+
+#reply:hover { background-color: #1c4b62; }
 
 #comment-text{
     display: inline-block;
     width: 100%;
     margin-left: 10;
+    opacity: 72%;
 }

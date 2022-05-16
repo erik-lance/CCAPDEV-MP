@@ -4,11 +4,12 @@
     <base href="../" />
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/full-post.css">
+    <link rel="stylesheet" href="styles/ui-vectors.css">
     <link rel="icon" href="images/web-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -23,40 +24,82 @@
         <!-- This is to prevent posts being overlapped by navbar-->
         <div style="height:50px"></div>
         <div id="post-wrapper">
-            <div class="full-post">
-                <div class="header">
-                    Hello!
-                    <span class="author">Andrew Ryan</span>
-                </div>
-                <div class="body">
-                    <p>I am Andrew Ryan and I am here to ask you a question: Is a man not entitled to the sweat of his brow? 
-                        No, says the man in Washington. It belongs to the poor. No, says the man in the Vatican. It belongs to God. 
-                        No, says the man in Moscow. It belongs to everyone. I rejected those answers. Instead, I chose something different. 
-                        I chose the impossible. I chose... Rapture. A city where the artist would not fear the censor. Where the scientist 
-                        would not be bound by petty morality. Where the great would not be constrained by the small. And with the sweat of 
-                        your brow, Rapture can become your city as well.
-                    </p>
-                </div>
-                <div id="interactions">
-                    <div style="margin-right:20px; display:inline">
-                        <button class="ui-button">
-                            <img src="images/ui/upvote-hollow.png" class="ui-icon" onmouseover="upvoteHover(this)" onmouseleave="upvoteLeave(this)">
-                        </button>
-                        
-                        &nbsp; 7 &nbsp;
+            <div id="post">
+                <div id="full-post">
+                    <div id="rate">
+                        <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                            <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                            <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                        </svg>
     
-                        <button class="ui-button">
-                        <img src="images/ui/downvote-hollow.png" class="ui-icon" onmouseover="downvoteHover(this)" onmouseleave="downvoteLeave(this)">
-                        </button>
-                        &nbsp;
+    
+                        <div>7</div>
+    
+                        <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                            <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                            <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                        </svg>
+                    </div>
+                    <div class="post-content-wrapper">
+                        <div class="post-dets">
+                            <img src="images/profile-imgs/andrew-ryan.jpg">
+                            <a class="author" href="pages/profiles/theandrewryan.html">theandrewryan</a> • Posted 3 hours ago
+                        </div>
+                        
+                        <div class="header">
+                            Hello!
+                        </div>
+                        <div class="body">
+                            <p>I am Andrew Ryan and I am here to ask you a question: Is a man not entitled to the sweat of his brow? 
+                                No, says the man in Washington. It belongs to the poor. No, says the man in the Vatican. It belongs to God. 
+                                No, says the man in Moscow. It belongs to everyone. I rejected those answers. Instead, I chose something different. 
+                                I chose the impossible. I chose... Rapture. A city where the artist would not fear the censor. Where the scientist 
+                                would not be bound by petty morality. Where the great would not be constrained by the small. And with the sweat of 
+                                your brow, Rapture can become your city as well.
+                            </p>
+                        </div>
+                        <div id="interactions">
+                            Comment &nbsp; Share
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Comment Section -->
+                <div id="comment-section">
+                    <div id ="comment-post">
+                        <div id="comment-segment">
+                            <div id="comment">
+                                <img src="images/profile-imgs/donatello.jpg" id="Comment-Picture">
+                                <div id="comment-text">
+                                    <a href="pages/profiles/donatello.html"><span id="commentor-name">Donatello</span></a><br>
+                                    Your post is quite interesting in that it induces a sense of fear of God but at the same time it reminds others of his love
+                                </div>
+                            </div>
+        
+                            <div id="reply">
+                                <img src="images/profile-imgs/andrew-ryan.jpg" id="Comment-Picture">
+                                <div id="comment-text">
+                                    <a href="pages/profiles/theandrewryan.html"><span id="commentor-name">Andrew Ryan</span></a><br>
+                                    Appreciated. @Donatello   
+                                </div>
+                            </div>
+                        </div>
+                        <div id="comment-segment">
+                            <div id="comment">
+                                <img src="images/profile-imgs/default-profile-pic.png" id="Comment-Picture">
+                                <div id="comment-text">
+                                    <a href="pages/profiles/squashboy.html"><span id="commentor-name">Raymond</span></a><br>
+                                    Hi, I'm new to this site, how do I make a post?
+                                </div>
+                            </div>
+        
+                        </div>
                     </div>
                     
-                    <button class="ui-button" style="display:flex">
-                        <img src="images/ui/share-hollow.png" class="ui-icon" onmouseover="shareHover(this)" onmouseleave="shareLeave(this)">
-                        <span style="font-family:roboto; color: white; margin-left:10px;">Share</span>
-                    </button>
-                    
                 </div>
+
+
             </div>
             <div id="author-wrapper">
                 <div id="author-header">
@@ -75,39 +118,7 @@
         
         </div>
 
-        <div id="comment-section">
-            <span id="section">Comment Section</span>
-            <div id ="comment-post">
-                <div id="comment-segment">
-                    <div id="comment">
-                        <img src="images/profile-imgs/donatello.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <a href="pages/profiles/donatello.html"><span id="commentor-name">Donatello</span></a><br>
-                            Your post is quite interesting in that it induces a sense of fear of God but at the same time it reminds others of his love
-                        </div>
-                    </div>
 
-                    <div id="reply">
-                        <img src="images/profile-imgs/andrew-ryan.jpg" id="Comment-Picture">
-                        <div id="comment-text">
-                            <a href="pages/profiles/theandrewryan.html"><span id="commentor-name">Andrew Ryan</span></a><br>
-                            Appreciated. @Donatello   
-                        </div>
-                    </div>
-                </div>
-                <div id="comment-segment">
-                    <div id="comment">
-                        <img src="images/profile-imgs/default-profile-pic.png" id="Comment-Picture">
-                        <div id="comment-text">
-                            <a href="pages/profiles/squashboy.html"><span id="commentor-name">Raymond</span></a><br>
-                            Hi, I'm new to this site, how do I make a post?
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
-        </div>
     </div>
 
 </body>
