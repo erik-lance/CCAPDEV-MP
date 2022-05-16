@@ -220,7 +220,11 @@ a {
 
 #profile-signup a {
     padding: 8px 15px;
-    background-color:#fb8500;
+    background-color:#d48121;
     color:white;
     text-decoration: none;
+}
+
+#profile-signup a:hover {
+    background-color: #fb8500;
 }
