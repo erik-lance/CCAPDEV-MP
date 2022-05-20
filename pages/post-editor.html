@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>InFeed</title>
+    <base href="../" />
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/text-editor.css">
+    <link rel="stylesheet" href="styles/ui-vectors.css">
+    <link rel="icon" href="images/web-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/navbar-init.js"></script>
+    <script src="scripts/post-click.js"></script>
+    <script src="scripts/ui-button.js"></script>
+
+</head>
+
+<body>
+    
+    <div id="nav-bar"></div>
+    <!-- Where the rest of the page is: -->
+    <div id="main-editor">
+        <div id="main-feed">
+            <div style="height:50px"></div>
+            <p id="editor-line">Join the InFeed Community today!</p>
+            <h1>Create a post</h1>
+            <div id="editor-wrapper">
+                <h3 class="titles">Title</h3> 
+                <textarea id="headline"></textarea>
+                <h4 class="titles">Body</h4>
+                <textarea id="editor"></textarea>
+                <div id="editor-options"><button id="submit">Submit</button></div>
+            </div>
+        </div>
+        
+    </div>
+
+
+</body>
+
+
+</html>
