@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    background-color: #111213;
+}
+
+#main-editor {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    margin: auto;
+    padding:10px;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    /* background-color:#031f2e; */
+    font-family: 'Segoe UI';
+    color:white;
+}
+
+#main-editor #main-feed {
+    margin: auto;
+    padding:20px;
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    background-color:#031f2e;
+    font-family: 'Segoe UI';
+    color:white;
+}
+
+#editor-wrapper{
+    padding: 10px 20px;
+}
+
+#headline {
+    background-color: #163d51;
+    padding: 10px;
+    color: white;
+    opacity: 82%;
+    font-family: 'Rubik';
+    height: 45px;
+    width: 100%;
+
+    resize: none;
+}
+
+.titles {
+    margin: 10px 0;
+}
+
+#editor {
+    background-color: #163d51;
+    padding: 10px;
+    color: white;
+    opacity: 82%;
+    font-family: 'Rubik';
+    min-height: 100px;
+    width: 100%;
+
+    line-height: 25px;
+    resize:vertical;
+}
+
+#editor:focus { border: 1px solid white; outline: none }
+
+#editor-options {
+    background-color: #0e2c3b;
+    display: flex;
+}
+
+#editor-options #submit {
+    margin: 5px;
+    margin-left: auto;
+    background-color:#FFB703;
+    border-radius: 5px;
+    width: 100px;
+
+    color: white;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    border: none;
+    float: right;
+}
+
+#editor-options #submit:hover {
+    background-color:#d29e1c;
+}
+
+#editor-line {
+    margin-top: 15px;
+    border-bottom: 1px solid rgb(183, 183, 183);
+    padding-bottom: 5px;
+    color: #d29e1c;
+}

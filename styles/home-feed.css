@@ -34,6 +34,43 @@ body {
     max-width: 250px;
 }
 
+#create-post {
+    background-color: #0e2c3b;
+    display:flex;
+    gap: 10px;
+    height: 40px;
+    padding: 10px;
+
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+}
+
+#create-post img {
+    height: 100%;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+}
+
+#create-post input {
+    background-color:#1c4b62;
+    color: white;
+    opacity: 82%;
+
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+    width: 100%;
+
+    padding: 5px 15px;
+}
+
+#create-post input:hover {
+    background-color:#163d51;
+    border: 1px solid white;
+    cursor:pointer;
+}
+
+#create-post input:focus {outline: none;}
+
 /* Post Rate CSS */
 
 .post-wrapper .rate {
