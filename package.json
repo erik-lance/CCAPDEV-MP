@@ -1,0 +1,22 @@
+{
+  "name": "ccapdev-mp",
+  "version": "1.0.0",
+  "description": "A forum website as part of the requirements of CCAPDEV.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erik-lance/CCAPDEV-MP.git"
+  },
+  "author": "Tiongquico, E., Bondoc, A., Mangoba, M.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erik-lance/CCAPDEV-MP/issues"
+  },
+  "homepage": "https://github.com/erik-lance/CCAPDEV-MP#readme",
+  "dependencies": {
+    "mongodb": "^4.7.0"
+  }
+}
