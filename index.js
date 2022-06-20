@@ -1,16 +1,23 @@
-// Main Node.js file
+const dotenv = require(`dotenv`);
+const express = require(`express`);
+const hbs = require(`hbs`);
+const bodyParser = require(`body-parser`);
+const routes = require(`./routes/routes.js`);
+const db = require(`./models/db.js`);
 
-var express = require('express');
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
-var bodyParser = require ('body-parser');
+app.set(`view engine`, `hbs`);
+hbs.registerPartials(__dirname + `/views/layouts`);
 
-var app = express();
-app.use(bodyParser.urlencoded({extended: false}));
+dotenv.config();
 
-app.get('/', function(req,res){
-    res.sendFile(__dirname + "\\" + 'index.html');
-});
+app.use(express.static(`public`));
+app.use(`/`, routes);
 
-var server = app.listen(3000, function(){
-    console.log("port 3000");
+db.connect();
+
+app.listen(3000, function () {
+    console.log(`Server is running at: 3000`);
 });

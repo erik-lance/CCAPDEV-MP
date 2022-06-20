@@ -6,11 +6,11 @@ const postModel = require('./Schemas/post.js');
 const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 
-const url = 'mongodb://localgost:27017/CCAPDEV_MP';
+const url = 'mongodb://localhost:27017/CCAPDEV_MP';
 
 const options = {
     useUnifiedTopology: true,
-    useNewUrlParse: true
+    useNewUrlParser: true
 };
 
 const database = {
@@ -46,7 +46,7 @@ const database = {
     },
 
     findMany: function(model, query, projection, callback){
-        model.findMany(query, projection, function(error, result){
+        model.find(query, projection, function(error, result){
             if(error) return callback(false);
             return callback(result);
         });
