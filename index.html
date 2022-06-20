@@ -2,19 +2,19 @@
 
 <head>
     <title>InFeed</title>
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/home-feed.css">
-    <link rel="stylesheet" href="styles/ui-vectors.css">
-    <link rel="icon" href="images/web-icon.png">
+    <link rel="stylesheet" href="public/styles/navbar.css">
+    <link rel="stylesheet" href="public/styles/home-feed.css">
+    <link rel="stylesheet" href="public/styles/ui-vectors.css">
+    <link rel="icon" href="public/images/web-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="scripts/navbar-init.js"></script>
-    <script src="scripts/post-click.js"></script>
-    <script src="scripts/ui-button.js"></script>
+    <script src="public/scripts/navbar-init.js"></script>
+    <script src="public/scripts/post-click.js"></script>
+    <script src="public/scripts/ui-button.js"></script>
 
     <!-- This page is the front page, so all posts should be seen here! -->
 </head>
@@ -30,7 +30,7 @@
             <div style="height:50px"></div>
 
             <div id="create-post" onclick="open_editor()">
-                <img src="images/profile-imgs/default-profile-pic.png">
+                <img src="public/images/profile-imgs/default-profile-pic.png">
                 <input type="text" value="Make your mark!" readonly>
             </div>
 
@@ -52,7 +52,7 @@
                 <div class="full-post">
                     <div class="post" onclick="open_post('post1')">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/andrew-ryan.jpg">
+                            <img src="public/images/profile-imgs/andrew-ryan.jpg">
                             <a class="author" href="pages/profiles/theandrewryan.html">theandrewryan</a> • Posted 3 hours ago
                         </div>
     
@@ -93,7 +93,7 @@
                 <div class="full-post">
                     <div class="post" onclick="open_post('post2')">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/emilio-aguinaldo.jpg">
+                            <img src="public/images/profile-imgs/emilio-aguinaldo.jpg">
                             <a class="author" href="pages/profiles/eaguinaldo.html">eaguinaldo</a> • Posted 1 day ago
                         </div>
                         <p class="post-header">you're welcome</p>
@@ -129,7 +129,7 @@
                 <div class="full-post">
                     <div class="post" onclick="open_post('post3')">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/donatello.jpg">
+                            <img src="public/images/profile-imgs/donatello.jpg">
                             <a class="author" href="pages/profiles/donatello.html">donatello</a> • Posted 3 days ago
                         </div>
 
@@ -163,7 +163,7 @@
                 <div class="full-post">
                     <div class="post" onclick="open_post('post4')">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/Leonardo.jpg">
+                            <img src="public/images/profile-imgs/Leonardo.jpg">
                             <a class="author" href="pages/profiles/blueleo.html">blueleo</a> • Posted 4 days ago
                         </div>
                         <p class="post-header">I'm hungry</p>
@@ -195,7 +195,7 @@
                 <div class="full-post">
                     <div class="post" onclick="open_post('post5')">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/emilio-aguinaldo.jpg">
+                            <img src="public/images/profile-imgs/emilio-aguinaldo.jpg">
                             <a class="author" href="pages/profiles/eaguinaldo.html">eaguinaldo</a> • Posted 7 days ago
                         </div>
                         <p class="post-header">quote of the day</p>
@@ -218,7 +218,7 @@
             <div style="height:50px"></div>
             <div id="profile-wrapper">
                 <div  id="profile-img">
-                    <img src="images/profile-imgs/default-profile-pic.png">
+                    <img src="public/images/profile-imgs/default-profile-pic.png">
                 </div>
 
                 <div id="profile-dets">
