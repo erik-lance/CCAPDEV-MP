@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>InFeed</title>
-    <base href="../" />
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/full-post.css">
     <link rel="stylesheet" href="styles/ui-vectors.css">
@@ -14,12 +13,11 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="scripts/navbar-init.js"></script>  
     <script src="scripts/ui-button.js"></script>
 
 </head>
 <body>
-    <div id="nav-bar"></div>
+    {{nav}}
     <!-- Where the rest of the page is: -->
     <div id="main-page">
         <!-- This is to prevent posts being overlapped by navbar-->
@@ -34,7 +32,7 @@
                         </svg>
     
     
-                        <div> 4 </div>
+                        <div>{{points}}</div>
     
                         <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
                             <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
@@ -43,66 +41,57 @@
                     </div>
                     <div class="post-content-wrapper">
                         <div class="post-dets">
-                            <img src="images/profile-imgs/emilio-aguinaldo.jpg">
-                            <a class="author" href="pages/profiles/eaguinaldo.html">eaguinaldo</a> • Posted 7 days ago
+                            <img src="{{profile-picture}}">
+                            <a class="author" href="{{user-page}}">{{username}}</a> • Posted {{time}} ago
                         </div>
-
+                        
                         <div class="header">
-                            Quote Of The Day
-                            <span class="author">Emilio Aguinaldo</span>
+                            {{headline}}
                         </div>
                         <div class="body">
-                            <p> We are no longer insurgents; we are no longer revolutionists; 
-                                that is to say, armed men desirous of destroying and annihilating the enemy. 
-                                We are from now on Republicans; that is to say, men of law, able to fraternize 
-                                with all other nations, with mutual respect and affection.
-                            </p>
+                            <p>{{body}}</p>
                         </div>
                         <div id="interactions">
                             Comment &nbsp; Share
                         </div>
                     </div>
                 </div>
-
+                
+                
                 <!-- Comment Section -->
-
                 <div id="comment-section">
                     <div id="editor-wrapper">
                         <textarea name="text-editor" id="editor"></textarea>
                         <div id="editor-options"><button id="submit">Submit</button></div>
                         <div id="editor-line">Sign up to join the InFeed community discussion!</div>
                     </div>
-
-                    <div id ="comment-post">
-                        <div id="comment-segment">
-                            <div id="comment">
-                                <img src="images/profile-imgs/emilio-aguinaldo.jpg" id="Comment-Picture">
-                                <div id="comment-text">
-                                    <a href="pages/profiles/eaguinaldo.html"><span id="commentor-name">Emilio Aguinaldo</span></a><br>
-                                    Stay tuned for the next one in the series!
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
                     
+                    <div id ="comment-post">
+                        {{#each comments}}
+                        {{>comment-segment this}}
+                        {{/each}}
+                    </div>
                 </div>
+
+
             </div>
             <div id="author-wrapper">
                 <div id="author-header">
-                    <img src="images/profile-imgs/emilio-aguinaldo.jpg">
+                    <img src="{{profile-picture}}">
                     <div class="author-dets">    
-                        <a href="pages/profiles/eaguinaldo.html"><span id="author-name">Emilio Aguinaldo</span><br></a>
-                        <a href="pages/profiles/eaguinaldo.html"><span id="author-id">@eaguinaldo</span></a> <br><br>
+                        <a href="{{user-page}}"><span id="author-name">{{name}}</span><br></a>
+                        <a href="{{user-page}}"><span id="author-id">{{username}}</span></a> <br><br>
                         <button>Follow</button>
                     </div>
                 </div>
                 
-                <p id="author-desc">Swipe right for your resident revolutionary, statesman, and military leader. 
-                </p>
+                <p id="author-desc">{{signature}}</p>
             </div>
         
         </div>
 
+
+    </div>
+
 </body>
 </html>
-

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>InFeed</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/home-feed.css">
+    <link rel="stylesheet" href="styles/ui-vectors.css">
+    <link rel="icon" href="images/web-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/post-click.js"></script>
+    <script src="scripts/ui-button.js"></script>
+
+    <!-- This page is the front page, so all posts should be seen here! -->
+</head>
+
+<body>
+    
+    {{nav}}
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <!-- This is to prevent posts being overlapped by navbar-->
+        <div id="main-feed">
+            <div style="height:50px"></div>
+
+            {{#each posts}}
+            {{>feed-post this}}
+            {{/each}}
+
+        </div>
+
+        <div id="profile-page">
+            <div style="height:50px"></div>
+            <div id="profile-wrapper">
+                <div  id="profile-img">
+                    <img src="{{profile-picture}}">
+                </div>
+
+                <div id="profile-dets">
+                    {{name}} <br>
+                    <span>{{username}}</span>
+                </div>
+
+                <div id="profile-signup">
+                    <!-- erik note: stack overflow is under maintenance, will check na lang ulit soon if gagana ito lol -->
+                    {{#if username}}
+                        {{signature}}
+                    {{else}}
+                        <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
+                        <br>
+                        <br>
+                        <a href="pages/user-sign.html">Sign up!</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

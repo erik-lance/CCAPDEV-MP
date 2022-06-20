@@ -2,7 +2,6 @@
 
 <head>
     <title>InFeed</title>
-    <base href="../" />
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/signup.css">
     <link rel="icon" href="images/web-icon.png">
@@ -13,11 +12,10 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="scripts/navbar-init.js"></script>
 </head>
 <body>
         
-    <div id="nav-bar"></div>
+    {{nav}}
     <!-- Where the rest of the page is: -->
     <div id="main-page">
         <div style="height:50px"></div>
@@ -25,11 +23,9 @@
             
             <div id="log">
                 <div id="log-header">
-
                     <img src="images/web-icon.png">
                     <span id="headline">Welcome to InFeed!</span>
                 </div>
-
                 <form>
                     <div id="log-form">
                         
@@ -37,8 +33,8 @@
                         <input type="password" placeholder="Password" id="form-user">
 
                         <button id="log-in">Log In</button>
-                        <a href="index.html">Forgot username or password?</a>
-                        <a href="index.html">Sign Up</a>
+                        <a href="index.hbs">Forgot username or password?</a>
+                        <a href="index.hbs">Sign Up</a>
                     </div>
                 </form>
                 

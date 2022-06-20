@@ -1,0 +1,13 @@
+<div id="comment-segment">
+    <div id="comment">
+        <img src="{{profile-picture}}" id="Comment-Picture">
+        <div id="comment-text">
+            <a href="{{user-page}}"><span id="commentor-name">{{username}}</span></a><br>
+            {{text}}
+        </div>
+    </div>
+
+    {{#each replies}}
+    {{>reply this}}
+    {{/each}}
+</div>
