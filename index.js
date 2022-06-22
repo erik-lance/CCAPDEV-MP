@@ -10,6 +10,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set(`view engine`, `hbs`);
 hbs.registerPartials(__dirname + `/views/partials`);
 
+// Handlebars Helpers
+
+hbs.registerHelper('points', function(object) {
+    return object.upvotes - object.downvotes
+})
+
 app.use(express.static(`public`));
 app.use(`/`, routes);
 
