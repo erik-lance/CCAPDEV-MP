@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>InFeed</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <link rel="stylesheet" href="styles/ui-vectors.css">
+    <link rel="icon" href="images/web-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/post-click.js"></script>
+    <script src="scripts/ui-button.js"></script>
+</head>
+<body>
+    {{nav}}
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <div style="height:50px"></div>
+
+        <div class="page-wrapper">
+            <div id="profile-posts">
+                {{#each posts}}
+                    {{>profile-post this}}
+                {{/each}}
+            </div>
+            
+            <div id="profile-bio">
+                <div id="author-header">
+                    <img src="images/profile-imgs/{{profile-picture}}">
+                    <div class="author-dets">    
+                        <a href="{{profile-page}}"><span id="author-name">{{name}}</span><br></a>
+                        <a href="{{profile-page}}"><span id="author-id">{{username}}</span></a> <br><br>
+                        <button>Follow</button>
+                    </div>
+                </div>
+                <p id="author-desc">{{signature}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
