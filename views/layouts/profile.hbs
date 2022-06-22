@@ -16,7 +16,7 @@
     <script src="scripts/ui-button.js"></script>
 </head>
 <body>
-    {{nav}}
+    {{>nav}}
     <!-- Where the rest of the page is: -->
     <div id="main-page">
         <div style="height:50px"></div>
@@ -24,7 +24,7 @@
         <div class="page-wrapper">
             <div id="profile-posts">
                 {{#each posts}}
-                    {{>profile-post this}}
+                    {{>profile/post this}}
                 {{/each}}
             </div>
             

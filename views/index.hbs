@@ -20,7 +20,7 @@
 
 <body>
     
-    {{nav}}
+    {{>nav}}
     <!-- Where the rest of the page is: -->
     <div id="main-page">
         <!-- This is to prevent posts being overlapped by navbar-->
@@ -28,7 +28,7 @@
             <div style="height:50px"></div>
 
             {{#each posts}}
-                {{>feed-post this}}
+                {{>feed_post this}}
             {{/each}}
 
         </div>
@@ -53,7 +53,7 @@
                         <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
                         <br>
                         <br>
-                        <a href="layouts/user-sign.html">Sign up!</a>
+                        <a href="layouts/user_sign.hbs">Sign up!</a>
                     {{/if}}
                 </div>
             </div>
