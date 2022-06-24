@@ -12,3 +12,7 @@ const userSchema = new mongoose.Schema({
     followers: Number,
     cookies: Number
 })
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

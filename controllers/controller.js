@@ -1,5 +1,11 @@
 const db = require('../models/db.js');
 const Post = require('../models/Schemas/post.js');
+const User = require('../models/Schemas/user.js');
+
+const express = require(`express`);
+const app = express();
+
+app.set('views')
 
 const controller = {
     getFavicon: function (req, res) {
@@ -7,8 +13,51 @@ const controller = {
     },
 
     getIndex: function(req, res) {
-        db.findMany(Post, {}, {}, function(result) {
-            res.render('index');
+        /*db.findMany(Post, {}, {}, function(result) {
+            res.render('index', {posts: result});
+        });*/
+        res.render('index');
+    },
+
+    //check if acc has same username and password
+    getCheckAcc: function(req, res) {
+        db.findOne(User, {username: req.query.username, password:req.query.password}, function(result) {
+            if (result) {
+                res.send(result);
+            } else {
+                res.send("");
+            }
+        });
+    },
+
+    //check if username is taken
+    getCheckUsername: function(req, res) {
+        db.findOne(User, {username: req.query.username}, function(result) {
+            if (result) {
+                res.send(result);
+            } else {
+                res.send("");
+            }
+        });
+    },
+
+    //add account
+    getAddAcc: function(req, res) {
+        let data = {
+            username: req.query.username,
+            name: "",
+            password: req.query.password,
+            email: "",
+            user_type: "infeeder",
+            bio: "",
+            profile_pic: "",
+            following: 0,
+            followers: 0,
+            cookies: 0
+        };
+
+        db.insertOne(User, data, (result) => {
+            res.send();
         });
     },
 
@@ -33,6 +82,46 @@ const controller = {
     getDelete: function (req, res) {
         db.deleteOne(Post, {post_id: req.query.post_id}, function(result) {
             res.redirect('/');
+        });
+    },
+
+    getUserSign: function (req, res) {
+        console.log('hi');
+        res.render('user_sign');
+        window.location.href = "http://localhost:3000/user_sign";
+    },
+
+    getUserReg: function (req, res) {
+        console.log('hi1');
+        res.render('user_reg');
+    },
+
+    getHome: function (req, res) {
+        console.log('hi2');
+        db.findMany(Post, {}, {}, function(result) {
+            res.render('index', {posts: result, name: result, username:result});
+        });
+    },
+
+    getPostEditor: function (req, res) {
+        console.log('hi3');
+        res.render('post_editor');
+    },
+
+    getPost: function (req, res) {
+        console.log('hi4');
+        res.render('post');
+    },
+
+    getProfile: function (req, res) {
+        console.log('hi4');
+        res.render('profile');
+    },
+
+    getSearch: function (req, res) {
+        console.log('hi4');
+        db.findMany(Post, {}, {}, function(result) {
+            res.render('index', {posts: result, name: result, username:result});
         });
     },
 }
