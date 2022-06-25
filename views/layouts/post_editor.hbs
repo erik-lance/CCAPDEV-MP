@@ -2,37 +2,28 @@
 
 <head>
     <title>InFeed</title>
-    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="/styles/text-editor.css">
     
     {{>essentials}}
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
         
-    {{nav}}
+    {{>nav}}
     <!-- Where the rest of the page is: -->
     <div id="main-page">
         <div style="height:50px"></div>
-        <div class="main-wrapper">
-            
-            <div id="log">
-                <div id="log-header">
-                    <img src="images/web-icon.png">
-                    <span id="headline">Welcome to InFeed!</span>
+        <div id="main-editor">
+            <div id="main-feed">
+                <div style="height:50px"></div>
+                <p id="editor-line">Join the InFeed Community today!</p>
+                <h1>Create a post</h1>
+                <div id="editor-wrapper">
+                    <h3 class="titles">Title</h3> 
+                    <textarea id="headline"></textarea>
+                    <h4 class="titles">Body</h4>
+                    <textarea id="editor"></textarea>
+                    <div id="editor-options"><button id="submit">Submit</button></div>
                 </div>
-                <form>
-                    <div id="log-form">
-                        
-                        <input type="text" placeholder="Username" id="form-user">
-                        <input type="password" placeholder="Password" id="form-pass">
-
-                        <button id="log-in">Log In</button>
-                        <a href="index.hbs">Forgot username or password?</a>
-                        <a href="index.hbs">Sign Up</a>
-                    </div>
-                </form>
-                
             </div>
         </div>
     </div>

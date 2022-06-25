@@ -24,7 +24,7 @@
             <div style="height:50px"></div>
 
             {{#each posts}}
-                {{>partials/feed_post this}}
+                {{>feed_post this}}
             {{/each}}
 
         </div>
@@ -33,9 +33,13 @@
             <div style="height:50px"></div>
             <div id="profile-wrapper">
                 <div  id="profile-img">
-                    <img src="{{profile-picture}}">
+                    {{#if username}}
+                        <img src="/images/profile-imgs/{{profile-picture}}.jpg">
+                    {{else}} 
+                        <img src="/images/profile-imgs/default-profile-pic.png">
+                    {{/if}}
                 </div>
-
+                    
                 <div id="profile-dets">
                     {{name}} <br>
                     <span>{{username}}</span>
@@ -49,7 +53,7 @@
                         <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
                         <br>
                         <br>
-                        <a href="s/user_sign">Log in!</a>
+                        <a href="/s/user_sign">Log in!</a>
                     {{/if}}
                 </div>
             </div>
