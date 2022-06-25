@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set(`view engine`, `hbs`);
-hbs.registerPartials(__dirname + `/views/partials`);
+hbs.registerPartials(__dirname + `/views/`);
 
 // Handlebars Helpers
 
