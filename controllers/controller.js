@@ -88,13 +88,13 @@ const controller = {
 
     getUserSign: function (req, res) {
         console.log('hi');
-        res.render('user_sign');
-        window.location.href = "http://localhost:3000/user_sign";
+        res.render('layouts/user_sign');
+        // window.location.href = "http://localhost:3000/s/user_sign";
     },
 
     getUserReg: function (req, res) {
         console.log('hi1');
-        res.render('user_reg');
+        res.render('layouts/user_reg');
     },
 
     getHome: function (req, res) {
@@ -106,17 +106,21 @@ const controller = {
 
     getPostEditor: function (req, res) {
         console.log('hi3');
-        res.render('post_editor');
+        res.render('layouts/post_editor');
     },
 
     getPost: function (req, res) {
-        console.log('hi4');
-        res.render('post');
+        db.findOne(Post,  req.query.post_id, {}, async function (result) {
+            const post = await result
+            res.render('layouts/post', post);
+        })
     },
 
     getProfile: function (req, res) {
-        console.log('hi4');
-        res.render('profile');
+        db.findOne(User,  req.query.username, {}, async function (result) {
+            const user = await result
+            res.render('layouts/profile', resuserult);
+        })
     },
 
     getSearch: function (req, res) {
