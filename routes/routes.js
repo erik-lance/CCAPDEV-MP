@@ -7,11 +7,11 @@ app.get(`/favicon.ico`, controller.getFavicon);
 app.get(`/`, controller.getIndex);
 app.get(`/delete`, controller.getDelete);
 
-app.get('/user_sign', controller.getUserSign);
-app.get('/user_reg', controller.getUserReg);
-app.get('/post-editor', controller.getPostEditor);
-app.get('/post', controller.getPost);
-app.get('/profile', controller.getProfile);
+app.get('/s/user_sign', controller.getUserSign);
+app.get('/s/user_reg', controller.getUserReg);
+app.get('/p/post_editor', controller.getPostEditor);
+app.get('/p/:post_d', controller.getPost);
+app.get('/u/:username', controller.getProfile);
 
 app.get(`/addAcc`, controller.getAddAcc);
 app.get('/getCheckUsername', controller.getCheckUsername);
