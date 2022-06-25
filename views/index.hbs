@@ -2,18 +2,14 @@
 
 <head>
     <title>InFeed</title>
-    <link rel="stylesheet" href="styles/navbar.css">
+    
+    {{>essentials}}
+
     <link rel="stylesheet" href="styles/home-feed.css">
-    <link rel="stylesheet" href="styles/ui-vectors.css">
-    <link rel="icon" href="images/web-icon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="scripts/post-click.js"></script>
-    <script src="scripts/ui-button.js"></script>
+    
+    <script src="/scripts/post-click.js"></script>
+    <script src="/scripts/ui-button.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
 
     <!-- This page is the front page, so all posts should be seen here! -->
 </head>
@@ -48,12 +44,12 @@
                 <div id="profile-signup">
                     <!-- erik note: stack overflow is under maintenance, will check na lang ulit soon if gagana ito lol -->
                     {{#if username}}
-                        {{signature}}
+                        {{bio}}
                     {{else}}
                         <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
                         <br>
                         <br>
-                        <a href="layouts/user_sign.hbs">Sign up!</a>
+                        <a href="s/user_sign">Log in!</a>
                     {{/if}}
                 </div>
             </div>

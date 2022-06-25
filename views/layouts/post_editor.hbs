@@ -2,14 +2,9 @@
 
 <head>
     <title>InFeed</title>
-    <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/signup.css">
-    <link rel="icon" href="images/web-icon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-
+    
+    {{>essentials}}
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
@@ -30,7 +25,7 @@
                     <div id="log-form">
                         
                         <input type="text" placeholder="Username" id="form-user">
-                        <input type="password" placeholder="Password" id="form-user">
+                        <input type="password" placeholder="Password" id="form-pass">
 
                         <button id="log-in">Log In</button>
                         <a href="index.hbs">Forgot username or password?</a>
