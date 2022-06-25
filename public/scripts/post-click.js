@@ -1,7 +1,7 @@
 // Redirects to a certain post under "pages" folder
 function open_post(page_id) {
     // Need to render post HBS.
-    window.location.href = "p/"+page_id;
+    window.location.href = "/p/"+page_id;
 }
 
 function open_editor() {
