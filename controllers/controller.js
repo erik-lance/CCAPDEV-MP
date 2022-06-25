@@ -12,11 +12,12 @@ const controller = {
         res.status(204);
     },
 
-    getIndex: function(req, res) {
-        /*db.findMany(Post, {}, {}, function(result) {
-            res.render('index', {posts: result});
-        });*/
-        res.render('index');
+    getIndex: function(req, res) {  
+        db.findMany(Post, {}, {}, async function(result) {
+            console.log("hi!")
+            const posts = await result
+            res.render('index', {posts});
+        });
     },
 
     //check if acc has same username and password
