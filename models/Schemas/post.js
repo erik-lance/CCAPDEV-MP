@@ -29,4 +29,15 @@ const postSchema = new mongoose.Schema({
 
 const Post = mongoose.model('Post', postSchema);
 
+Post.create({
+    post_id: 'Test Post 1',
+    date_posted: '10-20-12',
+    username: 'gian test',
+    title: 'test Post',
+    body: 'testing this'
+
+}, (error,post) => {
+    console.log(error,post)
+})
+
 module.exports = Post;

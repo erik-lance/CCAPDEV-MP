@@ -23,8 +23,11 @@
         <div id="main-feed">
             <div style="height:50px"></div>
 
-            {{#each posts}}
-                {{>feed_post this}}
+            {{posts}}
+            {{#each (posts)}}
+                {{>feed_post}}
+            {{else}}
+                <p>hloi</p>
             {{/each}}
 
         </div>
