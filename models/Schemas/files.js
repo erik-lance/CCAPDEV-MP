@@ -6,3 +6,7 @@ const filesSchema = new mongoose.Schema({
     file_name: String,
     post_id: String
 })
+
+const Files = mongoose.model('Files', filesSchema);
+
+module.exports = Files;
