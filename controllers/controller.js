@@ -117,10 +117,26 @@ const controller = {
     },
 
     getProfile: function (req, res) {
+
+        var render = {
+            user: null,
+            posts: null
+        }
+
         db.findOne(User,  req.query.username, {}, async function (result) {
-            const user = await result
-            res.render('layouts/profile', resuserult);
+            render.user = await result
+            
+            
         })
+
+        db.findMany(Post, req.query.username, {}, async function(result) {
+            render.posts = await result
+            
+        })
+        
+        res.render('layouts/profile', render);
+        console.log(render)
+        
     },
 
     getSearch: function (req, res) {
