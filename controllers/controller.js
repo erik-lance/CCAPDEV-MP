@@ -82,6 +82,14 @@ const controller = {
         });
     },
 
+    getUpdateAcc: function(req, res) {
+
+    },
+
+    getUpdatePorfile: function(req,res) {
+
+    },
+
     getDelete: function (req, res) {
         db.deleteOne(Post, {post_id: req.query.post_id}, function(result) {
             res.redirect('/');
