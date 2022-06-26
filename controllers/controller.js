@@ -33,12 +33,8 @@ const controller = {
 
     //check if username is taken
     getCheckUsername: function(req, res) {
-        db.findOne(User, {username: req.query.username}, function(result) {
-            if (result) {
-                res.send(result);
-            } else {
-                res.send("");
-            }
+        db.findOne(User, {username: req.query.username},{}, async function(result) {
+            await res.send(result)
         });
     },
 
@@ -48,8 +44,7 @@ const controller = {
             username: req.query.username,
             name: "",
             password: req.query.password,
-            email: "",
-            user_type: "infeeder",
+            isModerator: false,
             bio: "",
             profile_pic: "",
             following: 0,
@@ -97,6 +92,10 @@ const controller = {
         res.render('layouts/user_reg');
     },
 
+    getSettings: function (req, res) {
+        res.render('layouts/settings');
+    },
+
     getHome: function (req, res) {
         console.log('hi2');
         db.findMany(Post, {}, {}, function(result) {
@@ -133,7 +132,7 @@ const controller = {
             render.posts = await result
             
         })
-        
+
         res.render('layouts/profile', render);
         console.log(render)
         

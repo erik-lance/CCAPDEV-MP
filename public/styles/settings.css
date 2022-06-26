@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    min-height: 400px;
+    background-color: #111213;
+}
+
+#main-page {
+    margin: auto;
+    padding:40px;
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    background-color:#163d51;
+    font-family: Roboto;
+    color:white;
+}
+
+h1 { 
+    font-family: 'Segoe UI';
+    margin-top: 15px;
+    border-bottom: 1px solid rgb(183, 183, 183);
+    padding-bottom: 5px;
+    color: #d29e1c;
+}
+
+h2 { font-family: 'Segoe UI'; }
+h3 { font-family: 'Segoe UI'; margin-bottom: 4px;}
+
+.main-wrapper {
+    display:flex;
+    min-height: 500px;
+}
+
+.text-inputs { 
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    width: 100%;
+}
+
+.text-inputs span {
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    padding-top: 10px;
+}
+
+.text-inputs input {
+    background-color: #023047;
+    display: inline-block;
+    border-style: none;
+    outline: none;
+    color: white;
+    opacity: 72%;
+
+    height: 40px;
+    width: 100%;
+
+    padding-left: 10px;
+}
+
+.text-inputs input:focus { outline: none; }
+
+button {
+    background-color: #fb8500;
+    font-family: 'Segoe UI';
+    color: white;
+
+    border: none;
+    cursor: pointer;
+
+    opacity: 0.9;
+
+    height: 24px;
+}
+
+button:hover {
+    opacity:1;
+}
+
+
+/* Account Settings */
+
+#account-settings {
+    display: flex;
+}
+
+#profile-img-wrapper {
+    min-width: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+#profile-img-wrapper p {
+    margin: 0;
+}
+
+#profile-img img {
+    height: 150px;
+    width: 150px;
+    
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+#profile-img {
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#upload-design {
+    background-color: #d29e1c;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+} 
+
+#custom-upload {
+    font-family: 'Segoe UI';
+    font-size: 12;
+}
+
+#profile-img-wrapper input {
+    display: none;
+}
+
+/* ---- Profile Settings ----- */
+
+#profile-settings {
+    display:flex;
+    flex-direction: column;
+}
+
+#profile-settings span {
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    padding-bottom: 20px;
+}
+
+#bio-editor {
+    background-color: #023047;
+    padding: 10px;
+    color: white;
+    opacity: 82%;
+    font-family: 'Rubik';
+    min-height: 100px;
+    width: 100%;
+
+    line-height: 25px;
+    resize: none;
+    opacity: 72%;
+
+    margin-bottom: 10px;
+}
+
+#bio-editor:focus { border: 1px solid white; outline: none }
