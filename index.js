@@ -34,7 +34,7 @@ app.use(`/`, routes);
 // Sessions
 app.use(session({
     secret: 'somegibberishsecret',
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/CCAPDEV_MP' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1/CCAPDEV_MP' }),
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
