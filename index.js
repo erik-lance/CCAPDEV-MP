@@ -7,6 +7,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 
+const fileupload = require('express-fileupload');
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -17,6 +19,10 @@ hbs.registerPartials(__dirname + `/views/partials`);
 
 hbs.registerHelper('points', function(object) {
     return object.upvotes - object.downvotes
+})
+
+hbs.registerHelper('time', function(object) {
+    
 })
 
 app.use(express.static(`public`));
