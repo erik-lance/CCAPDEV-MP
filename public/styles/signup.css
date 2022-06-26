@@ -26,6 +26,10 @@ body {
     font-weight: bold;
 }
 
+#message {
+    color: red;
+}
+
 #log {
     margin: 0 auto;
     background-color: rgb(241, 241, 241);
