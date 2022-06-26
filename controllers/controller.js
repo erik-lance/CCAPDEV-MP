@@ -45,13 +45,24 @@ const controller = {
         var username = req.query.username;
         var password = req.query.password;
 
+        let data = {
+            username: req.query.username,
+            password: '',
+            isModerator: false,
+            bio: '',
+            profile_pic: '',
+            following: 0,
+            followers: 0,
+            cookies: 0
+        }
+
         const saltRounds = 10;
         // Hash password
         bcrypt.hash(password, saltRounds, (err, hashed) => {
-        db.insertOne(User, {username: username, password: hashed}, (err, user) => {
-            console.log('Please Work');
-            res.send();
-        });
+            data.password = hashed
+            db.insertOne(User, data, (err, user) => {
+                res.send();
+            });
         });
     },
 
