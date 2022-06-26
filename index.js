@@ -5,7 +5,10 @@ const routes = require(`./routes/routes.js`);
 const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
-const MongoStore = require('connect-mongo')(session);
+
+//const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
+
 
 const fileupload = require('express-fileupload');
 
@@ -31,7 +34,7 @@ app.use(`/`, routes);
 // Sessions
 app.use(session({
     secret: 'somegibberishsecret',
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/CCAPDEV_MP' }),
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
