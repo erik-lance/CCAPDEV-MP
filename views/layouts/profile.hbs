@@ -1,20 +1,12 @@
 <html>
 <head>
     <title>InFeed</title>
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/profile.css">
-    <link rel="stylesheet" href="styles/ui-vectors.css">
-    <link rel="icon" href="images/web-icon.png">
+    <link rel="stylesheet" href="/styles/profile.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&family=Rubik&display=swap" rel="stylesheet">
+    {{>essentials}}
 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="scripts/post-click.js"></script>
     <script src="scripts/ui-button.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
 </head>
 <body>
     {{>nav}}
@@ -24,21 +16,21 @@
 
         <div class="page-wrapper">
             <div id="profile-posts">
-                {{#each posts}}
+                {{#each render.posts}}
                     {{>profile/post this}}
                 {{/each}}
             </div>
             
             <div id="profile-bio">
                 <div id="author-header">
-                    <img src="images/profile-imgs/{{profile_pic}}">
+                    <img src="/images/profile-imgs/{{user.profile_pic}}">
                     <div class="author-dets">    
-                        <a href="u/{{username}}"><span id="author-name">{{name}}</span><br></a>
-                        <a href="u/{{username}}"><span id="author-id">{{username}}</span></a> <br><br>
+                        <a href="/u/{{user.username}}"><span id="author-name">{{user.name}}</span><br></a>
+                        <a href="/u/{{user.username}}"><span id="author-id">{{user.username}}</span></a> <br><br>
                         <button>Follow</button>
                     </div>
                 </div>
-                <p id="author-desc">{{bio}}</p>
+                <p id="author-desc">{{user.bio}}</p>
             </div>
         </div>
     </div>
