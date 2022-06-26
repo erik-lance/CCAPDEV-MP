@@ -40,21 +40,16 @@ const controller = {
 
     //add account
     getAddAcc: function(req, res) {
-        let data = {
+        /*let data = {
             username: req.query.username,
             name: "",
             password: req.query.password,
-            isModerator: false,
-            bio: "",
-            profile_pic: "",
-            following: 0,
-            followers: 0,
-            cookies: 0
-        };
+        @ -59,7 +89,7 @@ const controller = {
 
         db.insertOne(User, data, (result) => {
             res.send();
         });
+        });*/
     },
 
     //add post
