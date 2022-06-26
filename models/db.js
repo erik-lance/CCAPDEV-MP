@@ -6,7 +6,7 @@ const postModel = require('./Schemas/post.js');
 const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 
-const url = 'mongodb://127.0.0.1:27017/CCAPDEV_MP';
+const url = 'mongodb://localhost:27017/CCAPDEV_MP';
 
 const options = {
     useUnifiedTopology: true,
