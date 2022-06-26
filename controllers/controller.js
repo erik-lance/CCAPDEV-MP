@@ -168,18 +168,26 @@ const controller = {
             })
             
         })
-
-        
-
-        
-        
     },
 
     getSearch: function (req, res) {
-        console.log('hi4');
-        db.findMany(Post, {}, {}, function(result) {
-            res.render('index', {posts: result, name: result, username:result});
-        });
+        var search = req.query.search;
+        var render = {
+            first: null,
+            second: null
+        }
+        
+        db.findMany(Post, {title: {$regex:search}}, {}, async function(result) {
+            render.first = await result
+            db.findMany(Post, {body: {$regex:search}}, {}, async function(result) {
+                render.second = await result
+
+                await res.render('layouts/search', render, function(){
+                   console.log(render) 
+                });
+                
+            })
+        })
     },
 }
 

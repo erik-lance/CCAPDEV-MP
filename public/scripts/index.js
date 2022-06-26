@@ -89,15 +89,4 @@ $(document).ready(function () {
     $('#profile-dets').click(function() {
         
     });
-
-    //
-    $('#search-bar').click(function () {
-        console.log("click3");
-
-        let search = document.querySelector('#search').value;
-
-        $.get('/add', data, function () {
-
-        })
-    });
 })
