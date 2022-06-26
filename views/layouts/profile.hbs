@@ -5,8 +5,8 @@
 
     {{>essentials}}
 
-    <script src="scripts/post-click.js"></script>
-    <script src="scripts/ui-button.js"></script>
+    <script src="/scripts/post-click.js"></script>
+    <script src="/scripts/ui-button.js"></script>
 </head>
 <body>
     {{>nav}}
@@ -16,7 +16,7 @@
 
         <div class="page-wrapper">
             <div id="profile-posts">
-                {{#each render.posts}}
+                {{#each posts}}
                     {{>profile/post this}}
                 {{/each}}
             </div>
