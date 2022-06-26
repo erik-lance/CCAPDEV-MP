@@ -61,7 +61,7 @@ $(document).ready(function() {
         {
             $('#message').text('Password does not match.')
         }
-        else if (pass.isLength({min: 6}))
+        else if (!pass.isLength({min: 6}))
         {
             $('#form-pass').css('border-bottom','1px solid red')
             $('#form-pass').css('background-color','#f7b8b8')
