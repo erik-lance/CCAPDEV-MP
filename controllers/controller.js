@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const db = require('../models/db.js');
 const Post = require('../models/Schemas/post.js');
 const User = require('../models/Schemas/user.js');
+const Comment = require('../models/Schemas/comment.js');
 
 const express = require(`express`);
 const app = express();
@@ -126,9 +127,28 @@ const controller = {
     },
 
     getPost: function (req, res) {
-        db.findOne(Post,  req.query.post_id, {}, async function (result) {
-            const post = await result
-            res.render('layouts/post', post);
+        var full_post = {
+            user: null,
+            post: null,
+            comments: null
+        }
+        
+        // Finds the post
+        db.findOne(Post,  req.query.post_id, {}, async function (postRes) {
+            full_post.post = await postRes;
+            
+            // Finds owner of post
+            db.findOne(User,  req.query.username, {}, async function (userRes) {
+                full_post.user = await userRes;
+
+                // Finds all comments under post
+                db.findMany(Comment, req.query.post_id, {}, async function(comRes) {
+
+                    full_post.comments = await comRes;
+
+                    res.render('layouts/post', full_post);
+                })
+            })
         })
     },
 
@@ -141,17 +161,17 @@ const controller = {
 
         db.findOne(User,  req.query.username, {}, async function (result) {
             render.user = await result
-            
+            db.findMany(Post, req.query.username, {}, async function(result) {
+                render.posts = await result
+                await res.render('layouts/profile', render);
+                console.log(render)
+            })
             
         })
 
-        db.findMany(Post, req.query.username, {}, async function(result) {
-            render.posts = await result
-            
-        })
+        
 
-        res.render('layouts/profile', render);
-        console.log(render)
+        
         
     },
 
