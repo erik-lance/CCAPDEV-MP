@@ -28,6 +28,16 @@ hbs.registerHelper('time', function(object) {
 app.use(express.static(`public`));
 app.use(`/`, routes);
 
+// Sessions
+app.use(session({
+    secret: 'somegibberishsecret',
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+  }));
+
+
 db.connect();
 
 app.listen(3000, function () {
