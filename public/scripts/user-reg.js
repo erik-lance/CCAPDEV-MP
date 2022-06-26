@@ -4,7 +4,7 @@ $('#sign-up').click( function() {
     var pass = $('form-pass').val()
 
     // TODO:  NOTE PASSWORD MUST BE HASHED
-    $.get('/addAcc',
+    $.get('addAcc',
             {
                 username: user,
                 password: pass
