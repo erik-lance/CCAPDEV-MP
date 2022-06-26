@@ -3,6 +3,9 @@ const hbs = require(`hbs`);
 const bodyParser = require(`body-parser`);
 const routes = require(`./routes/routes.js`);
 const db = require(`./models/db.js`);
+const session = require('express-session');
+const flash = require('connect-flash');
+const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
