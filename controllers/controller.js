@@ -86,7 +86,7 @@ const controller = {
 
     },
 
-    getUpdatePorfile: function(req,res) {
+    getUpdateProfile: function(req,res) {
 
     },
 

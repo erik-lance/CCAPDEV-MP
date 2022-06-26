@@ -37,7 +37,7 @@ $('#form-pass-confirm').keyup(function() {
 })
 
 $('#sign_up').click( function() {
-
+    console.log('please work');
     var user = $('#form-user').val()
     var pass = $('#form-pass').val()
     var conf = $('#form-pass-confirm').val()
@@ -59,7 +59,7 @@ $('#sign_up').click( function() {
     {
         $('#message').text('Password does not match.')
     }
-    else if (pass.isLength({min: 6}))
+    else if (!pass.isLength({min: 6}))
     {
         $('#form-pass').css('border-bottom','1px solid red')
         $('#form-pass').css('background-color','#f7b8b8')
