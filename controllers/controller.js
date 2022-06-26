@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const db = require('../models/db.js');
 const Post = require('../models/Schemas/post.js');
 const User = require('../models/Schemas/user.js');
@@ -40,16 +42,26 @@ const controller = {
 
     //add account
     getAddAcc: function(req, res) {
-        /*let data = {
-            username: req.query.username,
-            name: "",
-            password: req.query.password,
-        @ -59,7 +89,7 @@ const controller = {
 
-        db.insertOne(User, data, (result) => {
-            res.send();
+        const {username, password } = req.body;
+        const saltRounds = 10;
+
+        // Hash password
+        bcrypt.hash(password, saltRounds, (err, hashed) => {
+        const newUser = {
+            username,
+            password: hashed
+        };
+
+        User.create(newUser, (err, user) => {
+            if (err) {
+            req.flash('error_msg', 'Could not create user. Please try again.');
+            // res.status(500).send({ message: "Could not create user"});
+            } else {
+            req.flash('success_msg', 'You are now registered! Login below.');
+            }
         });
-        });*/
+        });
     },
 
     //add post
