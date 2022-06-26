@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
 
     //check if un is taken
-    /*$('#form-user').click(function () {
+    $('#form-user').keyup(function () {
         var username = $(this).val();
         var data = {
             username: username
@@ -46,14 +46,14 @@ $(document).ready(function () {
         $.get('/getCheckUsername',data, function(result){
             if(result.username == username){
                 $('#sign-up').prop('disabled', true);
-                console.log('username is taken.');
+                $('#message').text('username is taken.');
             }
             else{
                 $('#sign-up').prop('disabled', false);
             }
 
         });
-    });*/
+    });
 
     $('#sign-up').click(function () {
         let username = document.querySelector('#form-user').value;
