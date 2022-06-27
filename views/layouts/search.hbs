@@ -24,6 +24,10 @@
         <div id="main-feed">
             <div style="height:50px"></div>
 
+            {{#each render.first}}
+                {{>feed_post this}} 
+            {{/each}}
+            
             {{#each render.second}}
                 {{>feed_post this}} 
             {{/each}}

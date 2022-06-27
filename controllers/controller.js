@@ -223,8 +223,20 @@ const controller = {
             render.first = await result1;
             db.findMany(Post, {body: {$regex:search, $options : 'i'}}, {}, async function(result2) {
                 render.second = await result2;
+                if(render.first.length != 0 && render.second.length != 0){
+                    for(let i=0; i<render.first.length; i++){
+                        for(let j=0; j<render.second.length; j++){
+                            console.log(render.first[i]);
+                            console.log(render.second[j])
+                            if(render.first[i].post_id == render.second[j].post_id){
+                                delete render.second[j];
+                                j--;
+                                render.second.length--;
+                            }
+                        }
+                    }
+                }
                 await res.render('layouts/search', {render});
-                console.log(render);
             })
         })
         
