@@ -8,11 +8,9 @@ $(document).ready(function () {
         // searches for posts based on title!
         
         if(word != ""){
-            $.get('/search_res', data);
+           window.location.href="/search/" + word;
         }
         
         
-        // Must return to home page
-        //window.location.href="/search_res"
     })
 });
