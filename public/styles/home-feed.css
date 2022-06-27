@@ -52,7 +52,7 @@ body {
 }
 
 #create-post input {
-    background-color:#1c4b62;
+    background-color:#163d51;
     color: white;
     opacity: 82%;
 
@@ -60,11 +60,13 @@ body {
     border-radius: 4px;
     width: 100%;
 
+    font-family: 'Segoe UI';
+    font-style: italic;
+
     padding: 5px 15px;
 }
 
 #create-post input:hover {
-    background-color:#163d51;
     border: 1px solid white;
     cursor:pointer;
 }
@@ -263,5 +265,20 @@ a {
 }
 
 #profile-signup a:hover {
+    background-color: #fb8500;
+}
+
+#profile-signup button {
+    padding: 8px 15px;
+    background-color:#d48121;
+    color:white;
+    text-decoration: none;
+    border: none;
+
+    font-family: 'Segoe UI';
+    cursor: pointer;
+}
+
+#profile-signup button:hover {
     background-color: #fb8500;
 }

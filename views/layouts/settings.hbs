@@ -20,7 +20,7 @@
         <div id="account-settings">
             <div class="text-inputs">
                 <span>Username</span>
-                <input type="text" placeholder="Username" id="user">
+                <input type="text" placeholder="Username" id="user" value="{{profile.username}}">
                 <span>Edit Password</span>
                 <input type="password" placeholder="New Password" id="pass">
                 <input type="password" placeholder="Confirm Password" id="pass-confirm">
@@ -28,7 +28,7 @@
             <div id="profile-img-wrapper">
                 <p> Profile Picture </p>
                 <div id="profile-img">
-                    <img src="/images/profile-imgs/default-profile-pic.png">
+                    <img src="/images/profile-imgs/{{profile.profile_pic}}">
                     <label id="upload-design">
                         <input type="file" name="image" accept="image/png, image/jpeg" id="image-file">
                         <span id="custom-upload">Upload Image</span>
@@ -45,10 +45,10 @@
         <div id="profile-settings">
             <span>Name</span>
             <div class="text-inputs">
-                <input type="text" placeholder="Name" id="full-name" maxlength="50">
+                <input type="text" placeholder="Name" id="full-name" maxlength="50" value="{{profile.name}}">
             </div>
             <h3>Bio</h3>
-            <textarea id="bio-editor" maxlength="100"></textarea>
+            <textarea id="bio-editor" maxlength="100">{{profile.bio}}</textarea>
             <button type="button" id="bio-submit">Save Bio</button>
         </div>
 

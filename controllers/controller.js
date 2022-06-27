@@ -151,7 +151,13 @@ const controller = {
     },
 
     getSettings: function (req, res) {
-        res.render('layouts/settings');
+        db.findOne(User, {username:req.session.user},{}, async function(userRes) {
+            if (req.session.user !== undefined) {
+                var profile = await userRes; 
+            }
+            await res.render('layouts/settings', {profile});
+        })
+
     },
 
     getHome: function (req, res) {

@@ -5,7 +5,7 @@
     
     {{>essentials}}
 
-    <link rel="stylesheet" href="styles/home-feed.css">
+    <link rel="stylesheet" href="/styles/home-feed.css">
     
     <script src="/scripts/profile.js"></script>
     <script src="/scripts/ui-button.js"></script>
@@ -21,6 +21,13 @@
         <!-- This is to prevent posts being overlapped by navbar-->
         <div id="main-feed">
             <div style="height:50px"></div>
+
+            {{#if indexPage.user}}
+            <div id="create-post" onclick="open_editor()">
+                <img src="/images/profile-imgs/{{indexPage.user.profile_pic}}">
+                <input type="text" value="Make your mark!" readonly>
+            </div>
+            {{/if}}
 
             {{#each indexPage.posts}}
                 {{>feed_post this}}
@@ -48,6 +55,7 @@
                     <!-- erik note: stack overflow is under maintenance, will check na lang ulit soon if gagana ito lol -->
                     {{#if indexPage.user}}
                         <p>{{indexPage.user.bio}}</p>
+                        <button id="profile-settings">Settings</button>
                         <button id="log-out">Log out</button>
                     {{else}}
                         <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
