@@ -107,30 +107,24 @@ const controller = {
         });
     },
 
-    //add post
-    getAdd: function(req, res) {
-        let posts = {
-            post_id: req.query.post_id,
-            date_posted: req.query.date_posted,
-            username: req.query.username,
-            title: req.query.title,
-            body: req.query.body,
-            upvotes: req.query.upvotes,
-            downvotes: req.query.downvotes,
-            puzzle_id: req.query.puzzle_id
+    getAddPost: function(req, res) {
+        let title = req.query.title;
+        let body = req.query.body;
+        let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+
+        var data = {
+            post_id: id,
+            date_posted: new Date,
+            username: req.session.user,
+            title: title,
+            body: body,
+            upvotes: 0,
+            downvotes: 0
         };
 
-        db.insertOne(Post, posts, (result) => {
+        db.insertOne(Post, data, (result) => {
             res.send();
         });
-    },
-
-    getUpdateAcc: function(req, res) {
-
-    },
-
-    getUpdateProfile: function(req,res) {
-
     },
 
     getDelete: function (req, res) {
