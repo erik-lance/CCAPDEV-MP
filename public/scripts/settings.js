@@ -39,6 +39,30 @@ $(document).ready(function() {
         readUrl(this);
     })
 
+    function updateImage() {
+        if (img)
+        {
+            var fileData = new FormData();
+            fileData.append('file',img,actualUsername+".jpg");
+            fileData.append('file_name',img.name)
+
+            console.log('omg hi')
+
+            $.ajax({
+                url:'/updateImage',
+                type: 'POST',
+                cache: false,
+                processData: false,
+                contentType: false,
+                data: fileData,
+                success: function(res) {
+                    console.log('wow')
+                }
+            })
+        }
+    }
+
+
     // Checks username, password, AND profile picture
     $('#account-submit').click( function() {
         var user = $('#user').val()
@@ -67,26 +91,7 @@ $(document).ready(function() {
             // Checks if current username is just the same or not
             if (user === actualUsername) 
             {
-                if (img)
-                {
-                    var fileData = new FormData();
-                    fileData.append('file',img,actualUsername+".jpg");
-                    fileData.append('file_name',img.name)
-
-                    console.log('omg hi')
-
-                    $.ajax({
-                        url:'/updateImage',
-                        type: 'POST',
-                        cache: false,
-                        processData: false,
-                        contentType: false,
-                        data: fileData,
-                        success: function(res) {
-                            console.log('wow')
-                        }
-                    })
-                }
+                updateImage();
             }
             else
             {
