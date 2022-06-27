@@ -58,6 +58,15 @@ const controller = {
         })
     },
 
+    getLogout: function(req, res){
+        if (req.session) {
+            req.session.destroy(() => {
+              res.clearCookie('connect.sid');
+              res.redirect('/Login');
+            });
+          }
+    },
+
     //check if username is taken
     getCheckUsername: function(req, res) {
         db.findOne(User, {username: req.query.username},{}, async function(result) {
