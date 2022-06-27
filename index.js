@@ -6,6 +6,11 @@ const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
 
+// For File Uploads
+const fileUpload = require('express-fileupload');
+const path = require('path');
+
+
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
@@ -17,7 +22,8 @@ const MongoStore = require('connect-mongo');
 const fileupload = require('express-fileupload');
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json()); // Uses JSON through parsing
+app.use(bodyParser.urlencoded({ extended: true })); // Set to true because we're not only using string as information
 
 app.set(`view engine`, `hbs`);
 hbs.registerPartials(__dirname + `/views/partials`);
@@ -33,6 +39,7 @@ hbs.registerHelper('time', function(object) {
 })
 
 app.use(express.static(`public`));
+
 // Sessions
 app.use(session({
     secret: 'somegibberishsecret',
@@ -44,6 +51,8 @@ app.use(session({
         secure: false,
         maxAge: 1000 * 60 * 60 * 24 * 7 }
   }));
+
+app.use(fileUpload()); // for fileuploading
 
 app.use(`/`, routes);
 

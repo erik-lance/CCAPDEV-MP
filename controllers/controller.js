@@ -4,9 +4,11 @@ const db = require('../models/db.js');
 const Post = require('../models/Schemas/post.js');
 const User = require('../models/Schemas/user.js');
 const Comment = require('../models/Schemas/comment.js');
+const Image = require('../models/Schemas/files.js');
 
 const express = require(`express`);
 const app = express();
+const path = require('path');
 
 app.set('views')
 
@@ -130,7 +132,27 @@ const controller = {
     },
 
     getUpdateProfile: function(req,res) {
+        var n = req.query.name;
+        var b = req.query.bio;
 
+        db.updateOne(User, {username:req.session.user}, {name:n,bio:b}, async function(result) {
+            if (result)
+            {
+                res.send(result)
+            }
+            else console.log("Error, user in settings does not exist(?)")
+        })
+    },
+
+    postUpdateImage: function(req, res) {
+        const img_file = req.files.file;
+        
+        img_file.mv(path.resolve(__dirname+'/..','public/images/profile-imgs',img_file.name), (error) => {
+            db.updateOne(User, {username:req.session.user}, {profile_pic:img_file.name}, function(result) {
+                res.send(result);
+            })
+        })
+        
     },
 
     getDelete: function (req, res) {

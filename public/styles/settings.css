@@ -7,7 +7,7 @@ body {
 #main-page {
     margin: auto;
     padding:40px;
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 800px;
     background-color:#163d51;
@@ -62,7 +62,7 @@ h3 { font-family: 'Segoe UI'; margin-bottom: 4px;}
 
 .text-inputs input:focus { outline: none; }
 
-button {
+#main-page button {
     background-color: #fb8500;
     font-family: 'Segoe UI';
     color: white;
@@ -75,7 +75,7 @@ button {
     height: 24px;
 }
 
-button:hover {
+#main-page button:hover {
     opacity:1;
 }
 
@@ -160,6 +160,8 @@ button:hover {
     opacity: 72%;
 
     margin-bottom: 10px;
+
+    border:1px solid #023047;
 }
 
 #bio-editor:focus { border: 1px solid white; outline: none }

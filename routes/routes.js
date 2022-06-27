@@ -20,6 +20,9 @@ app.get('/Logout', controller.getLogout);
 app.get('/addAcc', controller.getAddAcc);
 app.get('/updateAcc', controller.getUpdateAcc);
 app.get('/updateProfile',controller.getUpdateProfile);
+
+app.post('/updateImage', controller.postUpdateImage);
+
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
 app.get('/search/:word', controller.getSearch);
