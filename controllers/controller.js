@@ -26,7 +26,6 @@ const controller = {
 
         db.findMany(Post, {}, {}, async function(result) {
             indexPage.posts = await result
-            console.log(req.session.user)
             db.findOne(User, {username:req.session.user},{}, async function(userRes) {
                 if (req.session.user !== undefined) {
                     indexPage.user = await userRes; 
@@ -198,12 +197,11 @@ const controller = {
             posts: null
         }
 
-        db.findOne(User,  req.query.username, {}, async function (result) {
+        db.findOne(User,  {username:req.params.username}, {}, async function (result) {
             render.user = await result
-            db.findMany(Post, req.query.username, {}, async function(result) {
+            db.findMany(Post, {username:req.params.username}, {}, async function(result) {
                 render.posts = await result
-                await res.render('layouts/profile', render);
-                console.log(render)
+                await res.render('layouts/profile', {render});
             })
         })
     },

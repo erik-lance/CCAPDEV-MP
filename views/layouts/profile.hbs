@@ -17,21 +17,21 @@
 
         <div class="page-wrapper">
             <div id="profile-posts">
-                {{#each posts}}
-                    {{>profile/post this}}
+                {{#each render.posts}}
+                    {{>profile/post}}
                 {{/each}}
             </div>
             
             <div id="profile-bio">
                 <div id="author-header">
-                    <img src="/images/profile-imgs/{{user.profile_pic}}">
+                    <img src="/images/profile-imgs/{{render.user.profile_pic}}">
                     <div class="author-dets">    
-                        <a href="/u/{{user.username}}"><span id="author-name">{{user.name}}</span><br></a>
-                        <a href="/u/{{user.username}}"><span id="author-id">{{user.username}}</span></a> <br><br>
+                        <a href="/u/{{render.user.username}}"><span id="author-name">{{render.user.name}}</span><br></a>
+                        <a href="/u/{{render.user.username}}"><span id="author-id">{{render.user.username}}</span></a> <br><br>
                         <button>Follow</button>
                     </div>
                 </div>
-                <p id="author-desc">{{user.bio}}</p>
+                <p id="author-desc">{{render.user.bio}}</p>
             </div>
         </div>
     </div>
