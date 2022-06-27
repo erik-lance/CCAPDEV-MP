@@ -7,10 +7,8 @@
 
     <link rel="stylesheet" href="styles/home-feed.css">
     
-    <script src="/scripts/post-click.js"></script>
+    <script src="/scripts/profile.js"></script>
     <script src="/scripts/ui-button.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
-    <script type="text/javascript" src="scripts/nav.js"></script>
 
     <!-- This page is the front page, so all posts should be seen here! -->
 </head>
@@ -24,7 +22,7 @@
         <div id="main-feed">
             <div style="height:50px"></div>
 
-            {{#each posts}}
+            {{#each indexPage.posts}}
                 {{>feed_post this}}
             {{/each}}
 
@@ -34,22 +32,23 @@
             <div style="height:50px"></div>
             <div id="profile-wrapper">
                 <div  id="profile-img">
-                    {{#if username}}
-                        <img src="/images/profile-imgs/{{profile-picture}}.jpg">
+                    {{#if indexPage.user}}
+                        <img src="/images/profile-imgs/{{indexPage.user.profile_pic}}">
                     {{else}} 
                         <img src="/images/profile-imgs/default-profile-pic.png">
                     {{/if}}
                 </div>
                     
                 <div id="profile-dets">
-                    {{name}} <br>
-                    <span>{{username}}</span>
+                    {{indexPage.user.name}} <br>
+                    <span>{{indexPage.user.username}}</span>
                 </div>
 
                 <div id="profile-signup">
                     <!-- erik note: stack overflow is under maintenance, will check na lang ulit soon if gagana ito lol -->
-                    {{#if username}}
-                        {{bio}}
+                    {{#if indexPage.user}}
+                        <p>{{indexPage.user.bio}}</p>
+                        <button id="log-out">Log out</button>
                     {{else}}
                         <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
                         <br>

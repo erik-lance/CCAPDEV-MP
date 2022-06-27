@@ -58,8 +58,9 @@ $(document).ready(function() {
             {
                 username: user,
                 password: pass
-            }, function() {
-                window.location.href = "/"
+            }, function(res) {
+                if (res) window.location.href = "/"
+                else window.location.href ="/s/user_sign"
             })
         }
     
