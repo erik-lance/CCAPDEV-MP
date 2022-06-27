@@ -35,21 +35,28 @@ const controller = {
     },
 
     getLogin: function(req, res){
-        bcrypt.compare(password, req.query.password, (err, result) => {
-            db.findOne(User, {username: req.query.username, password: req.query.password}, function(user) {
-                if (result) {
-                    //Not sure about this
-                    req.session.user = user._id;
-                    req.session.name = user.name;
-
-                    console.log(req.session)
-
-                    res.send(result);
-                } else {
-                    res.send("");
-                }
-            });
-        });
+        var password = req.query.password;
+        console.log(password);
+        db.findOne(User, {username: req.query.username}, {}, (user) => {
+            if(user){
+                console.log(user.password)
+                bcrypt.compare(password, user.password, (err, result) => {
+                    db.findOne(User, {username: req.query.username, password: req.query.password}, {}, (userres) => {
+                        if (userres) {
+                            //Not sure about this
+                            req.session.user = userres.username;
+                            req.session.password = userres.password;
+    
+                            console.log(req.session)
+    
+                            res.send(result);
+                        } else {
+                            res.send("");
+                        }
+                    });
+                });
+            }
+        })
     },
 
     //check if username is taken
