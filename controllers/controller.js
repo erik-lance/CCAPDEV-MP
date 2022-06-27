@@ -22,11 +22,17 @@ const controller = {
             posts: null,
             user: null
         }
+
+
         db.findMany(Post, {}, {}, async function(result) {
             indexPage.posts = await result
-            
-            db.findOne(User, req.session.user,{}, function(userRes) {
-                indexPage.user = await userRes;
+            console.log(req.session.user)
+            db.findOne(User, {username:req.session.user},{}, async function(userRes) {
+                if (req.session.user !== undefined) {
+                    indexPage.user = await userRes; 
+                    console.log('found!')
+                    console.log(indexPage)
+                }
                 await res.render('index', {indexPage});
             })
         });
