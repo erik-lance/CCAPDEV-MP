@@ -41,19 +41,17 @@ const controller = {
             if(user){
                 console.log(user.password)
                 bcrypt.compare(password, user.password, (err, result) => {
-                    db.findOne(User, {username: req.query.username, password: req.query.password}, {}, (userres) => {
-                        if (userres) {
-                            //Not sure about this
-                            req.session.user = userres.username;
-                            req.session.password = userres.password;
-    
-                            console.log(req.session)
-    
-                            res.send(result);
-                        } else {
-                            res.send("");
-                        }
-                    });
+                    if(result){
+                        //Not sure about this
+                        req.session.user = user.username;
+        
+                        console.log(req.session)
+
+                        res.send(result);
+                    }
+                    else {
+                        res.send("");
+                    }
                 });
             }
         })

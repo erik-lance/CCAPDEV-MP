@@ -33,16 +33,21 @@ hbs.registerHelper('time', function(object) {
 })
 
 app.use(express.static(`public`));
-app.use(`/`, routes);
-
 // Sessions
 app.use(session({
     secret: 'somegibberishsecret',
     store: MongoStore.create({ mongoUrl: 'mongodb://localhost/CCAPDEV_MP' }),
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 }
+    cookie: {
+        path: '/',
+        secure: false,
+        maxAge: 1000 * 60 * 60 * 24 * 7 }
   }));
+
+app.use(`/`, routes);
+
+
 
 
 db.connect();
