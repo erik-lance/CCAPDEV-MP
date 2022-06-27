@@ -24,7 +24,11 @@ const controller = {
         }
         db.findMany(Post, {}, {}, async function(result) {
             indexPage.posts = await result
-            await res.render('index', {indexPage});
+            
+            db.findOne(User, req.session.user,{}, function(userRes) {
+                indexPage.user = await userRes;
+                await res.render('index', {indexPage});
+            })
         });
     },
 
