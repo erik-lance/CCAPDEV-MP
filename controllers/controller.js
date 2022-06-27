@@ -16,21 +16,22 @@ const controller = {
     },
 
     getIndex: function(req, res) {  
+        console.log(req.session)
+
+        var indexPage = {
+            posts: null,
+            user: null
+        }
         db.findMany(Post, {}, {}, async function(result) {
-            console.log("hi!")
-            const posts = await result
-            res.render('index', {posts});
+            indexPage.posts = await result
+            await res.render('index', {indexPage});
         });
     },
 
     //check if acc has same username and password
     getCheckAcc: function(req, res) {
-        db.findOne(User, {username: req.query.username, password:req.query.password}, function(result) {
-            if (result) {
-                res.send(result);
-            } else {
-                res.send("");
-            }
+        db.findOne(User, {username: req.query.username, password:req.query.password}, async function(result) {
+            await res.send(result)
         });
     },
 
