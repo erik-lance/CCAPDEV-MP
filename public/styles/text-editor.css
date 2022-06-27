@@ -69,7 +69,7 @@ body {
     display: flex;
 }
 
-#editor-options #submit {
+#editor-options #text-submit {
     margin: 5px;
     margin-left: auto;
     background-color:#FFB703;
@@ -83,7 +83,7 @@ body {
     float: right;
 }
 
-#editor-options #submit:hover {
+#editor-options #text-submit:hover {
     background-color:#d29e1c;
 }
 

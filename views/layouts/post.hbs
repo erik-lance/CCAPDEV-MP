@@ -6,8 +6,7 @@
 
     {{>essentials}}
 
-    <script src="scripts/ui-button.js"></script>
-    <script type="text/javascript" src="scripts/nav.js"></script>
+    <script type="text/javascript" src="/scripts/post-interact.js"></script>
 
 </head>
 <body>
@@ -45,8 +44,9 @@
                         <div class="body">
                             <p>{{post.body}}</p>
                         </div>
-                        <div id="interactions">
-                            Comment &nbsp; Share
+                        <div id="post-interaction">
+                            <button class="interact-btn" id="comment-btn">Comment</button>
+                            <button class="interact-btn" id="share-btn">Share</button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div id="comment-section">
                     <div id="editor-wrapper">
                         <textarea name="text-editor" id="editor"></textarea>
-                        <div id="editor-options"><button id="submit">Submit</button></div>
+                        <div id="editor-options"><button id="text-submit">Submit</button></div>
                         <div id="editor-line">Sign up to join the InFeed community discussion!</div>
                     </div>
                     

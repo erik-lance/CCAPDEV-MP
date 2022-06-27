@@ -39,10 +39,7 @@ body {
     height: auto;
     width: 100%;
     
-    padding: 15px;
-    /* border: 1px solid rgb(172, 172, 172);
-    border-radius: 4px; */
-
+    padding: 15px 15px 0 15px;
 }
 
 #rate {
@@ -98,13 +95,33 @@ body {
     opacity: 72%;
 }
 
-#interactions {
+#post-interactions {
     display:flex;
     height: auto;
 
     /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
+}
+
+.interact-btn {
+    text-decoration: none;
+    height: 100%;
+    border: none;
+    background-color: #163d51;
+    
+    padding: 4px 8px;
+
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    color: white;
+    opacity: 72%;
+}
+
+.interact-btn:hover {
+    background-color: #1c4b62;
+    text-decoration: none;
+    cursor:pointer;
 }
 
 .ui-icon {
