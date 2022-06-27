@@ -185,28 +185,25 @@ const controller = {
                 await res.render('layouts/profile', render);
                 console.log(render)
             })
-            
         })
     },
 
     getSearch: function (req, res) {
-        var search = req.query.search;
+        var search = req.params.word;
         var render = {
             first: null,
             second: null
         }
         
-        db.findMany(Post, {title: {$regex:search}}, {}, async function(result) {
-            render.first = await result
-            db.findMany(Post, {body: {$regex:search}}, {}, async function(result) {
-                render.second = await result
-
-                await res.render('layouts/search', render, function(){
-                   console.log(render) 
-                });
-                
+        db.findMany(Post, {title: {$regex:search, $options : 'i'}}, {}, async function(result1) {
+            render.first = await result1;
+            db.findMany(Post, {body: {$regex:search, $options : 'i'}}, {}, async function(result2) {
+                render.second = await result2;
+                await res.render('layouts/search', render);
+                console.log(render);
             })
         })
+        
     },
 }
 

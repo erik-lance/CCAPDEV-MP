@@ -21,6 +21,6 @@ app.get('/updateAcc', controller.getUpdateAcc);
 app.get('/updateProfile',controller.getUpdateProfile);
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
-app.get('/search_res', controller.getSearch);
+app.get('/search/:word', controller.getSearch);
 
 module.exports = app;
