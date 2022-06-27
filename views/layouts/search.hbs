@@ -5,12 +5,12 @@
     
     {{>essentials}}
 
-    <link rel="stylesheet" href="styles/home-feed.css">
+    <link rel="stylesheet" href="/styles/home-feed.css">
     
     <script src="/scripts/post-click.js"></script>
     <script src="/scripts/ui-button.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
-    <script type="text/javascript" src="scripts/nav.js"></script>
+    
+    <script type="text/javascript" src="/scripts/nav.js"></script>
 
     <!-- This page is the front page, so all posts should be seen here! -->
 </head>
@@ -24,10 +24,8 @@
         <div id="main-feed">
             <div style="height:50px"></div>
 
-            {{#each posts}}
-                {{>feed_post this}}
-            {{else}}
-                <p>no posts found</p>
+            {{#each render.second}}
+                {{>feed_post this}} 
             {{/each}}
 
         </div>

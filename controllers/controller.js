@@ -30,8 +30,6 @@ const controller = {
             db.findOne(User, {username:req.session.user},{}, async function(userRes) {
                 if (req.session.user !== undefined) {
                     indexPage.user = await userRes; 
-                    console.log('found!')
-                    console.log(indexPage)
                 }
                 await res.render('index', {indexPage});
             })
@@ -223,7 +221,7 @@ const controller = {
             render.first = await result1;
             db.findMany(Post, {body: {$regex:search, $options : 'i'}}, {}, async function(result2) {
                 render.second = await result2;
-                await res.render('layouts/search', render);
+                await res.render('layouts/search', {render});
                 console.log(render);
             })
         })
