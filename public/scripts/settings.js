@@ -2,20 +2,8 @@ $(document).ready(function() {
     console.log('hi')
     
     var img = null;
-
-    var actualUsername = $('#user').val()
-
-    function disableButton() {
-
-    }
-
-    function enableButton() {
-
-    }
-
-
-    //$('#bio-submit').prop('disabled', true)
-
+    var actualUsername = $('#actual-username').text()
+    
     // Courtesy of JSFiddle https://codepen.io/maqnus/pen/oedWmq
     const fileOut = document.getElementById('currImage');
 
@@ -33,7 +21,6 @@ $(document).ready(function() {
 
     // Saves the image to img variable upon changing file.
     $('#image-file').change(function(e) {
-        console.log(e.target)
         img = e.target.files[0];
 
         readUrl(this);
@@ -65,68 +52,24 @@ $(document).ready(function() {
 
     // Checks username, password, AND profile picture
     $('#account-submit').click( function() {
-        var user = $('#user').val()
         var pass = $('#pass').val()
         var conf = $('#pass-confirm').val()
 
         var file = img;
 
-        
-
-
         var freeUsername = true;
 
-        
-        if (pass && conf) 
+        var passwordChangeable = (pass && conf && (pass === conf));
+        if (passwordChangeable)
         {
-            // There is a password change user desires
-
+            // Change pasword pa hash hehe
         }
-        else if (pass || conf) 
+
+        if (img)
         {
-            // User might want to change password OR not. Has at least one fields open.
-        }
-        else 
-        {   
-            // Checks if current username is just the same or not
-            if (user === actualUsername) 
-            {
-                updateImage();
-            }
-            else
-            {
-                // Okay. Let's check other fields!
-                $.get('/getCheckUsername', {username: user}, function(result) 
-                {
-                    if (result) freeUsername = false;
-                    else freeUsername = true;
-                })
-            }
-
-
-            /*
-
-            if (img) 
-            {
-                console.log(file.name)
-            }
-            else 
-            {
-                // If no new image
-                // NEEDS CURRENTLY LOGGED IN USER
-                $.get('/updateAcc', {
-                    user: user,
-                    pass: pass,
-    
-    
-                })
-            }
-
-            */
-
+            updateImage();
         }
         
-
     })
 
     // Checks name AND bio

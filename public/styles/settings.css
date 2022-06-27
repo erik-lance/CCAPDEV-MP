@@ -86,6 +86,22 @@ h3 { font-family: 'Segoe UI'; margin-bottom: 4px;}
     display: flex;
 }
 
+#user-field {
+    font-size: 20px;
+    margin:0;
+    padding: 10px 0;
+
+    color: #fb8500;
+}
+
+#actual-username {
+    font-size: 20px;
+    margin:0;
+    padding: 10px 0;
+
+    color: #fb8500;
+}
+
 #profile-img-wrapper {
     min-width: 200px;
     display:flex;
