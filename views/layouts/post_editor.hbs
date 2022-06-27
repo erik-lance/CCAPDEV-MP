@@ -4,6 +4,7 @@
     <title>InFeed</title>
     <link rel="stylesheet" href="/styles/text-editor.css">
     <link rel="stylesheet" href="/styles/slider.css">
+    <link rel="stylesheet" href="/styles/make-puzzle.css">
     
     {{>essentials}}
 
@@ -26,21 +27,34 @@
                     <textarea id="headline"></textarea>
                     <h4 class="titles">Body</h4>
                     <textarea id="editor"></textarea>
-                    <div id="editor-options"><button id="text-submit">Submit</button></div>
-                </div>
 
-                <div id="puzzle-section-wrapper">
-                    <p>Enable puzzles?</p>
-                    <label class="switch"><input type="checkbox" id="has-puzzle"><span class="slider"></span></label>
-
-                    <div id="puzzle-section">
-                        <p>Question</p>
-                        <input type="text" id="question">
-                        <p>Answer</p>
-                        <input type="text" id="answer">
+                    <!--<div id="editor-options"><button id="text-submit">Submit</button></div>
                     </div>
+                    <div id="puzzle-section-wrapper">
+                        <p>Enable puzzles?</p>
+                        <label class="switch"><input type="checkbox" id="has-puzzle"><span class="slider"></span></label>
+                        <div id="puzzle-section">
+                            <p>Question</p>
+                            <input type="text" id="question">
+                            <p>Answer</p>
+                            <input type="text" id="answer">
+                        </div>-->
 
+                    <div id="editor-options"><button id="submit">Submit</button></div>
+                    <div class="form-popup" id="myForm">
+                    <form class="form-container">
+                        <h1>Make a Puzzle!</h1>
 
+                        <label for="email"><b>Question</b></label>
+                        <input type="text" placeholder="Enter Question" id="question" required>
+
+                        <label for="psw"><b>Answer</b></label>
+                        <input type="text" placeholder="Enter Answer" id="answer" required>
+
+                        <button type="submit" class="btn" id="submit-puzzle">Submit</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>

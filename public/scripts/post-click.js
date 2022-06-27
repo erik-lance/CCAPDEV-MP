@@ -8,6 +8,14 @@ function open_editor() {
     window.location.href = "layouts/post-editor.hbs";
 }
 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+function closeForm() {
+    window.location.href="/";
+  }
+
 $(document).ready(function() {
     $('#submit').click(function() {
         let title = document.querySelector('#headline').value;
@@ -20,6 +28,20 @@ $(document).ready(function() {
         
         $.get('/addPost', data);
 
-        window.location.href="/";
+        openForm();
+    });
+
+    $('#submit-puzzle').click(function() {
+        let question = document.querySelector('#question').value;
+        let answer = document.querySelector('#answer').value;
+
+        let values = {
+            question: question,
+            answer: answer
+        }
+        
+        $.get('/makePuzzle', values, function(result){
+            window.location.href="/";
+        });
     });
 });

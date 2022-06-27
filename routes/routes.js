@@ -28,4 +28,6 @@ app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
 app.get('/search/:word', controller.getSearch);
 
+app.get('/makePuzzle', controller.makePuzzle);
+
 module.exports = app;

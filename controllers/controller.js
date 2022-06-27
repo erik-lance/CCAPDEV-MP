@@ -5,6 +5,7 @@ const Post = require('../models/Schemas/post.js');
 const User = require('../models/Schemas/user.js');
 const Comment = require('../models/Schemas/comment.js');
 const Image = require('../models/Schemas/files.js');
+const Puzzle = require('../models/Schemas/puzzle.js');
 
 const express = require(`express`);
 const app = express();
@@ -263,8 +264,30 @@ const controller = {
                 await res.render('layouts/search', {render});
             })
         })
-        
     },
+
+    makePuzzle: function(req,res){
+        let question = req.query.question;
+        let answer = req.query.answer;
+        let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+
+        db.findMany(Post,  {username:req.session.user}, {}, async function (result) {
+            let posts = await result;
+            let nPost = posts.length - 1;
+            let post_id = posts[nPost].post_id
+
+            var data = {
+                puzzle_id: id,
+                post_id: post_id,
+                question: question,
+                password: answer
+            };
+
+            db.insertOne(Puzzle, data, (result) => {
+                res.send();
+            });
+        })        
+    }
 }
 
 module.exports = controller;
