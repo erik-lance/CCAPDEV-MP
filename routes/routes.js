@@ -12,7 +12,7 @@ app.get('/s/user_reg', controller.getUserReg);
 app.get('/s/settings', controller.getSettings);
 
 app.get('/p/post_editor', controller.getPostEditor);
-app.get('/p/:post_d', controller.getPost);
+app.get('/p/:post_id', controller.getPost);
 app.get('/u/:username', controller.getProfile);
 
 app.get('/Login', controller.getLogin);

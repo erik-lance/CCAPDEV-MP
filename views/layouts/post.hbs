@@ -26,7 +26,7 @@
                         </svg>
     
     
-                        <div>{{points this.post}}</div>
+                        <div>{{points full_post.post}}</div>
     
                         <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
                             <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
@@ -35,15 +35,15 @@
                     </div>
                     <div class="post-content-wrapper">
                         <div class="post-dets">
-                            <img src="/images/profile-imgs/{{user.username}}.jpg" />
-                            <a class="author" href="/u/{{user.username}}">{{user.username}}</a> • Posted {{time this.post}} ago
+                            <img src="/images/profile-imgs/{{full_post.user.profile_pic}}" />
+                            <a class="author" href="/u/{{full_post.user.username}}">{{full_post.user.username}}</a> • Posted {{time this.post}} ago
                         </div>
                         
                         <div class="header">
-                            {{post.title}}
+                            {{full_post.post.title}}
                         </div>
                         <div class="body">
-                            <p>{{post.body}}</p>
+                            <p>{{full_post.post.body}}</p>
                         </div>
                         <div id="post-interaction">
                             <button class="interact-btn" id="comment-btn">Comment</button>
@@ -62,7 +62,7 @@
                     </div>
                     
                     <div id ="comment-post">
-                        {{#each comments}}
+                        {{#each full_post.comments}}
                         {{>comment-segment this}}
                         {{/each}}
                     </div>
@@ -72,15 +72,15 @@
             </div>
             <div id="author-wrapper">
                 <div id="author-header">
-                    <img src="/images/profile-imgs/{{user.username}}.jpg">
+                    <img src="/images/profile-imgs/{{full_post.user.profile_pic}}">
                     <div class="author-dets">    
-                        <a href="/u/{{user.username}}"><span id="author-name">{{user.name}}</span><br></a>
-                        <a href="/u/{{user.username}}"><span id="author-id">{{user.username}}</span></a> <br><br>
+                        <a href="/u/{{full_post.user.username}}"><span id="author-name">{{full_post.user.name}}</span><br></a>
+                        <a href="/u/{{full_post.user.username}}"><span id="author-id">{{full_post.user.username}}</span></a> <br><br>
                         <button>Follow</button>
                     </div>
                 </div>
                 
-                <p id="author-desc">{{user.bio}}</p>
+                <p id="author-desc">{{full_post.user.bio}}</p>
             </div>
         
         </div>

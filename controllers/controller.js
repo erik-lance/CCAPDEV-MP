@@ -173,21 +173,19 @@ const controller = {
             post: null,
             comments: null
         }
-        
+
         // Finds the post
-        db.findOne(Post,  req.query.post_id, {}, async function (postRes) {
+        db.findOne(Post,  {post_id:req.params.post_id}, {}, async function (postRes) {
             full_post.post = await postRes;
-            
             // Finds owner of post
-            db.findOne(User,  req.query.username, {}, async function (userRes) {
+            db.findOne(User,  {username:full_post.post.username}, {}, async function (userRes) {
                 full_post.user = await userRes;
 
                 // Finds all comments under post
-                db.findMany(Comment, req.query.post_id, {}, async function(comRes) {
+                db.findMany(Comment, {post_id:req.params.post_id}, {}, async function(comRes) {
 
                     full_post.comments = await comRes;
-
-                    res.render('layouts/post', full_post);
+                    res.render('layouts/post', {full_post});
                 })
             })
         })
