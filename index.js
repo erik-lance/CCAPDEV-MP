@@ -6,6 +6,10 @@ const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
+
 //const MongoStore = require('connect-mongo')(session);
 const MongoStore = require('connect-mongo');
 
