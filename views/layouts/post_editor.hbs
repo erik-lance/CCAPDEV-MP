@@ -3,6 +3,7 @@
 <head>
     <title>InFeed</title>
     <link rel="stylesheet" href="/styles/text-editor.css">
+    <link rel="stylesheet" href="/styles/slider.css">
     
     {{>essentials}}
 
@@ -13,9 +14,9 @@
         
     {{>nav}}
     <!-- Where the rest of the page is: -->
-    <div id="main-page">
-        <div style="height:50px"></div>
         <div id="main-editor">
+            <div style="height:50px"></div>
+
             <div id="main-feed">
                 <div style="height:50px"></div>
                 <p id="editor-line">Join the InFeed Community today!</p>
@@ -25,10 +26,23 @@
                     <textarea id="headline"></textarea>
                     <h4 class="titles">Body</h4>
                     <textarea id="editor"></textarea>
-                    <div id="editor-options"><button id="submit">Submit</button></div>
+                    <div id="editor-options"><button id="text-submit">Submit</button></div>
+                </div>
+
+                <div id="puzzle-section-wrapper">
+                    <p>Enable puzzles?</p>
+                    <label class="switch"><input type="checkbox" id="has-puzzle"><span class="slider"></span></label>
+
+                    <div id="puzzle-section">
+                        <p>Question</p>
+                        <input type="text" id="question">
+                        <p>Answer</p>
+                        <input type="text" id="answer">
+                    </div>
+
+
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>
