@@ -15,6 +15,7 @@ app.get('/p/post_editor', controller.getPostEditor);
 app.get('/p/:post_d', controller.getPost);
 app.get('/u/:username', controller.getProfile);
 
+app.get('/Login', controller.getLogin);
 app.get('/addAcc', controller.getAddAcc);
 app.get('/updateAcc', controller.getUpdateAcc);
 app.get('/updateProfile',controller.getUpdateProfile);
