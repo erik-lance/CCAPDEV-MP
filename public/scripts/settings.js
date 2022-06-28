@@ -63,6 +63,8 @@ $(document).ready(function() {
         if (passwordChangeable)
         {
             // Change pasword pa hash hehe
+            $.get('/UpdatePass', {password: pass}, function (result) {
+            })
         }
 
         if (img)

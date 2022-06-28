@@ -274,96 +274,91 @@ const controller = {
             })
         }
 
-        main_dets().then(() => console.log(full_post));
+        main_dets().then(() => {
 
-
-        function getRepliesImgs(obj, replyRes) {
-            return new Promise(resolve => 
-            {
-                // console.log('hehe  '+replyRes);
-                var r_iteration = replyRes.length;
-
-                console.log('size:    '+r_iteration)
-
-                if  (r_iteration > 0)
+            function getRepliesImgs(obj, replyRes) {
+                return new Promise(resolve => 
                 {
-                    for (var reply_item of replyRes)
+                    var r_iteration = replyRes.length;
+
+                    if  (r_iteration > 0)
                     {
-                        const async_r = reply_item
-
-                        console.log(r_iteration+' we are at:    '+async_r)
-                        db.findOne(User, {username:async_r.username},{}, async function(imgRep) 
+                        for (var reply_item of replyRes)
                         {
-                            var robj = async_r.toObject();
-                            robj.profile_pic = await imgRep.profile_pic;
-                            obj.replies.push(await robj);
-                            
-                            r_iteration--;
+                            const async_r = reply_item
 
-                            
-                            if (r_iteration <= 0) resolve();
-                        })
-                        
-                    }
-                }
-                else resolve();
-            })
-        }
-
-        function loadCommentReps(comRes) 
-        {
-            return new Promise(resolve =>     
-            {
-                var e_iterations = comRes.length;
-                console.log('comRes: '+e_iterations)
-
-                if (e_iterations > 0)
-                {
-                    for (var e of comRes)
-                    {
-                        const async_e = e;
-                        const cur_it = e_iterations;
-                        console.log('LOADING FOR: '+async_e)
-
-                        db.findOne(User, {username:async_e.username},{}, async function(imgRes) 
-                        {
-                            var obj = async_e.toObject();
-                            obj.profile_pic = await imgRes.profile_pic;
-        
-                            obj.replies = []
-        
-                            // Finds each reply
-        
-                            db.findMany(Comment, {reply_id: async_e.comment_id}, {}, async function(replyRes) 
+                            console.log(r_iteration+' we are at:    '+async_r)
+                            db.findOne(User, {username:async_r.username},{}, async function(imgRep) 
                             {
-                                // subtrats iterations after finishing
-                                getRepliesImgs(obj, await replyRes).then(() => 
-                                {
-                                    e_iterations--;
-                                    console.log(e_iterations+': '+replyRes)
-                                    
-                                    full_post.comments.push(obj)
-                                    if (e_iterations <=0) resolve();
-    
-                                })
-                            })
-                        });
-                    }
-                }
-                else {resolve();}
-                
-            })
-        }
+                                var robj = async_r.toObject();
+                                robj.profile_pic = await imgRep.profile_pic;
+                                obj.replies.push(await robj);
+                                
+                                r_iteration--;
 
-        
-        // Finds all comments under post
-        db.findMany(Comment, {post_id:req.params.post_id, reply_id:{$exists:false}}, {}, async function(comRes) 
-        {
-            loadCommentReps(await comRes).then(() => 
+                                
+                                if (r_iteration <= 0) resolve();
+                            })
+                            
+                        }
+                    }
+                    else resolve();
+                })
+            }
+
+            function loadCommentReps(comRes) 
             {
-                res.render('layouts/post', {full_post})
-            });
-        })
+                return new Promise(resolve =>     
+                {
+                    var e_iterations = comRes.length;
+
+                    if (e_iterations > 0)
+                    {
+                        for (var e of comRes)
+                        {
+                            const async_e = e;
+
+                            db.findOne(User, {username:async_e.username},{}, async function(imgRes) 
+                            {
+                                var obj = async_e.toObject();
+                                obj.profile_pic = await imgRes.profile_pic;
+            
+                                obj.replies = []
+            
+                                // Finds each reply
+            
+                                db.findMany(Comment, {reply_id: async_e.comment_id}, {}, async function(replyRes) 
+                                {
+                                    // subtrats iterations after finishing
+                                    getRepliesImgs(obj, await replyRes).then(() => 
+                                    {
+                                        e_iterations--;
+                                        console.log(e_iterations+': '+replyRes)
+                                        
+                                        full_post.comments.push(obj)
+                                        if (e_iterations <=0) resolve();
+        
+                                    })
+                                })
+                            });
+                        }
+                    }
+                    else {resolve();}
+                    
+                })
+            }
+
+            
+            // Finds all comments under post
+            db.findMany(Comment, {post_id:req.params.post_id, reply_id:{$exists:false}}, {}, async function(comRes) 
+            {
+                loadCommentReps(await comRes).then(() => 
+                {
+                    res.render('layouts/post', {full_post})
+                });
+            })
+        });
+
 
     },
 
