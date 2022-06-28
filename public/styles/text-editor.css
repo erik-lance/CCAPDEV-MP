@@ -19,7 +19,6 @@ body {
 }
 
 #main-editor #main-feed {
-    margin: auto;
     padding:20px;
     height: auto;
     width: 100%;
@@ -43,6 +42,25 @@ body {
     width: 100%;
 
     resize: none;
+}
+
+#edit-title {
+    font-size: 30px;
+    color: #FFB703;
+    font-weight: bold;
+    margin: 0;
+}
+
+#edit-reply {
+    font-size: 18px;
+    color: #FFB703;
+    margin: 0;
+}
+
+#edit-author {
+    font-size: 14px;
+    color: #FFB703;
+    font-style: italic;
 }
 
 .titles {

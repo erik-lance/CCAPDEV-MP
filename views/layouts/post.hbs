@@ -27,7 +27,6 @@
                             <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
                         </svg>
     
-    
                         <div>{{points full_post.post}}</div>
     
                         <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
@@ -39,6 +38,7 @@
                         <div class="post-dets">
                             <img src="/images/profile-imgs/{{full_post.user.profile_pic}}" />
                             <a class="author" href="/u/{{full_post.user.username}}">{{full_post.user.username}}</a> • Posted {{time this.post}} ago
+                            
                         </div>
                         
                         <div class="header">
@@ -50,6 +50,9 @@
                         <div id="post-interaction">
                             <button class="interact-btn" id="comment-btn">Comment</button>
                             <button class="interact-btn" id="share-btn">Share</button>
+                            {{#if full_post.post.logged}}
+                                {{>post/kebab}}
+                            {{/if}}
                         </div>
                     </div>
                 </div>

@@ -18,10 +18,12 @@ app.get('/addPost', controller.getAddPost);
 app.get('/Comment', controller.getComment);
 app.get('/Reply', controller.getReply);
 
+app.get('/e/:post_id', controller.getEditPost);
+app.get('/e/:post_id/:comment_id', controller.getEditComment);
+
 app.get('/Login', controller.getLogin);
 app.get('/Logout', controller.getLogout);
 app.get('/addAcc', controller.getAddAcc);
-app.get('/updateAcc', controller.getUpdateAcc);
 app.get('/UpdatePass', controller.getUpdatePass)
 app.get('/updateProfile',controller.getUpdateProfile);
 app.get('/UpdatePost', controller.getUpdatePost);
