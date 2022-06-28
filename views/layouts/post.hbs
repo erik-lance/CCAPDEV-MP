@@ -56,6 +56,7 @@
                 <!-- Comment Section -->
                 <div id="comment-section">
                     <div id="editor-wrapper">
+                        {{#if full_post.logged}}
                         <textarea name="text-editor" id="editor"></textarea>
                         <div id="editor-options">
 
@@ -65,7 +66,10 @@
 
                             <button id="text-submit">Submit</button>
                         </div>
+                        <div id="editor-line">Join the discussion!</div>
+                        {{else}}
                         <div id="editor-line">Sign up to join the InFeed community discussion!</div>
+                        {{/if}}
                     </div>
                     
                     <div id ="comment-post">

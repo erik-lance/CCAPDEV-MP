@@ -59,15 +59,13 @@ $(document).ready(function() {
             }
             else
             {
-                console.log('nice!')
                 $.get('/Reply',
                     {
                         text: text,
                         post_id: post_id,
                         comment_id: index
                     }, function(res) {
-                        console.log('must send reply')
-                        if (res) window.location.href = "/p/"+post_id
+                        window.location.href = "/p/"+post_id
                     }
                 )
             }

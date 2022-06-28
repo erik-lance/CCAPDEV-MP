@@ -176,6 +176,22 @@ const controller = {
         });
     },
 
+    getUpdatePass: function(req, res){
+        var password = req.query.password;
+        const saltRounds = 10;
+        // Hash password
+        bcrypt.hash(password, saltRounds, (err, hashed) => {
+            db.updateOne(User, {username: req.session.user}, {password: hashed}, async function(result){
+                if(result){
+                    res.send(result)
+                }
+                else{
+                    console.log("Error, user in settings does not exist(?)")
+                }
+            })
+        });
+    },
+
     getUpdateAcc: function(req, res) {
 
     },
@@ -274,7 +290,8 @@ const controller = {
             })
         }
 
-        main_dets().then(() => {
+        main_dets().then(() => 
+        {
 
             function getRepliesImgs(obj, replyRes) {
                 return new Promise(resolve => 
@@ -333,8 +350,6 @@ const controller = {
                                     getRepliesImgs(obj, await replyRes).then(() => 
                                     {
                                         e_iterations--;
-                                        console.log(e_iterations+': '+replyRes)
-                                        
                                         full_post.comments.push(obj)
                                         if (e_iterations <=0) resolve();
         
