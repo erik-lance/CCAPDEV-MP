@@ -336,7 +336,7 @@ const controller = {
                             db.findOne(User, {username:async_r.username},{}, async function(imgRep) 
                             {
                                 var robj = async_r.toObject();
-                                if (req.session.user ===await imgRep.username) robj.logged = true
+                                if (req.session.user === await imgRep.username) robj.logged = true
                                 robj.profile_pic = await imgRep.profile_pic;
                                 obj.replies.push(await robj);
                                 

@@ -4,4 +4,7 @@
         <a href="/u/{{username}}"><span class="commentor-name">{{username}}</span></a><br>
         {{text}}   
     </div>
+    {{#if logged}}
+        {{>post/kebab}}
+    {{/if}}
 </div>
