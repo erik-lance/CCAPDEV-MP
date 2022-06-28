@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
     $('#comment-btn').on('click',function() {
         $('html, body').animate(
             {
@@ -24,7 +26,7 @@ $(document).ready(function() {
         $('#reply-line').css('visibility', 'visible');
 
         // Grabs comment_id
-        index = $(this).parent().parent().attr('id');
+        index = $(this).parent().parent().parent().parent().attr('id');
         
         var uname = $(this).parent().find('span').text();
         $('#editor-reply-author').text(uname)

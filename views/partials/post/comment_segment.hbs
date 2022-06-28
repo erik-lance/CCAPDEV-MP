@@ -5,10 +5,28 @@
             <a href="/u/{{username}}"><span class="commentor-name">{{username}}</span></a><br>
             {{text}}
         </div>
-        <button class="reply-btn">Reply</button>
+        <div class="com-btns">
+            <div>
+                
+            <button class="reply-btn">Reply</button>
+            </div>
+            {{#if logged}}
+            <div class="kebab">
+                <div class="dd-a"><span>:</span></div>
+                <input type="checkbox">
+                <div class="dd-c">
+                    <ul>
+                        <li><button><span>Edit</span></button></li>
+                        <li><button><span>Delete</span></button></li>
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+        
     </div>
 
     {{#each replies}}
-    {{>post/reply this}}
+        {{>post/reply this}}
     {{/each}}
 </div>

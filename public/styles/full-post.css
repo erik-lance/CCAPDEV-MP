@@ -252,6 +252,10 @@ a {
 
 .comment:hover { background-color: #1c4b62; }
 
+.com-btns {
+    display: flex;
+}
+
 .reply-btn {
     color: white;
     opacity: 82%;
