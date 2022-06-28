@@ -192,6 +192,36 @@ const controller = {
         });
     },
 
+    getUpdatePost: function(req, res){
+        var text = req.query.text;
+        var post_id = req.query.post_id;
+
+        db.updateOne(Post, {post_id: post_id}, {body: text}, async function(result){
+            if(result){
+                res.send(result)
+            }
+            else{
+                console.log("Error, post does not exist")
+            }
+        })
+    },
+
+
+    getUpdateComment: function(req, res){
+        var text = req.query.text;
+        var post_id = req.query.post_id;
+        var comment_id = req.query.comment_id;
+
+        db.updateOne(Comment, {post_id: post_id, comment_id: comment_id}, {text: text}, async function(result){
+            if(result){
+                res.send(result)
+            }
+            else{
+                console.log('Error, comment does not exist')
+            }
+        })
+    },
+
     getUpdateAcc: function(req, res) {
 
     },

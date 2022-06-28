@@ -72,5 +72,39 @@ $(document).ready(function() {
         }
     })
 
+    /* 
+    Post Edit
+    $('').on(click, function() {
+        var text = $('').val();
+        var post_id = window.location.pathname.split("/").pop();
+
+        if(text){
+            $.get('/UpdatePost', {
+                text: text,
+                post_id: post_id
+            }, function() {
+                window.location.href = "/p/" + post_id
+            })
+        }
+    })
+    
+    Comment Edit
+    $('').on(click, function() {
+        var text = $('').val();
+        var post_id = window.location.pathname.split("/").pop();
+        var comment_id = $(this).parent().parent().attr('id');;
+
+        if(text){
+            $.get('/UpdateComment', {
+                text: text,
+                post_id: post_id,
+                comment_id: comment_id
+            }, function() {
+                window.location.href = "/p/" + post_id
+            })
+        }
+    })
+    */
+
 
 })
