@@ -82,3 +82,20 @@
 #nav-search:hover {
     opacity:1;
 }
+
+#go-to-profile {
+    background-color: #023047;
+    border: none;
+
+    float: left;
+    color: #ffb703;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#go-to-profile:hover {
+    background-color: #163d51;
+    cursor: pointer;
+}

@@ -13,4 +13,8 @@ $(document).ready(function () {
         
         
     })
+
+    $('#go-to-profile').on('click', function() {
+        
+    })
 });
