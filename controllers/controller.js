@@ -333,11 +333,10 @@ const controller = {
                         for (var reply_item of replyRes)
                         {
                             const async_r = reply_item
-
-                            console.log(r_iteration+' we are at:    '+async_r)
                             db.findOne(User, {username:async_r.username},{}, async function(imgRep) 
                             {
                                 var robj = async_r.toObject();
+                                if (req.session.user === await imgRep.username) robj.logged = true
                                 robj.profile_pic = await imgRep.profile_pic;
                                 obj.replies.push(await robj);
                                 
@@ -368,6 +367,7 @@ const controller = {
                             db.findOne(User, {username:async_e.username},{}, async function(imgRes) 
                             {
                                 var obj = async_e.toObject();
+                                if (req.session.user === await imgRes.username) obj.logged = true
                                 obj.profile_pic = await imgRes.profile_pic;
             
                                 obj.replies = []
