@@ -24,6 +24,8 @@ app.get('/addAcc', controller.getAddAcc);
 app.get('/updateAcc', controller.getUpdateAcc);
 app.get('/UpdatePass', controller.getUpdatePass)
 app.get('/updateProfile',controller.getUpdateProfile);
+app.get('/UpdatePost', controller.getUpdatePost);
+app.get('/UpdateComment', controller.getUpdateComment);
 
 app.post('/updateImage', controller.postUpdateImage);
 
