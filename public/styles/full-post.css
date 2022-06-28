@@ -55,6 +55,15 @@ body {
     height: auto;
 }
 
+#rate button {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    width: 100%;
+}
+
+#rate button:hover{ cursor: pointer;}
+
 #rate div {
     font-size: 12px;
 }

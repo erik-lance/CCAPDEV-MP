@@ -15,6 +15,15 @@ $(document).ready(function () {
     })
 
     $('#go-to-profile').on('click', function() {
-        
+        var username;
+
+        $.get('/getSessionUser',function(res) {
+            if (res !== null) username = res;
+            else username = null;
+
+            window.location.href="/u/"+username;
+        })
+            
+
     })
 });

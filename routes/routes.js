@@ -33,6 +33,7 @@ app.post('/updateImage', controller.postUpdateImage);
 
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
+app.get('/getSessionUser', controller.getSessionUser);
 app.get('/search/:word', controller.getSearch);
 
 app.get('/makePuzzle', controller.makePuzzle);

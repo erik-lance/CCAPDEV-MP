@@ -84,6 +84,20 @@ const controller = {
         });
     },
 
+    getSessionUser: function(req, res) {
+        if (typeof req.session.user !== 'undefined')
+        {
+            db.findOne(User, {username: req.session.user}, {}, async function(result) {
+                res.send(await result.username);
+            })
+        }
+        else
+        {
+            res.send(null)
+        }
+        
+    },
+
     //add account
     getAddAcc: function(req, res) {
         var username = req.query.username;
