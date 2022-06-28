@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/styles/full-post.css">
     <link rel="stylesheet" href="/styles/text-editor.css">
     <link rel="stylesheet" href="/styles/kebab.css">
+    <link rel="stylesheet" href="/styles/make-puzzle.css">
 
     {{>essentials}}
 
@@ -63,6 +64,22 @@
                     <div id="editor-wrapper">
                         {{#if full_post.logged}}
                         <textarea name="text-editor" id="editor"></textarea>
+                        <div class="form-popup" id="myForm">
+                            <form class="form-container">
+                                <h1>Answer the Puzzle set by this author!</h1>
+
+                                <label for="email"><b>Question</b></label>
+                                <p id="message"></p>
+
+                                <label for="psw"><b>Answer</b></label>
+                                <input type="text" placeholder="Enter Answer" id="answer" required>
+                                <div id="warning">
+                                    <p id="error-message"></p>
+                                </div>
+                                <button type="button" class="btn" id="submit-answer">Submit Answer</button>
+                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            </form>
+                        </div>
                         <div id="editor-options">
 
                             <span id="reply-line">

@@ -1,3 +1,12 @@
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+  
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+    $('#submit').prop('disabled', true);
+}
+
 $(document).ready(function() {
 
 
@@ -108,5 +117,47 @@ $(document).ready(function() {
     })
     */
 
+    $('#editor').one('click', function() {
+        var post_id = window.location.pathname.split("/").pop();
+
+        var data = {
+            post_id: post_id
+        }
+
+        $.get('/checkPuzzle', data, function(result){
+            console.log(result)
+            if(result != ''){
+                openForm();
+                $('#editor').prop('disabled', true);
+                $('#text-submit').prop('disabled', true);
+                $('#message').text(result.question);
+            }
+        });
+    });
+
+    $('#submit-answer').click(function() {
+        let answer = document.querySelector('#answer').value;
+        let post_id = window.location.pathname.split("/").pop();
+
+        let values = {
+            post_id: post_id,
+            answer: answer
+        }
+        
+        $.get('/answerPuzzle', values, function(result){
+            if(result == 'correct'){
+                console.log('correct')
+                $('#editor').prop('disabled', false);
+                $('#text-submit').prop('disabled', false);
+                $('#error-message').text('');
+                document.getElementById("myForm").style.display = "none";
+            }
+            else{
+                console.log('incorrect')
+                $('#text-submit').prop('disabled', true);
+                $('#error-message').text('incorrect answer');
+            }
+        });
+    });
 
 })
