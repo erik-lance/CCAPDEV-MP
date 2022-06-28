@@ -142,7 +142,7 @@ const controller = {
             post_id: post_id,
             username: username,
             date_posted: new Date,
-            text: text
+            text: text,
         };
 
         console.log(data)
@@ -222,7 +222,7 @@ const controller = {
         var full_post = {
             user: null,
             post: null,
-            comments: null
+            comments: []
         }
 
         // Finds the post
@@ -235,7 +235,19 @@ const controller = {
                 // Finds all comments under post
                 db.findMany(Comment, {post_id:req.params.post_id}, {}, async function(comRes) {
 
-                    full_post.comments = await comRes;
+                    var full_list = await comRes;
+
+                    // Adds img attrib
+                    full_list.forEach( function(e) {
+                        db.findOne(User, {username:e.username},{}, async function(imgRes) {
+                            var obj = e.toObject();
+
+                            obj.profile_pic = await imgRes.profile_pic;
+
+                            full_post.comments.push(obj)
+                        })
+                    });
+                    
                     res.render('layouts/post', {full_post});
                 })
             })
