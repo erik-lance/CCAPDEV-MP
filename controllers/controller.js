@@ -130,6 +130,27 @@ const controller = {
         });
     },
 
+    getComment: function(req, res) {
+        let username = req.session.user;
+        let post_id = req.query.post_id;
+        console.log('This is the post ID ' + post_id);
+        let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+        let text = req.query.text;
+        
+        var data = {
+            comment_id: id,
+            post_id: post_id,
+            username: username,
+            date_posted: new Date,
+            text: text
+        };
+
+        console.log(data)
+        db.insertOne(Comment, data, (result) => {
+            res.send();
+        });
+    },
+
     getUpdateAcc: function(req, res) {
 
     },

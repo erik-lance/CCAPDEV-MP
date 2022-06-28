@@ -18,6 +18,10 @@ const commentSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    text:{
+        type: String,
+        required: true
+    },
     reply_id:{
         type: String
     }
