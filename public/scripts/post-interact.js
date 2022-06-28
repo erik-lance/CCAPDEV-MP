@@ -117,7 +117,7 @@ $(document).ready(function() {
     })
     */
 
-    $('#editor').one('click', function() {
+    $('#editor').on('click', function() {
         var post_id = window.location.pathname.split("/").pop();
 
         var data = {

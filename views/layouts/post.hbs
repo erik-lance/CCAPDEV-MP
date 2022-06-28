@@ -63,32 +63,32 @@
                 <div id="comment-section">
                     <div id="editor-wrapper">
                         {{#if full_post.logged}}
-                        <textarea name="text-editor" id="editor"></textarea>
-                        <div class="form-popup" id="myForm">
-                            <form class="form-container">
-                                <h1>Answer the Puzzle set by this author!</h1>
+                            <textarea name="text-editor" id="editor"></textarea>
+                            <div class="form-popup" id="myForm">
+                                <form class="form-container">
+                                    <h1>Answer the Puzzle set by this author!</h1>
 
-                                <label for="email"><b>Question</b></label>
-                                <p id="message"></p>
+                                    <label for="email"><b>Question</b></label>
+                                    <p id="message"></p>
 
-                                <label for="psw"><b>Answer</b></label>
-                                <input type="text" placeholder="Enter Answer" id="answer" required>
-                                <div id="warning">
-                                    <p id="error-message"></p>
-                                </div>
-                                <button type="button" class="btn" id="submit-answer">Submit Answer</button>
-                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                            </form>
-                        </div>
-                        <div id="editor-options">
+                                    <label for="psw"><b>Answer</b></label>
+                                    <input type="text" placeholder="Enter Answer" id="answer" required>
+                                    <div id="warning">
+                                        <p id="error-message"></p>
+                                    </div>
+                                    <button type="button" class="btn" id="submit-answer">Submit Answer</button>
+                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                            </div>
+                            <div id="editor-options">
 
-                            <span id="reply-line">
-                                <button id="del-btn">X</button><span id="editor-reply">Replying to </span><span id="editor-reply-author"></span>
-                            </span>
+                                <span id="reply-line">
+                                    <button id="del-btn">X</button><span id="editor-reply">Replying to </span><span id="editor-reply-author"></span>
+                                </span>
 
-                            <button id="text-submit">Submit</button>
-                        </div>
-                        <div id="editor-line">Join the discussion!</div>
+                                <button type="button" id="text-submit">Submit</button>
+                            </div>
+                            <div id="editor-line">Join the discussion!</div>
                         {{else}}
                         <div id="editor-line">Sign up to join the InFeed community discussion!</div>
                         {{/if}}
