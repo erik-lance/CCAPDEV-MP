@@ -36,5 +36,7 @@ app.get('/getCheckAcc', controller.getCheckAcc);
 app.get('/search/:word', controller.getSearch);
 
 app.get('/makePuzzle', controller.makePuzzle);
+app.get('/checkPuzzle', controller.checkPuzzle);
+app.get('/answerPuzzle', controller.answerPuzzle);
 
 module.exports = app;

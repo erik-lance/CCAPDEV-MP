@@ -527,8 +527,53 @@ const controller = {
             db.insertOne(Puzzle, data, (result) => {
                 res.send();
             });
-        })        
+    
+        })     
+    },
+
+    checkPuzzle: function(req,res){
+        let post_id = req.query.post_id;
+        let user = req.session.user;
+        
+        //check if post has puzzle
+        db.findOne(Puzzle, {post_id:post_id}, {}, async function (result){
+            let puzzle = await result;
+            //check if author of post is not the current user
+            db.findOne(Post,  {post_id:puzzle.post_id}, {}, async function (result){
+                let author = await result;
+                //check if current user has not answered the puzzle by commenting on that post before
+                db.findOne(Comment,  {post_id:puzzle.post_id, username:user}, {}, async function (result){
+                    let past = await result; 
+                    if(puzzle != null && author.username != user && past == null){
+                        console.log(past)
+                        res.send(puzzle);
+                    }
+                    else{
+                        res.send('');
+                    }
+                })
+                
+            })
+        })
+    },
+
+    answerPuzzle: function(req,res){
+        let answer = req.query.answer;
+        let post_id = req.query.post_id;
+        
+        db.findOne(Puzzle, {post_id:post_id}, {}, async function (result){
+            let puzzle = await result;
+            if(puzzle.password == answer){
+                res.send('correct')
+            }
+            else{
+                res.send('false')
+            }
+        })
     }
+
 }
+
+
 
 module.exports = controller;
