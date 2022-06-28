@@ -3,8 +3,7 @@ function openForm() {
 }
   
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-    $('#submit').prop('disabled', true);
+    window.location.href = window.location.pathname;
 }
 
 $(document).ready(function() {
@@ -117,7 +116,7 @@ $(document).ready(function() {
     })
     */
 
-    $('#editor').on('click', function() {
+    $('#editor').one('click', function() {
         var post_id = window.location.pathname.split("/").pop();
 
         var data = {
