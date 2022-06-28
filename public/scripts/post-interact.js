@@ -27,8 +27,8 @@ $(document).ready(function() {
 
         // Grabs comment_id
         index = $(this).parent().parent().parent().parent().attr('id');
-        
-        var uname = $(this).parent().find('span').text();
+        var uname = $(this).parent().parent().parent().find('.comment-text a span').text();
+
         $('#editor-reply-author').text(uname)
 
     })
