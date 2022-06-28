@@ -21,6 +21,7 @@ app.get('/Login', controller.getLogin);
 app.get('/Logout', controller.getLogout);
 app.get('/addAcc', controller.getAddAcc);
 app.get('/updateAcc', controller.getUpdateAcc);
+app.get('/UpdatePass', controller.getUpdatePass)
 app.get('/updateProfile',controller.getUpdateProfile);
 
 app.post('/updateImage', controller.postUpdateImage);

@@ -151,6 +151,23 @@ const controller = {
         });
     },
 
+    getUpdatePass: function(req, res){
+        var password = req.query.password;
+        const saltRounds = 10;
+        // Hash password
+        bcrypt.hash(password, saltRounds, (err, hashed) => {
+            db.updateOne(User, {username: req.session.user}, {password: hashed}, async function(result){
+                if(result){
+                    res.send(result)
+                }
+                else{
+                    console.log("Error, user in settings does not exist(?)")
+                }
+            })
+        });
+    },
+
+
     getUpdateAcc: function(req, res) {
 
     },
