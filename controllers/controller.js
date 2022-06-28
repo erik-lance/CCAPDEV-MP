@@ -151,6 +151,31 @@ const controller = {
         });
     },
 
+    getReply: function(req, res) {
+        console.log('hi reply')
+        let user = req.session.user;
+        let post = req.query.post_id;
+        let cmnt = req.query.comment_id
+        let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+        let text = req.query.text;
+
+        var data = {
+            comment_id: id,
+            reply_id: cmnt,
+            post_id: post,
+            username: user,
+            date_posted: new Date,
+            text: text,
+        };
+
+        console.log(data)
+
+        db.insertOne(Comment, data, (result) => {
+            console.log(result)
+            res.send();
+        });
+    },
+
     getUpdateAcc: function(req, res) {
 
     },
@@ -222,36 +247,124 @@ const controller = {
         var full_post = {
             user: null,
             post: null,
-            comments: []
+            comments: [],
+            logged: null
         }
 
-        // Finds the post
-        db.findOne(Post,  {post_id:req.params.post_id}, {}, async function (postRes) {
-            full_post.post = await postRes;
-            // Finds owner of post
-            db.findOne(User,  {username:full_post.post.username}, {}, async function (userRes) {
-                full_post.user = await userRes;
 
-                // Finds all comments under post
-                db.findMany(Comment, {post_id:req.params.post_id}, {}, async function(comRes) {
+        function main_dets() {
+            return new Promise(resolve => {
+                // Finds logged user
+                db.findOne(User, {username: req.session.user},{}, async function(logRes) 
+                {
+                    if (req.session.user !== null) full_post.logged = await logRes;    
 
-                    var full_list = await comRes;
-
-                    // Adds img attrib
-                    full_list.forEach( function(e) {
-                        db.findOne(User, {username:e.username},{}, async function(imgRes) {
-                            var obj = e.toObject();
-
-                            obj.profile_pic = await imgRes.profile_pic;
-
-                            full_post.comments.push(obj)
+                    // Finds the post
+                    db.findOne(Post,  {post_id:req.params.post_id}, {}, async function (postRes) 
+                    {
+                        full_post.post = await postRes;
+                        // Finds owner of post
+                        db.findOne(User,  {username:full_post.post.username}, {}, async function (userRes) 
+                        {
+                            full_post.user = await userRes;
+                            resolve();
                         })
-                    });
-                    
-                    res.render('layouts/post', {full_post});
+                    })
                 })
             })
+        }
+
+        main_dets().then(() => console.log(full_post));
+
+
+        function getRepliesImgs(obj, replyRes) {
+            return new Promise(resolve => 
+            {
+                // console.log('hehe  '+replyRes);
+                var r_iteration = replyRes.length;
+
+                console.log('size:    '+r_iteration)
+
+                if  (r_iteration > 0)
+                {
+                    for (var reply_item of replyRes)
+                    {
+                        const async_r = reply_item
+
+                        console.log(r_iteration+' we are at:    '+async_r)
+                        db.findOne(User, {username:async_r.username},{}, async function(imgRep) 
+                        {
+                            var robj = async_r.toObject();
+                            robj.profile_pic = await imgRep.profile_pic;
+                            obj.replies.push(await robj);
+                            
+                            r_iteration--;
+
+                            
+                            if (r_iteration <= 0) resolve();
+                        })
+                        
+                    }
+                }
+                else resolve();
+            })
+        }
+
+        function loadCommentReps(comRes) 
+        {
+            return new Promise(resolve =>     
+            {
+                var e_iterations = comRes.length;
+                console.log('comRes: '+e_iterations)
+
+                if (e_iterations > 0)
+                {
+                    for (var e of comRes)
+                    {
+                        const async_e = e;
+                        const cur_it = e_iterations;
+                        console.log('LOADING FOR: '+async_e)
+
+                        db.findOne(User, {username:async_e.username},{}, async function(imgRes) 
+                        {
+                            var obj = async_e.toObject();
+                            obj.profile_pic = await imgRes.profile_pic;
+        
+                            obj.replies = []
+        
+                            // Finds each reply
+        
+                            db.findMany(Comment, {reply_id: async_e.comment_id}, {}, async function(replyRes) 
+                            {
+                                // subtrats iterations after finishing
+                                getRepliesImgs(obj, await replyRes).then(() => 
+                                {
+                                    e_iterations--;
+                                    console.log(e_iterations+': '+replyRes)
+                                    
+                                    full_post.comments.push(obj)
+                                    if (e_iterations <=0) resolve();
+    
+                                })
+                            })
+                        });
+                    }
+                }
+                else {resolve();}
+                
+            })
+        }
+
+        
+        // Finds all comments under post
+        db.findMany(Comment, {post_id:req.params.post_id, reply_id:{$exists:false}}, {}, async function(comRes) 
+        {
+            loadCommentReps(await comRes).then(() => 
+            {
+                res.render('layouts/post', {full_post})
+            });
         })
+
     },
 
     getProfile: function (req, res) {

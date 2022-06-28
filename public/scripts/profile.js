@@ -22,29 +22,6 @@ $(document).ready(function() {
 
     })
 
-    // Submits comments
-    $('#text-submit').on('click', function() {
-        var text = $('#editor').val()
-        var post_id = window.location.pathname.split("/").pop();
-        //Check with Erik
-        if(!text){
-            $('#editor').css('border','1px solid red')
-        }
-        if(text){
-            $('#editor').css('border','1px solid white')
-        }
-        // not sure if .text() ? paexperiment labyu
-
-        $.get('/Comment', 
-            {
-                text: text,
-                post_id: post_id
-            }, function() {
-                window.location.href = "/"
-        })
-
-    })
-
 })
 
 

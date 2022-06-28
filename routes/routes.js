@@ -16,6 +16,7 @@ app.get('/p/:post_id', controller.getPost);
 app.get('/u/:username', controller.getProfile);
 app.get('/addPost', controller.getAddPost);
 app.get('/Comment', controller.getComment);
+app.get('/Reply', controller.getReply);
 
 app.get('/Login', controller.getLogin);
 app.get('/Logout', controller.getLogout);

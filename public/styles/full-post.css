@@ -222,7 +222,7 @@ a {
     background-color: black;
 }
 
-#comment-picture{
+.comment-picture{
     height: 100%;
     width: 20px;
     object-fit: cover;
@@ -236,30 +236,40 @@ a {
     padding-bottom: 20px;
 }
 
-#commentor-name{
+.commentor-name{
     margin-top: 0;
     color: lightgoldenrodyellow;
 }
 
-#comment{
+.comment{
     display: flex;
     height: auto;
 
-    padding: 4px;
     padding-left: 10px;
     padding: 4px 10px;
 }
 
-#comment:hover { background-color: #1c4b62; }
+.comment:hover { background-color: #1c4b62; }
 
-#reply{
+.reply-btn {
+    color: white;
+    opacity: 82%;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    border: none;
+    background-color:#0e2c3b;
+}
+
+.reply-btn:hover { background-color: #184054; cursor:pointer;}
+
+.reply{
     display: flex;
     padding: 4px 24px;
 }
 
-#reply:hover { background-color: #1c4b62; }
+.reply:hover { background-color: #1c4b62; }
 
-#comment-text{
+.comment-text{
     display: inline-block;
     width: 100%;
     margin-left: 10;

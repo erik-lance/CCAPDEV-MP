@@ -67,6 +67,7 @@ body {
 #editor-options {
     background-color: #0e2c3b;
     display: flex;
+    align-items: center;
 }
 
 #editor-options #text-submit {
@@ -93,6 +94,32 @@ body {
     padding-bottom: 5px;
     color: #d29e1c;
 }
+
+#reply-line {
+    margin-left: 10px;
+    font-style: italic;
+    visibility: hidden;
+}
+
+#editor-reply {margin-left: 5px;}
+
+#editor-reply-author { color: #d29e1c; }
+
+#del-btn {
+    color: white;
+    opacity: 82%;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-style: normal;
+
+    border: none;
+    background-color:#d29e1c;
+
+    border-radius:  10px;
+}
+
+#del-btn:hover {cursor: pointer;}
+
 
 #puzzle-section {
     display:flex;
