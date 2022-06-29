@@ -10,7 +10,7 @@ body {
 
     margin: auto;
     padding:10px;
-    height: 100%;
+    height: auto;
     width: 100%;
     max-width: 1000px;
     /* background-color:#031f2e; */
@@ -20,6 +20,7 @@ body {
 
 #main-editor #main-feed {
     padding:20px;
+    padding-bottom: 200px;
     height: auto;
     width: 100%;
     max-width: 1000px;

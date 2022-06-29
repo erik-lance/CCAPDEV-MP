@@ -1,13 +1,13 @@
 <html>
 
 <head>
-    <title>Edit</title>
+    <title>Edit {{edit_obj.title}}</title>
     <link rel="stylesheet" href="/styles/text-editor.css">
+    <link rel="stylesheet" href="/styles/edit.css">
     <link rel="stylesheet" href="/styles/slider.css">
     
     {{>essentials}}
 
-    <script src="/scripts/post-click.js"></script>
     <script src="/scripts/edit.js"></script>
 
 </head>
@@ -31,15 +31,27 @@
                         <p id="edit-title">{{edit_obj.title}}</p>
                         <span id="edit-author">{{edit_obj.author}}</span>
 
+                        {{#if edit_obj.reply}}
                         <h3 class="titles">Comment:</h3>
                         <p id="edit-reply">{{edit_obj.reply}}</p>
                         <span id="edit-author">{{edit_obj.author_reply}}</span>
+                        {{/if}}
                     {{/if}}
                     
-                    <h4 class="titles">Body</h4>
-                    <textarea id="editor">{{edit_obj.body}}</textarea>
+                    {{#if edit_obj.is_post}}
+                    <h4 class="titles" id="edit-type">Editing Body</h4>
+                    {{else}}
+                    <h4 class="titles">Editing Text</h4>
+                    {{/if}}
 
-                    <div id="editor-options"><button id="text-submit">Submit</button></div>
+                    <div id="personalized-div">
+                        <img src="/images/profile-imgs/{{edit_obj.profile_pic}}" id="personalized-img">
+                        <div id="personalized-editor">
+                            <textarea id="editor">{{edit_obj.body}}</textarea>
+                            <div id="editor-options"><button id="text-submit">Submit</button></div>
+                        </div>
+                    </div>
+                    
 
                 </div>
             {{else}}

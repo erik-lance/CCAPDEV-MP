@@ -82,39 +82,37 @@ $(document).ready(function() {
         }
     })
 
-    /* 
-    Post Edit
-    $('').on(click, function() {
-        var text = $('').val();
+    $('.kebab-edit-btn').on('click', function() {
+        var kebab_class = $(this).parent().parent().parent().parent();
         var post_id = window.location.pathname.split("/").pop();
 
-        if(text){
-            $.get('/UpdatePost', {
-                text: text,
-                post_id: post_id
-            }, function() {
-                window.location.href = "/p/" + post_id
-            })
+        var link = '/e/'+post_id
+        // Adds post_id since it's usually the last one.
+
+        if (kebab_class.parent().hasClass("com-btns"))
+        {
+            // Just paste the comment_id.
+            var com_segment = kebab_class.parent().parent().parent();
+            link = link+'/'+com_segment.attr('id');
+            window.location.href = link;
+        }
+        else if (kebab_class.parent().hasClass("reply"))
+        {
+            // Replies don't have com-btns. They're directly under the parent class. 
+            var com_segment = kebab_class.parent()
+            link = link+'/'+com_segment.attr('id');
+            window.location.href = link
+        }
+        else
+        {
+            // All we need is post id.
+            window.location.href = link;
         }
     })
-    
-    Comment Edit
-    $('').on(click, function() {
-        var text = $('').val();
-        var post_id = window.location.pathname.split("/").pop();
-        var comment_id = $(this).parent().parent().attr('id');
-        console.log(commend_id);
-        //if(text){
-        //    $.get('/UpdateComment', {
-        //        text: text,
-        //        post_id: post_id,
-        //        comment_id: comment_id
-        //    }, function() {
-        //        window.location.href = "/p/" + post_id
-        //    })
-        //}
+
+    $('.kebab-delete-btn').on('click', function() {
+
     })
-    */
 
     $('#editor').one('click', function() {
         var post_id = window.location.pathname.split("/").pop();

@@ -6,6 +6,7 @@ const User = require('../models/Schemas/user.js');
 const Comment = require('../models/Schemas/comment.js');
 const Image = require('../models/Schemas/files.js');
 const Puzzle = require('../models/Schemas/puzzle.js');
+const Vote = require('../models/Schemas/vote.js');
 
 const express = require(`express`);
 const app = express();
@@ -265,6 +266,7 @@ const controller = {
             title: '',
             author: '',
             body: '',
+            profile_pic: null,
             logged: false,
             is_post: true
         }
@@ -274,9 +276,17 @@ const controller = {
             edit_obj.body = await postRes.body;
             edit_obj.author = await postRes.username;
 
-            if (req.session.user === await postRes.username) edit_obj.logged = true;
+            if (req.session.user === await postRes.username) 
+            {
+                edit_obj.logged = true;
 
-            await res.render('layouts/edit', {edit_obj});
+                db.findOne(User, {username: req.session.user}, {}, async function(imgRes) {
+                    edit_obj.profile_pic = await imgRes.profile_pic
+                    await res.render('layouts/edit', {edit_obj});
+                })
+
+            }
+            else await res.render('layouts/edit', {edit_obj});
         })
     },
 
@@ -287,6 +297,7 @@ const controller = {
             author_reply: '',
             reply: '',
             body: '',
+            profile_pic: null,
             logged: false,
             is_post: false
         }
@@ -296,24 +307,39 @@ const controller = {
             edit_obj.body = await postRes.body;
             edit_obj.author = await postRes.username;
 
-            if (req.session.user === await postRes.username) edit_obj.logged = true;
+            
 
             db.findOne(Comment, {comment_id:req.params.comment_id}, {}, async function(comRes) {
-                if (await typeof comRes.reply_id !== 'undefined')
+                if (req.session.user === await comRes.username) 
                 {
-                    console.log(await comRes.reply_id)
-                    db.findOne(Comment, {comment_id: await comRes.reply_id}, {}, async function(repRes) {
-                        edit_obj.reply = await repRes.text;
-                        edit_obj.body = await comRes.text;
-                        edit_obj.author_reply = await comRes.username;
+                    edit_obj.logged = true;
 
-                        await res.render('layouts/edit', {edit_obj});
+                    db.findOne(User, {username:req.session.user}, {}, async function(imgRes) 
+                    {
+                        edit_obj.profile_pic = await imgRes.profile_pic;
+
+                        if (await typeof comRes.reply_id !== 'undefined')
+                        {
+                            console.log(await comRes.reply_id)
+                            db.findOne(Comment, {comment_id: await comRes.reply_id}, {}, async function(repRes) {
+                                edit_obj.reply = await repRes.text;
+                                edit_obj.body = await comRes.text;
+                                edit_obj.author_reply = await comRes.username;
+
+                                await res.render('layouts/edit', {edit_obj});
+                            })
+                        }
+                        else{
+                            edit_obj.body = await comRes.text;
+                            await res.render('layouts/edit', {edit_obj});
+                        }
                     })
+
+                    
                 }
-                else{
-                    edit_obj.body = await comRes.text;
-                    await res.render('layouts/edit', {edit_obj});
-                }
+                else await res.render('layouts/edit', {edit_obj});
+
+                
             })
         })
     },
@@ -504,6 +530,129 @@ const controller = {
             })
         });
 
+
+    },
+
+    getUpvote: function (req,res) {
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined')
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                // Finds if this vote exists in the first place.
+                if (await voteRes)
+                {
+                    let updateData = {
+                        $inc: {upvotes: 1, downvotes: -1}
+                    }
+                    db.updateOne(Post, {post_id:post_id}, updateData, async function(updateRes)
+                    {
+                        db.updateOne(Vote, {username:req.session.user, post_id:post_id}, {upvote:true, downvote:false}, async function(updateVote)
+                        {
+                            res.send(await updateVote)
+                        })
+                    })   
+                }
+                else
+                {
+                    let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:true, downvote: false}, async function(newVote) 
+                    {
+                        db.updateOne(Post, {post_id:post_id}, {$inc:{upvotes:1}}, async function(finalRes)
+                        {
+                            res.send(await finalRes);
+                        })
+                    })
+                } 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
+    },
+
+    getDownvote: function (req,res) {
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined')
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                // Finds if this vote exists in the first place.
+                if (await voteRes)
+                {
+                    let updateData = {
+                        $inc: {upvotes: -1, downvotes: 1}
+                    }
+                    db.updateOne(Post, {post_id:post_id}, updateData, async function(updateRes)
+                    {
+                        db.updateOne(Vote, {username:req.session.user, post_id:post_id}, {upvote:false, downvote:true}, async function(updateVote)
+                        {
+                            res.send(await updateVote)
+                        })
+                    })   
+                }
+                else
+                {
+                    let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:true, downvote: false}, async function(newVote) 
+                    {
+                        db.updateOne(Post, {post_id:post_id}, {$inc:{downvotes:1}}, async function(finalRes)
+                        {
+                            res.send(await finalRes);
+                        })
+                    })
+                } 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
+    },
+
+    getRemoveVote: function (req,res) 
+    {
+        var is_upvote = req.query.is_upvote;
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined') 
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                let data = null
+                // Finds vote to delete
+                if (is_upvote === 'true')
+                {
+                      data = {$inc: {upvotes:-1}}
+                }
+                else
+                {
+                    data = {$inc: {downvotes:-1}}
+                }
+                
+                console.log(is_upvote);
+                console.log(data);
+
+                db.updateOne(Post, {post_id: post_id}, data, async function(postRes)
+                {
+                    console.log(await postRes)
+                    db.deleteOne(Vote, {username:req.session.user, post_id:post_id}, async function(finalRes) 
+                    {
+                        res.send(await finalRes)
+                    })
+                }) 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
 
     },
 
