@@ -9,7 +9,7 @@ function open_editor() {
 }
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.visibility = "visible";
   }
   
 function closeForm() {
@@ -41,7 +41,7 @@ $(document).ready(function() {
         }
         
         $.get('/makePuzzle', values, function(result){
-            window.location.href="/";
+            closeForm();
         });
     });
 });

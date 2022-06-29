@@ -669,14 +669,95 @@ const controller = {
 
         var render = {
             user: null,
-            posts: null
+            posts: null,
+            off_comments: null
+        }
+
+        function addComments(posts, list, u) 
+        {
+            return new Promise(resolve =>  
+            {
+                var p_iteration = posts.length;
+
+                if (p_iteration > 0)
+                {
+                    
+                    for (var post of posts)
+                    {
+                        const obj = post.toObject();
+                        obj.comments = [];
+
+                        db.findMany(Comment, {post_id:obj.post_id,username:u}, {}, async function(comRes)
+                        {
+                            obj.comments = await comRes;
+                            list.push(await obj)
+                            
+                            p_iteration--;
+                            if (p_iteration <= 0) resolve();
+                        })
+                    }
+                }
+                else resolve();
+                
+            })
+        }
+
+        function addOffComments(posts, list, u)
+        {
+            // find comments where post's user is not himself
+            return new Promise(resolve => 
+            {
+                var a_post_id = []
+                for (post of posts)
+                {
+                    a_post_id.push(post.post_id)
+                }
+
+                // Grabs comments outside of said posts
+                db.findMany(Comment, {post_id:{$nin:a_post_id},username:u}, {}, async function(comRes)
+                {
+                    var c_iterations = await comRes.length;
+
+                    if (c_iterations > 0)
+                    {
+                        for (var com of comRes)
+                        {
+                            const async_c = com;
+                            list.push(com);
+
+                            c_iterations--;
+                            if (c_iterations <= 0) resolve();
+                        }
+                    }
+                    else {resolve()}
+                    
+                    
+                })
+            })
         }
 
         db.findOne(User,  {username:req.params.username}, {}, async function (result) {
             render.user = await result
-            db.findMany(Post, {username:req.params.username}, {}, async function(result) {
-                render.posts = await result
-                await res.render('layouts/profile', {render});
+            db.findMany(Post, {username:req.params.username}, {}, async function(postRes) {
+                var list_posts = [];
+                var list_comments = [];
+
+                
+
+                addComments(await postRes, list_posts, req.params.username).then(() =>
+                {
+                    
+                    render.posts = list_posts
+                    addOffComments(postRes, list_comments, req.params.username).then(() =>
+                    {
+                        render.off_comments = list_comments;
+                        
+                        res.render('layouts/profile', {render});
+                    })
+                })
+
+                
+                
             })
         })
     },
