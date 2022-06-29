@@ -5,6 +5,7 @@ const routes = require(`./routes/routes.js`);
 const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
+const moment = require('moment');
 
 // For File Uploads
 const fileUpload = require('express-fileupload');
@@ -35,7 +36,19 @@ hbs.registerHelper('points', function(object) {
 })
 
 hbs.registerHelper('time', function(object) {
-    
+    var Seconds = moment().diff(object.date_posted, "seconds");
+    var Minutes = moment().diff(object.date_posted, "minutes");
+    var Hours = moment().diff(object.date_posted, "hours");
+    var Days = moment().diff(object.date_posted, "days");
+    var Months = moment().diff(object.date_posted, "months");
+    var Years = moment().diff(object.date_posted, "years");
+
+    if(Seconds < 60) return Seconds + " seconds";
+    else if(Minutes < 60) return Minutes + " minutes";
+    else if(Hours < 24) return Hours + " hours";
+    else if(Days < 30) return Days + " days";
+    else if(Months < 12) return Months + " months";
+    else return Years + " years";
 })
 
 app.use(express.static(`public`));
