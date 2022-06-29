@@ -29,7 +29,8 @@
     background-color: #0e2c3b;
     justify-content: center;
     border: 3px solid #f1f1f1;
-    color: white
+    color: white;
+    max-height: 500px;
   }
   
   /* Full-width input fields */
@@ -77,7 +78,6 @@
     visibility: hidden; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 999; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -87,4 +87,5 @@
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     display: flex;
     justify-content: center;
+    align-items: center;
   }
