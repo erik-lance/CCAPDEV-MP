@@ -133,6 +133,11 @@ $(document).ready(function() {
             })
         }
         {
+            var post_id = window.location.pathname.split("/").pop();
+            $.get('/deletePost', {post_id: post_id}, function(result){
+                window.location.href = '/';
+            })
+            
             // All we need is post id.
             //window.location.href = link;
         }
