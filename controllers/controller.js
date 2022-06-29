@@ -265,6 +265,7 @@ const controller = {
             title: '',
             author: '',
             body: '',
+            profile_pic: null,
             logged: false,
             is_post: true
         }
@@ -274,9 +275,17 @@ const controller = {
             edit_obj.body = await postRes.body;
             edit_obj.author = await postRes.username;
 
-            if (req.session.user === await postRes.username) edit_obj.logged = true;
+            if (req.session.user === await postRes.username) 
+            {
+                edit_obj.logged = true;
 
-            await res.render('layouts/edit', {edit_obj});
+                db.findOne(User, {username: req.session.user}, {}, async function(imgRes) {
+                    edit_obj.profile_pic = await imgRes.profile_pic
+                    await res.render('layouts/edit', {edit_obj});
+                })
+
+            }
+            else await res.render('layouts/edit', {edit_obj});
         })
     },
 
@@ -287,33 +296,52 @@ const controller = {
             author_reply: '',
             reply: '',
             body: '',
+            profile_pic: null,
             logged: false,
             is_post: false
         }
+
+        
+
 
         db.findOne(Post, {post_id:req.params.post_id}, {}, async function(postRes) {
             edit_obj.title = await postRes.title;
             edit_obj.body = await postRes.body;
             edit_obj.author = await postRes.username;
 
-            if (req.session.user === await postRes.username) edit_obj.logged = true;
+            
 
             db.findOne(Comment, {comment_id:req.params.comment_id}, {}, async function(comRes) {
-                if (await typeof comRes.reply_id !== 'undefined')
+                if (req.session.user === await comRes.username) 
                 {
-                    console.log(await comRes.reply_id)
-                    db.findOne(Comment, {comment_id: await comRes.reply_id}, {}, async function(repRes) {
-                        edit_obj.reply = await repRes.text;
-                        edit_obj.body = await comRes.text;
-                        edit_obj.author_reply = await comRes.username;
+                    edit_obj.logged = true;
 
-                        await res.render('layouts/edit', {edit_obj});
+                    db.findOne(User, {username:req.session.user}, {}, async function(imgRes) 
+                    {
+                        edit_obj.profile_pic = await imgRes.profile_pic;
+
+                        if (await typeof comRes.reply_id !== 'undefined')
+                        {
+                            console.log(await comRes.reply_id)
+                            db.findOne(Comment, {comment_id: await comRes.reply_id}, {}, async function(repRes) {
+                                edit_obj.reply = await repRes.text;
+                                edit_obj.body = await comRes.text;
+                                edit_obj.author_reply = await comRes.username;
+
+                                await res.render('layouts/edit', {edit_obj});
+                            })
+                        }
+                        else{
+                            edit_obj.body = await comRes.text;
+                            await res.render('layouts/edit', {edit_obj});
+                        }
                     })
+
+                    
                 }
-                else{
-                    edit_obj.body = await comRes.text;
-                    await res.render('layouts/edit', {edit_obj});
-                }
+                else await res.render('layouts/edit', {edit_obj});
+
+                
             })
         })
     },
