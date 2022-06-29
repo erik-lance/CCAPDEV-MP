@@ -5,6 +5,7 @@ const filesModel = require('./Schemas/files.js');
 const postModel = require('./Schemas/post.js');
 const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
+const voteModel = require('./Schemas/vote.js');
 
 const url = 'mongodb://localhost:27017/CCAPDEV_MP';
 

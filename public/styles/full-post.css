@@ -24,11 +24,11 @@ body {
     gap: 25px;
 }
 
-#post {
+.post {
     width:100%;
 }
 
-#full-post {
+.full-post {
     display: flex;
 }
 

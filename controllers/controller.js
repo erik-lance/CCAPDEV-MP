@@ -6,6 +6,7 @@ const User = require('../models/Schemas/user.js');
 const Comment = require('../models/Schemas/comment.js');
 const Image = require('../models/Schemas/files.js');
 const Puzzle = require('../models/Schemas/puzzle.js');
+const Vote = require('../models/Schemas/vote.js');
 
 const express = require(`express`);
 const app = express();
@@ -301,9 +302,6 @@ const controller = {
             is_post: false
         }
 
-        
-
-
         db.findOne(Post, {post_id:req.params.post_id}, {}, async function(postRes) {
             edit_obj.title = await postRes.title;
             edit_obj.body = await postRes.body;
@@ -501,6 +499,129 @@ const controller = {
             })
         });
 
+
+    },
+
+    getUpvote: function (req,res) {
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined')
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                // Finds if this vote exists in the first place.
+                if (await voteRes)
+                {
+                    let updateData = {
+                        $inc: {upvotes: 1, downvotes: -1}
+                    }
+                    db.updateOne(Post, {post_id:post_id}, updateData, async function(updateRes)
+                    {
+                        db.updateOne(Vote, {username:req.session.user, post_id:post_id}, {upvote:true, downvote:false}, async function(updateVote)
+                        {
+                            res.send(await updateVote)
+                        })
+                    })   
+                }
+                else
+                {
+                    let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:true, downvote: false}, async function(newVote) 
+                    {
+                        db.updateOne(Post, {post_id:post_id}, {$inc:{upvotes:1}}, async function(finalRes)
+                        {
+                            res.send(await finalRes);
+                        })
+                    })
+                } 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
+    },
+
+    getDownvote: function (req,res) {
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined')
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                // Finds if this vote exists in the first place.
+                if (await voteRes)
+                {
+                    let updateData = {
+                        $inc: {upvotes: -1, downvotes: 1}
+                    }
+                    db.updateOne(Post, {post_id:post_id}, updateData, async function(updateRes)
+                    {
+                        db.updateOne(Vote, {username:req.session.user, post_id:post_id}, {upvote:false, downvote:true}, async function(updateVote)
+                        {
+                            res.send(await updateVote)
+                        })
+                    })   
+                }
+                else
+                {
+                    let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:true, downvote: false}, async function(newVote) 
+                    {
+                        db.updateOne(Post, {post_id:post_id}, {$inc:{downvotes:1}}, async function(finalRes)
+                        {
+                            res.send(await finalRes);
+                        })
+                    })
+                } 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
+    },
+
+    getRemoveVote: function (req,res) 
+    {
+        var is_upvote = req.query.is_upvote;
+        var post_id = req.query.post_id;
+
+        if (typeof req.session.user !== 'undefined') 
+        {
+            db.findOne(Vote, {username:req.session.user, post_id:post_id}, {}, async function (voteRes)
+            {   
+                let data = null
+                // Finds vote to delete
+                if (is_upvote === 'true')
+                {
+                      data = {$inc: {upvotes:-1}}
+                }
+                else
+                {
+                    data = {$inc: {downvotes:-1}}
+                }
+                
+                console.log(is_upvote);
+                console.log(data);
+
+                db.updateOne(Post, {post_id: post_id}, data, async function(postRes)
+                {
+                    console.log(await postRes)
+                    db.deleteOne(Vote, {username:req.session.user, post_id:post_id}, async function(finalRes) 
+                    {
+                        res.send(await finalRes)
+                    })
+                }) 
+            })
+        }
+        else 
+        {
+            // Dude's not logged in
+            res.send(null);
+        }
 
     },
 

@@ -21,6 +21,9 @@ $(document).ready(function() {
     '</svg>';
 
     $('.upvote-btn').on('click', function() {
+        var post_id = $(this).parent().parent().attr('id')
+        console.log(post_id)
+
         if($('.upvote')[0]) 
         {
             $(this).html(filled_upvote)
@@ -28,12 +31,25 @@ $(document).ready(function() {
             {
                 $('.downvote-btn').html(hollow_downvote);
             }
+
+            $.get('/upvote', {post_id:post_id}, function(res) {
+                console.log('upvote successful: '+res)
+            })
         }
-        else {$(this).html(hollow_upvote)}
+        else 
+        {
+            $(this).html(hollow_upvote)
+            $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
+                console.log('remove vote successuful!: '+res)
+            })
+        }
     })
     
     
     $('.downvote-btn').on('click', function() {
+        var post_id = $(this).parent().parent().attr('id')
+        console.log(post_id)
+
         if($('.downvote')[0]) 
         {
             $(this).html(filled_downvote)
@@ -41,8 +57,19 @@ $(document).ready(function() {
             {
                 $('.upvote-btn').html(hollow_upvote);
             }
+
+            
+            $.get('/downvote', {post_id:post_id}, function(res) {
+                console.log('downvote successful: '+res)
+            })
         }
-        else {$(this).html(hollow_downvote)}
+        else 
+        {
+            $(this).html(hollow_downvote)
+            $.get('/removeVote', {is_upvote: false, post_id:post_id}, function(res) {
+                console.log('remove vote successuful!: '+res)
+            })
+        }
     })
 
 
