@@ -223,6 +223,7 @@ const controller = {
 
 
     getUpdateComment: function(req, res){
+        console.log('test');
         var text = req.query.text;
         var post_id = req.query.post_id;
         var comment_id = req.query.comment_id;
@@ -356,11 +357,10 @@ const controller = {
     },
 
     getDeleteReply: function(req, res){
+        console.log('test');
         comment_id = req.query.comment_id;
         db.deleteOne(Comment, {comment_id: comment_id}, function(result){
-            if(result){
-                res.redirect('/');
-            }
+            res.send(result)
         })
     },
 

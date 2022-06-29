@@ -37,6 +37,11 @@ app.get('/UpdateComment', controller.getUpdateComment);
 
 app.post('/updateImage', controller.postUpdateImage);
 
+app.get('/deleteComment', controller.getDeleteComment);
+app.get('/deleteReply', controller.getDeleteReply);
+app.get('/deletePost', controller.getDeletePost);
+
+
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
 app.get('/getSessionUser', controller.getSessionUser);

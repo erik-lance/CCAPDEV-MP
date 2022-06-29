@@ -111,7 +111,36 @@ $(document).ready(function() {
     })
 
     $('.kebab-delete-btn').on('click', function() {
+        var kebab_class = $(this).parent().parent().parent().parent();
 
+        // Adds post_id since it's usually the last one.
+
+        if (kebab_class.parent().hasClass("com-btns"))
+        {
+            var com_segment = kebab_class.parent().parent().parent().attr('id');
+            console.log('Comment =' + com_segment)
+            $.get('/deleteComment', {comment_id: com_segment}, function(result){
+                window.location.reload()
+            })
+        }
+        else if (kebab_class.parent().hasClass("reply"))
+        {
+            // Replies don't have com-btns. They're directly under the parent class. 
+            var com_segment = kebab_class.parent().attr('id');
+            console.log('Reply =' +com_segment)
+            $.get('/deleteReply', {comment_id: com_segment}, function(result){
+                window.location.reload()
+            })
+        }
+        {
+            var post_id = window.location.pathname.split("/").pop();
+            $.get('/deletePost', {post_id: post_id}, function(result){
+                window.location.href = '/';
+            })
+            
+            // All we need is post id.
+            //window.location.href = link;
+        }
     })
 
     $('#editor').one('click', function() {
