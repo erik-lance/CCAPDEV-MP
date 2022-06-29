@@ -49,8 +49,10 @@ const controller = {
     getCheckVote: function(req, res) {
         var post_id = req.query.post_id;
         var username = req.session.user;
+        console.log('Reached Controller');
         
         db.findOne(Vote, {post_id: post_id, username: username}, {}, async function(result){
+            console.log(await result);
             res.send(await result);
         })
     },

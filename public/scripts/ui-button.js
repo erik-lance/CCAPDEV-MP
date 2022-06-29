@@ -20,6 +20,44 @@ $(document).ready(function() {
     '<path class="downvote-filled" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>' +
     '</svg>';
 
+    function fixAllUpvotes() {
+
+        $('.post-wrapper').each( function ()
+        {
+            var upvote_btn =  $(this).find('.upvote-btn');
+            var post_id = $(this).attr('id');
+            $.get('/CheckVote', {post_id: post_id}, function(res) {
+                if(typeof res !== 'undefined'){
+                    var temp = res.upvote;
+                    if(temp){
+                        console.log(upvote_btn);
+                        upvote_btn.html(filled_upvote)
+                    }
+                }
+            })
+        })
+    }
+
+    fixAllUpvotes();
+
+    function fixAllDownvotes() {
+        $('.post-wrapper').each( function ()
+        {
+            var downvote_btn = $(this).find('.downvote-btn');
+            var post_id = $(this).attr('id');
+            $.get('/CheckVote', {post_id: post_id}, function(res) {
+                if(typeof res !== 'undefined'){
+                    var temp = res.downvote;
+                    if(temp){
+                        downvote_btn.html(filled_downvote)
+                    }
+                }
+            })
+        });
+    }
+
+    fixAllDownvotes();
+
     $('.upvote-btn').on('click', function() {
         var post_id = $(this).parent().parent().attr('id')
         var num = $(this).parent().find('span')
