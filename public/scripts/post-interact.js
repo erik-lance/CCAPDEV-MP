@@ -135,6 +135,7 @@ $(document).ready(function() {
                 window.location.reload()
             })
         }
+        else
         {
             var post_id = window.location.pathname.split("/").pop();
             $.get('/deletePost', {post_id: post_id}, function(result){
