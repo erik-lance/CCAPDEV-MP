@@ -46,6 +46,15 @@ const controller = {
         });
     },
 
+    getCheckVote: function(req, res) {
+        var post_id = req.query.post_id;
+        var username = req.session.user;
+        
+        db.findOne(Vote, {post_id: post_id, username: username}, {}, async function(result){
+            res.send(await result);
+        })
+    },
+
     getLogin: function(req, res){
         var password = req.query.password;
         console.log(password);
