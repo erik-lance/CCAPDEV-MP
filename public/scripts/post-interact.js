@@ -21,8 +21,11 @@ $(document).ready(function() {
     })
 
     $('#share-btn').on('click', function() {
-
-
+        var link = window.location.pathname;
+        console.log(link);
+        navigator.clipboard.writeText('Test');
+        
+        alert("Link copied to Clipboard");
 
     })
 
