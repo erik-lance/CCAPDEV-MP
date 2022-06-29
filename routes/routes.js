@@ -44,6 +44,7 @@ app.get('/deletePost', controller.getDeletePost);
 
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
+app.get('/CheckVote', controller.getCheckVote);
 app.get('/getSessionUser', controller.getSessionUser);
 app.get('/search/:word', controller.getSearch);
 
