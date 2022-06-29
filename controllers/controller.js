@@ -318,6 +318,37 @@ const controller = {
         })
     },
 
+    getDeleteComment: function (req, res){
+        comment_id = req.query.comment_id;
+        db.deleteOne(Comment, {comment_id: comment_id}, function(comresult){
+            if(comresult){
+                db.deleteMany(Comment, {reply_id: comment_id}, function(represult){
+                    res.redirect('/');
+                })
+            }
+        })
+    },
+
+    getDeleteReply: function(req, res){
+        comment_id = req.query.comment_id;
+        db.deleteOne(Comment, {comment_id: comment_id}, function(result){
+            if(result){
+                res.redirect('/');
+            }
+        })
+    },
+
+    getDeletePost: function(req, res){
+        post_id = req.query.post_id;
+        db.deleteOne(Post, {post_id: post_id}, function (posresult){
+            db.deleteMany(Comment, {post_id: post_id}, function(comresult){
+                if(comresult){
+                    res.redirect('/');
+                }
+            })
+        })
+    },
+
     getDelete: function (req, res) {
         db.deleteOne(Post, {post_id: req.query.post_id}, function(result) {
             res.redirect('/');
