@@ -22,46 +22,63 @@ $(document).ready(function() {
 
     $('.upvote-btn').on('click', function() {
         var post_id = $(this).parent().parent().attr('id')
-        console.log(post_id)
+        var num = $(this).parent().find('span')
 
-        if($('.upvote')[0]) 
+        if($(this).find('.upvote').length !== 0) 
         {
+            console.log('this button is not pressed')
+            let num_val = parseInt(num.text())+1
+
             $(this).html(filled_upvote)
             if($('.downvote-filled')[0])
             {
                 $('.downvote-btn').html(hollow_downvote);
+                num_val += 1
             }
 
             $.get('/upvote', {post_id:post_id}, function(res) {
                 console.log('upvote successful: '+res)
             })
+
+            
+            num.text(num_val)
         }
         else 
         {
+            console.log('this button is pressed')
             $(this).html(hollow_upvote)
             $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
                 console.log('remove vote successuful!: '+res)
             })
+
+            let num_val = parseInt(num.text())-1
+            num.text(num_val)
         }
     })
     
     
     $('.downvote-btn').on('click', function() {
         var post_id = $(this).parent().parent().attr('id')
-        console.log(post_id)
+        var num = $(this).parent().find('span')
 
-        if($('.downvote')[0]) 
+        if($(this).find('.downvote').length !== 0) 
         {
+            let num_val = parseInt(num.text())-1
+
             $(this).html(filled_downvote)
             if($('.upvote-filled')[0])
             {
                 $('.upvote-btn').html(hollow_upvote);
+                num_val -= 1;
             }
 
             
             $.get('/downvote', {post_id:post_id}, function(res) {
                 console.log('downvote successful: '+res)
             })
+
+            
+            num.text(num_val)
         }
         else 
         {
@@ -69,6 +86,9 @@ $(document).ready(function() {
             $.get('/removeVote', {is_upvote: false, post_id:post_id}, function(res) {
                 console.log('remove vote successuful!: '+res)
             })
+
+            let num_val = parseInt(num.text())+1
+            num.text(num_val)
         }
     })
 

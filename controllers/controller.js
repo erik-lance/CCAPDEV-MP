@@ -109,7 +109,7 @@ const controller = {
             password: '',
             isModerator: false,
             bio: '',
-            profile_pic: '',
+            profile_pic: 'default-profile-pic.png',
             following: 0,
             followers: 0,
             cookies: 0

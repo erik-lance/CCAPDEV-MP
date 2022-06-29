@@ -99,6 +99,15 @@ body {
     font-size: 12px;
 }
 
+.rate button {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    width: 100%;
+}
+
+.rate button:hover{ cursor: pointer;}
+
 /* Post CSS */
 
 .post-wrapper {
