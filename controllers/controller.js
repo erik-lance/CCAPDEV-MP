@@ -843,7 +843,7 @@ const controller = {
         
         db.findOne(Puzzle, {post_id:post_id}, {}, async function (result){
             let puzzle = await result;
-            if(puzzle.password == answer){
+            if(puzzle.password.toLowerCase() == answer.toLowerCase()){
                 res.send('correct')
             }
             else{
