@@ -768,27 +768,34 @@ const controller = {
         var search = req.params.word;
         var render = {
             first: null,
-            second: null
+            second: null,
+            user: null
         }
         
         db.findMany(Post, {title: {$regex:search, $options : 'i'}}, {}, async function(result1) {
             render.first = await result1;
             db.findMany(Post, {body: {$regex:search, $options : 'i'}}, {}, async function(result2) {
-                render.second = await result2;
-                if(render.first.length != 0 && render.second.length != 0){
-                    for(let i=0; i<render.first.length; i++){
-                        for(let j=0; j<render.second.length; j++){
-                            console.log(render.first[i]);
-                            console.log(render.second[j])
-                            if(render.first[i].post_id == render.second[j].post_id){
-                                delete render.second[j];
-                                j--;
-                                render.second.length--;
+                db.findOne(User, {username:req.session.user}, {}, async function(userRes) 
+                {
+                    if (req.session.user !== undefined) render.user = await  userRes;
+
+                    render.second = await result2;
+                    if(render.first.length != 0 && render.second.length != 0){
+                        for(let i=0; i<render.first.length; i++){
+                            for(let j=0; j<render.second.length; j++){
+                                console.log(render.first[i]);
+                                console.log(render.second[j])
+                                if(render.first[i].post_id == render.second[j].post_id){
+                                    delete render.second[j];
+                                    j--;
+                                    render.second.length--;
+                                }
                             }
                         }
                     }
-                }
-                await res.render('layouts/search', {render});
+                    await res.render('layouts/search', {render});
+                })
+                
             })
         })
     },
@@ -854,7 +861,7 @@ const controller = {
         
         db.findOne(Puzzle, {post_id:post_id}, {}, async function (result){
             let puzzle = await result;
-            if(puzzle.password == answer){
+            if(puzzle.password.toLowerCase() == answer.toLowerCase()){
                 res.send('correct')
             }
             else{
