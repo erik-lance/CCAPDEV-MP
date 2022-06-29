@@ -1,5 +1,5 @@
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.visibility = "visible";
 }
   
 function closeForm() {
@@ -184,7 +184,7 @@ $(document).ready(function() {
                 $('#editor').prop('disabled', false);
                 $('#text-submit').prop('disabled', false);
                 $('#error-message').text('');
-                document.getElementById("myForm").style.display = "none";
+                document.getElementById("myForm").style.visibility = "hidden";
             }
             else{
                 console.log('incorrect')
