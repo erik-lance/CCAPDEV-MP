@@ -4,9 +4,6 @@
     <link rel="stylesheet" href="/styles/profile.css">
 
     {{>essentials}}
-
-    <script src="/scripts/post-click.js"></script>
-    <script src="/scripts/ui-button.js"></script>
     
 </head>
 <body>
@@ -17,6 +14,10 @@
 
         <div class="page-wrapper">
             <div id="profile-posts">
+                {{#each render.off_comments}}
+                    {{>profile/comment}}
+                {{/each}}
+
                 {{#each render.posts}}
                     {{>profile/post}}
                 {{/each}}
