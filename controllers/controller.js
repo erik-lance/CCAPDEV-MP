@@ -609,7 +609,7 @@ const controller = {
                 else
                 {
                     let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
-                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:true, downvote: false}, async function(newVote) 
+                    db.insertOne(Vote, {vote_id: id, username:req.session.user, post_id:post_id, upvote:false, downvote: true}, async function(newVote) 
                     {
                         db.updateOne(Post, {post_id:post_id}, {$inc:{downvotes:1}}, async function(finalRes)
                         {
