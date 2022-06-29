@@ -22,10 +22,14 @@ $(document).ready(function() {
 
     $('#share-btn').on('click', function() {
         var link = window.location.pathname;
-        console.log(link);
-        navigator.clipboard.writeText('Test');
-        
-        alert("Link copied to Clipboard");
+        /* Select the text field */
+        var Text = link.toString();
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.write(Text);
+
+        /* Alert the copied text */
+        alert("Copied the text: " + Text);
 
     })
 
