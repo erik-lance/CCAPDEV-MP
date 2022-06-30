@@ -30,7 +30,6 @@ $(document).ready(function() {
                 if(typeof res !== 'undefined'){
                     var temp = res.upvote;
                     if(temp){
-                        console.log(upvote_btn);
                         upvote_btn.html(filled_upvote)
                     }
                 }

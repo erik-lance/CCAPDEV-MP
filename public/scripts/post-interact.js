@@ -7,8 +7,64 @@ function closeForm() {
 }
 
 $(document).ready(function() {
+    var hollow_upvote = '<svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">' +
+    '<polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>' +
+    '<path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>' +
+    '</svg>'
 
+    var hollow_downvote = '<svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">' +
+    '<polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>' +
+    '<path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>' +
+    '</svg>';
 
+    var filled_upvote = '<svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">' +
+    '<polygon  class="upvote-filled" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>' +
+    '<path class="upvote-filled" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>' +
+    '</svg>'
+
+    var filled_downvote = '<svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">' +
+    '<polygon class="downvote-filled" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>' +
+    '<path class="downvote-filled" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>' +
+    '</svg>';
+
+    function fixAllUpvotes() {
+        var upvote_btn =  $('.upvote-btn');
+        var post_id = window.location.pathname.split("/").pop();
+
+        $.get('/CheckVote', {post_id: post_id}, function(res) {
+            if(typeof res !== 'undefined'){
+                var temp = res.upvote;
+                if(temp){
+                    upvote_btn.html(filled_upvote)
+                }
+            }
+            else{
+                upvote_btn.html(hollow_upvote)
+            }
+        })
+    }
+
+    fixAllUpvotes();
+
+    function fixAllDownvotes() {
+
+        var downvote_btn =  $('.downvote-btn');
+        var post_id = window.location.pathname.split("/").pop();
+
+        $.get('/CheckVote', {post_id: post_id}, function(res) {
+            if(typeof res !== 'undefined'){
+                var temp = res.downvote;
+                if(temp){
+                    downvote_btn.html(filled_downvote)
+                }
+            }
+            else{
+                downvote_btn.html(hollow_downvote);
+            }
+        })
+    }
+
+    fixAllDownvotes();
 
     $('#comment-btn').on('click',function() {
         $('html, body').animate(
