@@ -159,7 +159,7 @@ body {
     z-index: 1;
 }
 
-.interact-btn {
+.post-interact button {
     text-decoration: none;
     height: 100%;
     border: none;
@@ -173,7 +173,7 @@ body {
     opacity: 72%;
 }
 
-.interact-btn:hover {
+.post-interact button:hover {
     background-color: #1c4b62;
     text-decoration: none;
     cursor:pointer;
