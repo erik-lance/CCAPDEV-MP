@@ -30,6 +30,7 @@ const controller = {
 
         db.findMany(Post, {}, {}, async function(result) {
             indexPage.posts = await result
+            indexPage.posts.reverse()
             db.findOne(User, {username:req.session.user},{}, async function(userRes) {
                 if (req.session.user !== undefined) {
                     indexPage.user = await userRes; 
@@ -749,9 +750,11 @@ const controller = {
                 {
                     
                     render.posts = list_posts
+                    render.posts.reverse()
                     addOffComments(postRes, list_comments, req.params.username).then(() =>
                     {
                         render.off_comments = list_comments;
+                        render.off_comments.reverse()
                         
                         res.render('layouts/profile', {render});
                     })

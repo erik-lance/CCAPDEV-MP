@@ -118,6 +118,18 @@ $(document).ready(function() {
 
     })
 
+    $('.comment-segment').on('click', function() 
+    {
+        if ($(this).find('div:hidden').length > 0) {
+            $(this).find('.comment-text').show();
+            $(this).find('.reply').show();
+        }
+        else {
+            $(this).find('.comment-text').hide();
+            $(this).find('.reply').hide();
+        }
+    })
+
     // Reply index
     var index = null;
 

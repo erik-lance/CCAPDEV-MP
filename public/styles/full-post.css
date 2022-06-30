@@ -108,6 +108,10 @@ body {
     opacity: 72%;
 }
 
+.body p {
+    white-space: pre-wrap;
+}
+
 #post-interaction {
     display:flex;
     height: auto;
@@ -236,6 +240,7 @@ a {
     width: 20px;
     object-fit: cover;
     object-position: center center;
+    margin-right: 10;
 }
 
 #comment-post {
@@ -286,6 +291,6 @@ a {
 .comment-text{
     display: inline-block;
     width: 100%;
-    margin-left: 10;
+    
     opacity: 72%;
 }

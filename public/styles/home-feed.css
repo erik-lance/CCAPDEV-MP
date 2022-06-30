@@ -147,12 +147,13 @@ body {
 
 .full-post div.post-interact {
     display:inline-flex;
-    min-height: 30px;
-    height: auto;
+    height: 40px;
     /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
     flex-grow: 1;
+
+    vertical-align:middle;
 
     padding-left: 16px;
     box-shadow: 0px -16px 16px 0px #163d51;;
@@ -170,7 +171,7 @@ body {
     font-family: 'Segoe UI';
     font-size: 16px;
     color: white;
-    opacity: 72%;
+    opacity: 82%;
 }
 
 .post-interact button:hover {
