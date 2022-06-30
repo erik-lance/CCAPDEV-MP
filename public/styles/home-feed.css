@@ -190,12 +190,13 @@ body {
 }
 
 .post-dets img {
-    object-fit: cover;
-    object-position: center center; 
     vertical-align: middle;
 
-    height: 18px;
-    width: 20px;
+    height:18px;
+    width: 18px;
+
+    object-fit: cover;
+    object-position: center center;
 }
 
 .post p.post-header {
