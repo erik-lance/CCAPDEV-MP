@@ -7,17 +7,14 @@ const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 const voteModel = require('./Schemas/vote.js');
 
-const {url} = require('../config');;
-
 const options = {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
 };
 
 const database = {
 
-    connect: function(){
+    connect: function(url){
         mongoose.connect(url, options, function(error){
             if(error) throw error;
             console.log('Connected to: ' + url);

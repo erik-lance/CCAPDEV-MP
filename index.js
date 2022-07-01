@@ -6,8 +6,11 @@ const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
 const moment = require('moment');
-const { envPort, sessionKey } = require('./config');
-const port = envPort || 3000;
+
+const config = require('dotenv').config()
+const sessionKey = config.parsed.SESSION_SECRET
+const url = config.parsed.MONGODB_URL;
+const port = config.parsed.PORT || 3000;
 
 // For File Uploads
 const fileUpload = require('express-fileupload');
@@ -53,12 +56,17 @@ hbs.registerHelper('time', function(object) {
     else return Years + " years";
 })
 
+
+
+
 app.use(express.static(`public`));
+
+db.connect(url);
 
 // Sessions
 app.use(session({
     secret: sessionKey,
-    store: new MongoStore({ mongooseConnection: db.connection }),
+    store: MongoStore.create({ mongoUrl: url }),
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -73,7 +81,7 @@ app.use(`/`, routes);
 
 
 
-db.connect();
+
 
 app.listen(port, function () {
     console.log(`Server is running at: 3000`);
