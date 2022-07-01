@@ -7,7 +7,7 @@ const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 const voteModel = require('./Schemas/vote.js');
 
-const url = require('../config');;
+const {url} = require('../config');;
 
 const options = {
     useNewUrlParser: true,

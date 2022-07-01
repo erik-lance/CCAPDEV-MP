@@ -75,6 +75,6 @@ app.use(`/`, routes);
 
 db.connect();
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log(`Server is running at: 3000`);
 });
