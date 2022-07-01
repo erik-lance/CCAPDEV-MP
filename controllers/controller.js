@@ -19,7 +19,7 @@ const controller = {
         res.status(204);
     },
 
-    getIndex: function(req, res) {  
+    getIndex: function(req, res) {
         var indexPage = {
             posts: null,
             user: null
@@ -388,7 +388,7 @@ const controller = {
         res.render('layouts/user_reg');
     },
 
-    getSettings: function (req, res) {
+    getSettings: function (req, res) {//
         db.findOne(User, {username:req.session.user},{}, async function(userRes) {
             if (req.session.user !== undefined) {
                 var profile = await userRes; 
@@ -563,7 +563,7 @@ const controller = {
         }
         else 
         {
-            // Dude's not logged in
+            //not logged in
             res.send(null);
         }
     },
@@ -604,7 +604,7 @@ const controller = {
         }
         else 
         {
-            // Dude's not logged in
+            //not logged in
             res.send(null);
         }
     },
@@ -640,7 +640,7 @@ const controller = {
         }
         else 
         {
-            // Dude's not logged in
+            //not logged in
             res.send(null);
         }
 
