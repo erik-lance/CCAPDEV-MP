@@ -20,8 +20,6 @@ const controller = {
     },
 
     getIndex: function(req, res) {  
-        console.log(req.session)
-
         var indexPage = {
             posts: null,
             user: null
@@ -52,23 +50,18 @@ const controller = {
         var username = req.session.user;
         
         db.findOne(Vote, {post_id: post_id, username: username}, {}, async function(result){
-            console.log(await result);
             res.send(await result);
         })
     },
 
     getLogin: function(req, res){
         var password = req.query.password;
-        console.log(password);
         db.findOne(User, {username: req.query.username}, {}, (user) => {
             if(user){
-                console.log(user.password)
                 bcrypt.compare(password, user.password, (err, result) => {
                     if(result){
                         //Not sure about this
                         req.session.user = user.username;
-        
-                        console.log(req.session)
 
                         res.send(result);
                     }
@@ -159,7 +152,6 @@ const controller = {
     getComment: function(req, res) {
         let username = req.session.user;
         let post_id = req.query.post_id;
-        console.log('This is the post ID ' + post_id);
         let id = Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
         let text = req.query.text;
         
@@ -171,14 +163,12 @@ const controller = {
             text: text,
         };
 
-        console.log(data)
         db.insertOne(Comment, data, (result) => {
             res.send();
         });
     },
 
     getReply: function(req, res) {
-        console.log('hi reply')
         let user = req.session.user;
         let post = req.query.post_id;
         let cmnt = req.query.comment_id
@@ -194,10 +184,8 @@ const controller = {
             text: text,
         };
 
-        console.log(data)
 
         db.insertOne(Comment, data, (result) => {
-            console.log(result)
             res.send();
         });
     },
@@ -234,7 +222,6 @@ const controller = {
 
 
     getUpdateComment: function(req, res){
-        console.log('test');
         var text = req.query.text;
         var post_id = req.query.post_id;
         var comment_id = req.query.comment_id;
@@ -332,7 +319,6 @@ const controller = {
 
                         if (await typeof comRes.reply_id !== 'undefined')
                         {
-                            console.log(await comRes.reply_id)
                             db.findOne(Comment, {comment_id: await comRes.reply_id}, {}, async function(repRes) {
                                 edit_obj.reply = await repRes.text;
                                 edit_obj.body = await comRes.text;
@@ -368,7 +354,6 @@ const controller = {
     },
 
     getDeleteReply: function(req, res){
-        console.log('test');
         comment_id = req.query.comment_id;
         db.deleteOne(Comment, {comment_id: comment_id}, function(result){
             res.send(result)
@@ -393,13 +378,11 @@ const controller = {
     },
 
     getUserSign: function (req, res) {
-        console.log('hi');
         res.render('layouts/user_sign');
         // window.location.href = "http://localhost:3000/s/user_sign";
     },
 
     getUserReg: function (req, res) {
-        console.log('hi1');
         res.render('layouts/user_reg');
     },
 
@@ -414,14 +397,12 @@ const controller = {
     },
 
     getHome: function (req, res) {
-        console.log('hi2');
         db.findMany(Post, {}, {}, function(result) {
             res.render('index', {posts: result, name: result, username:result});
         });
     },
 
     getPostEditor: function (req, res) {
-        console.log('hi3');
         res.render('layouts/post_editor');
     },
 
@@ -645,13 +626,9 @@ const controller = {
                 {
                     data = {$inc: {downvotes:-1}}
                 }
-                
-                console.log(is_upvote);
-                console.log(data);
 
                 db.updateOne(Post, {post_id: post_id}, data, async function(postRes)
                 {
-                    console.log(await postRes)
                     db.deleteOne(Vote, {username:req.session.user, post_id:post_id}, async function(finalRes) 
                     {
                         res.send(await finalRes)
@@ -785,8 +762,6 @@ const controller = {
                     if(render.first.length != 0 && render.second.length != 0){
                         for(let i=0; i<render.first.length; i++){
                             for(let j=0; j<render.second.length; j++){
-                                console.log(render.first[i]);
-                                console.log(render.second[j])
                                 if(render.first[i].post_id == render.second[j].post_id){
                                     delete render.second[j];
                                     j--;
@@ -843,7 +818,6 @@ const controller = {
                     db.findOne(Comment,  {post_id:puzzle.post_id, username:user}, {}, async function (result){
                         let past = await result; 
                         if(puzzle != null && author.username != user && past == null){
-                            console.log(past)
                             res.send(puzzle);
                         }
                         else{

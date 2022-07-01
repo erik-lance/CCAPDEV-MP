@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    console.log('Edit type:')
-    console.log($('#edit-type').text() === 'Editing Body')
+    //console.log('Edit type:')
+    //console.log($('#edit-type').text() === 'Editing Body')
 
     // Reminder: we have /e/:post_id
     // and we also have  /e/:post_id/:comment_id
@@ -35,7 +35,6 @@ $(document).ready(function() {
             var text = $('#editor').val();
             var post_id = window.location.pathname.split("/")[2];
             var comment_id = window.location.pathname.split("/").pop();
-            console.log(post_id);
             if(text){
                 $.get('/UpdateComment', {
                     text: text,
