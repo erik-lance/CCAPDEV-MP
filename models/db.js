@@ -7,11 +7,12 @@ const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 const voteModel = require('./Schemas/vote.js');
 
-const url = 'mongodb://localhost:27017/CCAPDEV_MP';
+const url = require('../config');;
 
 const options = {
+    useNewUrlParser: true,
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useFindAndModify: false
 };
 
 const database = {
