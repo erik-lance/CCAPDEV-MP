@@ -41,7 +41,6 @@ app.get('/deleteComment', controller.getDeleteComment);
 app.get('/deleteReply', controller.getDeleteReply);
 app.get('/deletePost', controller.getDeletePost);
 
-
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);
 app.get('/CheckVote', controller.getCheckVote);
@@ -51,5 +50,7 @@ app.get('/search/:word', controller.getSearch);
 app.get('/makePuzzle', controller.makePuzzle);
 app.get('/checkPuzzle', controller.checkPuzzle);
 app.get('/answerPuzzle', controller.answerPuzzle);
+
+app.get('/*', controller.getIndex);
 
 module.exports = app;

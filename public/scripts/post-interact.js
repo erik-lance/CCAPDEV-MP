@@ -84,7 +84,6 @@ $(document).ready(function() {
             }
     
             $.get('/checkPuzzle', data, function(result){
-                console.log(result)
                 if(!isPuzzleSolved && result != ''){
                     openForm();
                     $('#editor').prop('disabled', true);
@@ -95,7 +94,6 @@ $(document).ready(function() {
                 else
                 {
                     var editor = $('#editor')[0]
-                    console.log(editor)
                     editor.scrollIntoView();
                     $('#editor').trigger('focus')
                 }
@@ -118,16 +116,20 @@ $(document).ready(function() {
 
     })
 
-    $('.comment-segment').on('click', function() 
+    $('.comment-segment').on('click', function(e) 
     {
-        if ($(this).find('div:hidden').length > 0) {
-            $(this).find('.comment-text').show();
-            $(this).find('.reply').show();
+        if ($(e.target).is('div'))
+        {
+            if ($(this).find('div:hidden').length > 0) {
+                $(this).find('.comment-text').show();
+                $(this).find('.reply').show();
+            }
+            else {
+                $(this).find('.comment-text').hide();
+                $(this).find('.reply').hide();
+            }
         }
-        else {
-            $(this).find('.comment-text').hide();
-            $(this).find('.reply').hide();
-        }
+        
     })
 
     // Reply index
@@ -222,7 +224,6 @@ $(document).ready(function() {
         if (kebab_class.parent().hasClass("com-btns"))
         {
             var com_segment = kebab_class.parent().parent().parent().attr('id');
-            console.log('Comment =' + com_segment)
             $.get('/deleteComment', {comment_id: com_segment}, function(result){
                 window.location.reload()
             })
@@ -231,7 +232,6 @@ $(document).ready(function() {
         {
             // Replies don't have com-btns. They're directly under the parent class. 
             var com_segment = kebab_class.parent().attr('id');
-            console.log('Reply =' +com_segment)
             $.get('/deleteReply', {comment_id: com_segment}, function(result){
                 window.location.reload()
             })
@@ -256,7 +256,6 @@ $(document).ready(function() {
         }
 
         $.get('/checkPuzzle', data, function(result){
-            console.log(result)
             if(!isPuzzleSolved && result != ''){
                 openForm();
                 $('#editor').prop('disabled', true);
@@ -278,7 +277,6 @@ $(document).ready(function() {
         
         $.get('/answerPuzzle', values, function(result){
             if(result == 'correct'){
-                console.log('correct')
                 $('#editor').prop('disabled', false);
                 $('#text-submit').prop('disabled', false);
                 $('#error-message').text('');
@@ -286,7 +284,6 @@ $(document).ready(function() {
                 $('#editor').trigger('focus')
             }
             else{
-                console.log('incorrect')
                 $('#text-submit').prop('disabled', true);
                 $('#error-message').text('incorrect answer');
             }

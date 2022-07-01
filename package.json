@@ -4,7 +4,9 @@
   "description": "A forum website as part of the requirements of CCAPDEV.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "nodemon -r dotenv/config index.js",
+    "dev": "node -r dotenv/config index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,9 @@
     "url": "https://github.com/erik-lance/CCAPDEV-MP/issues"
   },
   "homepage": "https://github.com/erik-lance/CCAPDEV-MP#readme",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
@@ -34,5 +39,8 @@
     "mongoose": "^6.4.0",
     "nodemon": "^2.0.18",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
   }
 }

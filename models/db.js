@@ -7,16 +7,14 @@ const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
 const voteModel = require('./Schemas/vote.js');
 
-const url = 'mongodb://localhost:27017/CCAPDEV_MP';
-
 const options = {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 };
 
 const database = {
 
-    connect: function(){
+    connect: function(url){
         mongoose.connect(url, options, function(error){
             if(error) throw error;
             console.log('Connected to: ' + url);
