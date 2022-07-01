@@ -10,7 +10,7 @@ const moment = require('moment');
 const config = require('dotenv').config()
 const sessionKey = config.parsed.SESSION_SECRET
 const url = config.parsed.MONGODB_URL;
-const port = config.parsed.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // For File Uploads
 const fileUpload = require('express-fileupload');
