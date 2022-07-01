@@ -362,11 +362,13 @@ const controller = {
 
     getDeletePost: function(req, res){
         post_id = req.query.post_id;
-        db.deleteOne(Post, {post_id: post_id}, function (posresult){
-            db.deleteMany(Comment, {post_id: post_id}, function(comresult){
-                if(comresult){
-                    res.redirect('/');
-                }
+        db.deleteOne(Post, {post_id: post_id}, function (posresult){   
+            db.deleteOne(Puzzle, {post_id: post_id}, function (puzzresult){
+                db.deleteMany(Vote, {post_id: post_id}, function (voteresult){
+                    db.deleteMany(Comment, {post_id: post_id}, async function(comresult){
+                            await res.redirect('/');
+                    })
+                })
             })
         })
     },
