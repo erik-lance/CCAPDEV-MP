@@ -10,7 +10,7 @@ const moment = require('moment');
 const config = require('dotenv').config()
 const sessionKey = config.parsed.SESSION_SECRET
 const url = config.parsed.MONGODB_URL;
-// const port = ;
+const port = config.parsed.PORT || 3000;
 
 // For File Uploads
 const fileUpload = require('express-fileupload');
@@ -83,6 +83,6 @@ app.use(`/`, routes);
 
 
 
-app.listen(config.parsed.PORT || 3000, '0.0.0.0', function () {
-    console.log(`Server is running at: 3000`);
+app.listen(port, '0.0.0.0', function () {
+    console.log(`Server is running at: `+port);
 });
