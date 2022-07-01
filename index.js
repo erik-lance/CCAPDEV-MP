@@ -6,6 +6,8 @@ const db = require(`./models/db.js`);
 const session = require('express-session');
 const flash = require('connect-flash');
 const moment = require('moment');
+const { envPort, sessionKey } = require('./config');
+const port = envPort || 3000;
 
 // For File Uploads
 const fileUpload = require('express-fileupload');
@@ -55,12 +57,11 @@ app.use(express.static(`public`));
 
 // Sessions
 app.use(session({
-    secret: 'somegibberishsecret',
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/CCAPDEV_MP' }),
+    secret: sessionKey,
+    store: new MongoStore({ mongooseConnection: db.connection }),
     resave: false,
     saveUninitialized: true,
     cookie: {
-        path: '/',
         secure: false,
         maxAge: 1000 * 60 * 60 * 24 * 7 }
   }));
