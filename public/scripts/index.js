@@ -76,9 +76,6 @@ $(document).ready(function () {
             });
 
         } 
-        else{
-            console.log('No information');
-        };
     });
 
     $('#profile-dets').click(function() {

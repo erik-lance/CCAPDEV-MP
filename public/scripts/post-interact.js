@@ -284,7 +284,6 @@ $(document).ready(function() {
                 $('#editor').trigger('focus')
             }
             else{
-                console.log('incorrect')
                 $('#text-submit').prop('disabled', true);
                 $('#error-message').text('incorrect answer');
             }
