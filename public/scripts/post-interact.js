@@ -116,16 +116,20 @@ $(document).ready(function() {
 
     })
 
-    $('.comment-segment').on('click', function() 
+    $('.comment-segment').on('click', function(e) 
     {
-        if ($(this).find('div:hidden').length > 0) {
-            $(this).find('.comment-text').show();
-            $(this).find('.reply').show();
+        if ($(e.target).is('div'))
+        {
+            if ($(this).find('div:hidden').length > 0) {
+                $(this).find('.comment-text').show();
+                $(this).find('.reply').show();
+            }
+            else {
+                $(this).find('.comment-text').hide();
+                $(this).find('.reply').hide();
+            }
         }
-        else {
-            $(this).find('.comment-text').hide();
-            $(this).find('.reply').hide();
-        }
+        
     })
 
     // Reply index
