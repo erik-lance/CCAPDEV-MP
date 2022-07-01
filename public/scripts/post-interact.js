@@ -7,6 +7,7 @@ function closeForm() {
 }
 
 $(document).ready(function() {
+
     var hollow_upvote = '<svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">' +
     '<polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>' +
     '<path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>' +
@@ -66,17 +67,45 @@ $(document).ready(function() {
 
     fixAllDownvotes();
 
-    $('#comment-btn').on('click',function() {
-        $('html, body').animate(
-            {
-              scrollTop: $(this).offset().top,
-            },
-            500,
-            'linear'
-        )
+    
+    var isPuzzleSolved = false;
+    $('.comment-btn').on('click',function() {
+        if ($('#main-feed').length > 0)
+        {
+            let page_id = $(this).parent().parent().parent().attr('id')
+            window.location.href = "/p/"+page_id;
+        }
+        else
+        {
+            var post_id = window.location.pathname.split("/").pop();
+
+            var data = {
+                post_id: post_id
+            }
+    
+            $.get('/checkPuzzle', data, function(result){
+                console.log(result)
+                if(!isPuzzleSolved && result != ''){
+                    openForm();
+                    $('#editor').prop('disabled', true);
+                    $('#text-submit').prop('disabled', true);
+                    $('#message').text(result.question);
+                    isPuzzleSolved = true
+                }
+                else
+                {
+                    var editor = $('#editor')[0]
+                    console.log(editor)
+                    editor.scrollIntoView();
+                    $('#editor').trigger('focus')
+                }
+            });
+
+
+        }
     })
 
-    $('#share-btn').on('click', function() {
+    $('.share-btn').on('click', function() {
         var link = window.location.pathname;
         /* Select the text field */
         var Text = link.toString();
@@ -87,6 +116,18 @@ $(document).ready(function() {
         /* Alert the copied text */
         alert("Copied the text: " + Text);
 
+    })
+
+    $('.comment-segment').on('click', function() 
+    {
+        if ($(this).find('div:hidden').length > 0) {
+            $(this).find('.comment-text').show();
+            $(this).find('.reply').show();
+        }
+        else {
+            $(this).find('.comment-text').hide();
+            $(this).find('.reply').hide();
+        }
     })
 
     // Reply index
@@ -216,11 +257,12 @@ $(document).ready(function() {
 
         $.get('/checkPuzzle', data, function(result){
             console.log(result)
-            if(result != ''){
+            if(!isPuzzleSolved && result != ''){
                 openForm();
                 $('#editor').prop('disabled', true);
                 $('#text-submit').prop('disabled', true);
                 $('#message').text(result.question);
+                isPuzzleSolved = true
             }
         });
     });
@@ -241,6 +283,7 @@ $(document).ready(function() {
                 $('#text-submit').prop('disabled', false);
                 $('#error-message').text('');
                 document.getElementById("myForm").style.visibility = "hidden";
+                $('#editor').trigger('focus')
             }
             else{
                 console.log('incorrect')

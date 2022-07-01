@@ -108,7 +108,11 @@ body {
     opacity: 72%;
 }
 
-#post-interactions {
+.body p {
+    white-space: pre-wrap;
+}
+
+#post-interaction {
     display:flex;
     height: auto;
 
@@ -117,7 +121,7 @@ body {
     width: auto;
 }
 
-.interact-btn {
+#post-interaction button:nth-child(-n + 2) {
     text-decoration: none;
     height: 100%;
     border: none;
@@ -131,7 +135,7 @@ body {
     opacity: 72%;
 }
 
-.interact-btn:hover {
+#post-interaction button:nth-child(-n + 2):hover {
     background-color: #1c4b62;
     text-decoration: none;
     cursor:pointer;
@@ -236,6 +240,7 @@ a {
     width: 20px;
     object-fit: cover;
     object-position: center center;
+    margin-right: 10;
 }
 
 #comment-post {
@@ -286,6 +291,6 @@ a {
 .comment-text{
     display: inline-block;
     width: 100%;
-    margin-left: 10;
+    
     opacity: 72%;
 }

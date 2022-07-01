@@ -147,19 +147,20 @@ body {
 
 .full-post div.post-interact {
     display:inline-flex;
-    min-height: 30px;
-    height: auto;
+    height: 40px;
     /* background-color:#0e2c3b; */
     bottom: 0px;
     width: auto;
     flex-grow: 1;
+
+    vertical-align:middle;
 
     padding-left: 16px;
     box-shadow: 0px -16px 16px 0px #163d51;;
     z-index: 1;
 }
 
-.interact-btn {
+.post-interact button {
     text-decoration: none;
     height: 100%;
     border: none;
@@ -170,10 +171,10 @@ body {
     font-family: 'Segoe UI';
     font-size: 16px;
     color: white;
-    opacity: 72%;
+    opacity: 82%;
 }
 
-.interact-btn:hover {
+.post-interact button:hover {
     background-color: #1c4b62;
     text-decoration: none;
     cursor:pointer;
@@ -190,12 +191,13 @@ body {
 }
 
 .post-dets img {
-    object-fit: cover;
-    object-position: center center; 
     vertical-align: middle;
 
-    height: 18px;
-    width: 20px;
+    height:18px;
+    width: 18px;
+
+    object-fit: cover;
+    object-position: center center;
 }
 
 .post p.post-header {
