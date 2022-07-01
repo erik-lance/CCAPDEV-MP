@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('hi')
     
     var img = null;
     var actualUsername = $('#actual-username').text()
@@ -33,7 +32,6 @@ $(document).ready(function() {
             fileData.append('file',img,actualUsername+".jpg");
             fileData.append('file_name',img.name)
 
-            console.log('omg hi')
 
             $.ajax({
                 url:'/updateImage',
@@ -43,7 +41,6 @@ $(document).ready(function() {
                 contentType: false,
                 data: fileData,
                 success: function(res) {
-                    console.log('wow')
                 }
             })
         }
@@ -76,7 +73,6 @@ $(document).ready(function() {
 
     // Checks name AND bio
     $('#bio-submit').on('click',function() {
-        console.log('lool')
 
         var name = $('#full-name').val()
         var bio = $('#bio-editor').val()

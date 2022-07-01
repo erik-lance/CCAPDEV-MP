@@ -63,7 +63,6 @@ $(document).ready(function() {
 
         if($(this).find('.upvote').length !== 0) 
         {
-            console.log('this button is not pressed')
             let num_val = parseInt(num.text())+1
 
             $(this).html(filled_upvote)
@@ -74,7 +73,7 @@ $(document).ready(function() {
             }
 
             $.get('/upvote', {post_id:post_id}, function(res) {
-                console.log('upvote successful: '+res)
+
             })
 
             
@@ -82,10 +81,9 @@ $(document).ready(function() {
         }
         else 
         {
-            console.log('this button is pressed')
             $(this).html(hollow_upvote)
             $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
-                console.log('remove vote successuful!: '+res)
+
             })
 
             let num_val = parseInt(num.text())-1
@@ -111,7 +109,6 @@ $(document).ready(function() {
 
             
             $.get('/downvote', {post_id:post_id}, function(res) {
-                console.log('downvote successful: '+res)
             })
 
             
@@ -121,7 +118,6 @@ $(document).ready(function() {
         {
             $(this).html(hollow_downvote)
             $.get('/removeVote', {is_upvote: false, post_id:post_id}, function(res) {
-                console.log('remove vote successuful!: '+res)
             })
 
             let num_val = parseInt(num.text())+1

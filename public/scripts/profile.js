@@ -15,7 +15,6 @@ $(document).ready(function() {
 
     $('#profile-settings').on('click', function() {
 
-        console.log('huh')
         $.get('/s/settings');
         
         window.location.href="/s/settings";

@@ -22,7 +22,6 @@ $(document).ready(function() {
     })
     
     $('#login').click( function() {
-        console.log('Please Work')
         var user = $('#form-user-log').val()
         var pass = $('#form-pass-log').val()
     

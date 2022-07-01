@@ -2,13 +2,11 @@ $(document).ready(function () {
     
     //log in from index.hbs
     $('#signup').click(function () {
-        console.log("click");
         $.get('/user_sign');
     });
 
     //signup in user_sign.hbs
     $('#newsignup').click(function () {
-        console.log("click2");
         $.get('/user_reg');
     });
 
@@ -23,13 +21,10 @@ $(document).ready(function () {
         };
 
         $.get('/getCheckAcc',data, function(result){
-            console.log('checking');
             if(result.username == refno && result.password == password){
-                console.log("acc found");
                 $.get('/');
             }
             else{
-                console.log('invalid pw or un');
                 $('#login').prop('disabled', false);
             }
 
@@ -82,7 +77,7 @@ $(document).ready(function () {
 
         } 
         else{
-            console.log('ala man laman');
+            console.log('No information');
         };
     });
 
