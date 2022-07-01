@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    background-color: #111213;
+}
+
+#main-editor {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+
+    margin: auto;
+    padding:10px;
+    height: auto;
+    width: 100%;
+    max-width: 1000px;
+    /* background-color:#031f2e; */
+    font-family: 'Segoe UI';
+    color:white;
+}
+
+#main-editor #main-feed {
+    padding:20px;
+    padding-bottom: 200px;
+    height: auto;
+    width: 100%;
+    max-width: 1000px;
+    background-color:#031f2e;
+    font-family: 'Segoe UI';
+    color:white;
+}
+
+#editor-wrapper{
+    padding: 10px 20px;
+}
+
+#headline {
+    background-color: #163d51;
+    padding: 10px;
+    color: white;
+    opacity: 82%;
+    font-family: 'Rubik';
+    height: 45px;
+    width: 100%;
+
+    resize: none;
+}
+
+#edit-title {
+    font-size: 30px;
+    color: #FFB703;
+    font-weight: bold;
+    margin: 0;
+}
+
+#edit-reply {
+    font-size: 18px;
+    color: #FFB703;
+    margin: 0;
+}
+
+#edit-author {
+    font-size: 14px;
+    color: #FFB703;
+    font-style: italic;
+}
+
+.titles {
+    margin: 10px 0;
+}
+
+#editor {
+    background-color: #163d51;
+    padding: 10px;
+    color: white;
+    opacity: 82%;
+    font-family: 'Rubik';
+    min-height: 100px;
+    width: 100%;
+
+    line-height: 25px;
+    resize:vertical;
+}
+
+#editor:focus { border: 1px solid white; outline: none }
+
+#editor-options {
+    background-color: #0e2c3b;
+    display: flex;
+    align-items: center;
+}
+
+#editor-options #text-submit {
+    margin: 5px;
+    margin-left: auto;
+    background-color:#FFB703;
+    border-radius: 5px;
+    width: 100px;
+
+    color: white;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    border: none;
+    float: right;
+}
+
+#editor-options #text-submit:hover {
+    background-color:#d29e1c;
+}
+
+#editor-line {
+    margin-top: 15px;
+    border-bottom: 1px solid rgb(183, 183, 183);
+    padding-bottom: 5px;
+    color: #d29e1c;
+}
+
+#reply-line {
+    margin-left: 10px;
+    font-style: italic;
+    visibility: hidden;
+}
+
+#editor-reply {margin-left: 5px;}
+
+#editor-reply-author { color: #d29e1c; }
+
+#del-btn {
+    color: white;
+    opacity: 82%;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-style: normal;
+
+    border: none;
+    background-color:#d29e1c;
+
+    border-radius:  10px;
+}
+
+#del-btn:hover {cursor: pointer;}
+
+
+#puzzle-section {
+    display:flex;
+    flex-direction: column;
+
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#puzzle-section p {
+    margin: 0;
+    padding-top: 5px;
+}
+
+#puzzle-section input {
+    background-color: #023047;
+    display: inline-block;
+    border-style: none;
+    outline: none;
+    color: white;
+    opacity: 72%;
+
+    height: 40px;
+    width: 100%;
+
+    padding-left: 10px;
+}

@@ -1,0 +1,104 @@
+
+.kebab {
+    position:relative;
+    display: inline-block; 
+}
+.dd-a {
+    padding:2px;
+    background:#FFB703;
+    position:relative;
+
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+}
+.kebab input:after {
+    content:"";
+    width:100%;
+    height:2px;
+    position:absolute;
+    display:block;
+    background:#C63D0F;
+    bottom:0;
+    left:0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition-duration: 0.2s;
+    -webkit-transform: scaleX(0);
+    -webkit-transform-origin: bottom left;
+    -webkit-transition-duration: 0.2s;
+}
+.kebab input {
+    top:0;
+    opacity:0;
+    display:block;
+    padding:0;
+    margin:0;
+    border:0;
+    position:absolute;
+    height:100%;
+    width:100%;
+  }
+.kebab input:hover {
+    cursor:pointer;
+}
+.kebab input:hover ~ .dd-a {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+.kebab input:checked:after {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+}
+.kebab input:checked ~ .dd-c {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+.dd-a span {
+    color:#C63D0F;
+}
+.dd-c{
+    display:block;
+    position: absolute;
+    background:white;
+    height:auto;
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition-duration: 0.2s;
+    -webkit-transform: scaleY(0);
+    -webkit-transform-origin: top left;
+    -webkit-transition-duration: 0.2s;
+    z-index: 2;
+}
+.dd-c ul {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+}
+.dd-c li {
+}
+.dd-c button {
+    width: 100%;
+    opacity: 82%;
+    border: none;
+
+    display:block;
+    position:relative;
+    text-decoration: none;
+    padding:5px;
+    background:white;
+    color:#C63D0F;
+}
+.dd-c button span {
+    display:block;
+    position:relative;
+}
+.dd-c button:hover:before {
+    transform:scaleX(1);
+    -webkit-transform:scaleX(1);
+}
+.dd-c button:hover span {
+    color:orange;
+}

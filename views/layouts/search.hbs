@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>InFeed</title>
+    
+    {{>essentials}}
+
+    <link rel="stylesheet" href="/styles/home-feed.css">
+    
+    <script src="/scripts/profile.js"></script>
+
+    <!-- This page is the front page, so all posts should be seen here! -->
+</head>
+
+<body>
+    
+    {{>nav}}
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <!-- This is to prevent posts being overlapped by navbar-->
+        <div id="main-feed">
+            <div style="height:50px"></div>
+
+            {{#each render.first}}
+                {{>feed_post}} 
+            {{/each}}
+            
+            {{#each render.second}}
+                {{>feed_post}} 
+            {{/each}}
+
+        </div>
+
+        <div id="profile-page">
+            <div style="height:50px"></div>
+            <div id="profile-wrapper">
+                <div  id="profile-img">
+                    {{#if render.user}}
+                        <img src="/images/profile-imgs/{{render.user.profile_pic}}">
+                    {{else}} 
+                        <img src="/images/profile-imgs/default-profile-pic.png">
+                    {{/if}}
+                </div>
+                    
+                <div id="profile-dets">
+                    {{render.user.name}} <br>
+                    <span>{{render.user.username}}</span>
+                </div>
+
+                <div id="profile-signup">
+                    <!-- erik note: stack overflow is under maintenance, will check na lang ulit soon if gagana ito lol -->
+                    {{#if render.user}}
+                        <p>{{render.user.bio}}</p>
+                        <button id="profile-settings">Settings</button>
+                        <button id="log-out">Log out</button>
+                    {{else}}
+                        <span style="font-size:20px; font-weight: 700;"> Join the InFeed community now!</span>
+                        <br>
+                        <br>
+                        <a href="/s/user_sign">Log in!</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

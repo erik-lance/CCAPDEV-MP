@@ -1,0 +1,23 @@
+<div class="comment-segment" id="{{comment_id}}">
+    <div class="comment">
+        <img src="/images/profile-imgs/{{profile_pic}}" class="Comment-Picture">
+        <div class="comment-text">
+            <a href="/u/{{username}}"><span class="commentor-name">{{username}}</span></a><br>
+            {{text}}
+        </div>
+        <div class="com-btns">
+            <div>
+                
+                <button class="reply-btn">Reply</button>
+            </div>
+            {{#if logged}}
+                {{>post/kebab}}
+            {{/if}}
+        </div>
+        
+    </div>
+
+    {{#each replies}}
+        {{>post/reply this}}
+    {{/each}}
+</div>

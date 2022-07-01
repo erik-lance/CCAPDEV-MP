@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>InFeed</title>
+    <link rel="stylesheet" href="/styles/full-post.css">
+    <link rel="stylesheet" href="/styles/text-editor.css">
+    <link rel="stylesheet" href="/styles/kebab.css">
+    <link rel="stylesheet" href="/styles/make-puzzle.css">
+
+    {{>essentials}}
+
+    <script type="text/javascript" src="/scripts/post-interact.js"></script>
+    <script src="/scripts/profile.js"></script>
+    <script src="/scripts/kebab.js"></script>
+
+</head>
+<body>
+    {{>nav}}
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <!-- This is to prevent posts being overlapped by navbar-->
+        <div style="height:50px"></div>
+        <div id="post-wrapper">
+            <div class="post">
+                <div class="full-post" id="{{full_post.post.post_id}}">
+                    <div id="rate">
+                        <button class="upvote-btn">
+                        <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                            <polygon  class="upvote" points="30 17.49 1.94 24.03 30 0.65 58.06 24.03 30 17.49"/>
+                            <path class="upvote" d="M35,2,61.12,23.79l-25.89-6L35,17.7l-.23.06-25.89,6L35,2M35,.72l-30,25,30-7,30,7L35,.72Z" transform="translate(-5 -0.72)"/>
+                        </svg>
+                        </button>
+    
+                        <span>{{points full_post.post}}</span>
+    
+                        <button class="downvote-btn">
+                        <svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 25">
+                            <polygon class="downvote" points="1.94 0.97 30 7.51 58.06 0.97 30 24.35 1.94 0.97"/>
+                            <path class="downvote" d="M61.12,2.66,35,24.42,8.88,2.66l25.89,6,.23.06.23-.06,25.89-6M65,.72l-30,7L5,.72l30,25,30-25Z" transform="translate(-5 -0.72)"/>
+                        </svg>
+                        </button>
+                    </div>
+                    <div class="post-content-wrapper">
+                        <div class="post-dets">
+                            <img src="/images/profile-imgs/{{full_post.user.profile_pic}}" />
+                            <a class="author" href="/u/{{full_post.user.username}}">{{full_post.user.username}}</a> • Posted {{time full_post.post}} ago
+                            
+                        </div>
+                        
+                        <div class="header">
+                            {{full_post.post.title}}
+                        </div>
+                        <div class="body">
+                            <p>{{full_post.post.body}}</p>
+                        </div>
+                        <div id="post-interaction">
+                            <button class="comment-btn">Comment</button>
+                            <button class="share-btn">Share</button>
+                            {{#if full_post.post.logged}}
+                                {{>post/kebab}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Comment Section -->
+                <div id="comment-section">
+                    <div id="editor-wrapper">
+                        {{#if full_post.logged}}
+                            <textarea name="text-editor" id="editor"></textarea>
+                            
+                            <div id="editor-options">
+
+                                <span id="reply-line">
+                                    <button id="del-btn">X</button><span id="editor-reply">Replying to </span><span id="editor-reply-author"></span>
+                                </span>
+
+                                <button type="button" id="text-submit">Submit</button>
+                            </div>
+                            <div id="editor-line">Join the discussion!</div>
+                        {{else}}
+                        <div id="editor-line">Sign up to join the InFeed community discussion!</div>
+                        {{/if}}
+                    </div>
+                    
+                    <div id ="comment-post">
+                        {{#each full_post.comments}}
+                            {{>post/comment_segment this}}
+                        {{/each}}
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="author-wrapper">
+                <div id="author-header">
+                    <img src="/images/profile-imgs/{{full_post.user.profile_pic}}">
+                    <div class="author-dets">    
+                        <a href="/u/{{full_post.user.username}}"><span id="author-name">{{full_post.user.name}}</span><br></a>
+                        <a href="/u/{{full_post.user.username}}"><span id="author-id">{{full_post.user.username}}</span></a> <br><br>
+                    </div>
+                </div>
+                
+                <p id="author-desc">{{full_post.user.bio}}</p>
+            </div>
+        
+        </div>
+    </div>
+        <div id ="modal">
+            <div class="form-popup" id="myForm">
+                <form class="form-container">
+                    <h1>Answer the Puzzle set by this author!</h1>
+
+                    <label for="email"><b>Question</b></label>
+                    <p id="message"></p>
+
+                    <label for="psw"><b>Answer</b></label>
+                    <input type="text" placeholder="Enter Answer" id="answer" required>
+                    <div id="warning">
+                        <p id="error-message"></p>
+                    </div>
+                    <button type="button" class="btn" id="submit-answer">Submit Answer</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </div>
+
+</body>
+</html>

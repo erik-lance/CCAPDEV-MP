@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>InFeed</title>
+
+    {{>essentials}}
+
+    <link rel="stylesheet" href="/styles/settings.css">
+    <script src="/scripts/settings.js"></script>
+
+</head>
+<body>
+    {{>nav}}
+    <!-- Where the rest of the page is: -->
+    <div id="main-page">
+        <div style="height:10px"></div>
+
+        <h1>Settings</h1>
+
+        <h2>Account Settings</h2>
+        <div id="account-settings">
+            <div class="text-inputs">
+                <p id="user-field">Welcome, <span id="actual-username">{{profile.username}}</span>!</p>
+                <span>Edit Password</span>
+                <input type="password" placeholder="New Password" id="pass">
+                <input type="password" placeholder="Confirm Password" id="pass-confirm">
+            </div>
+            <div id="profile-img-wrapper">
+                <p> Profile Picture </p>
+                <div id="profile-img">
+                    <img src="/images/profile-imgs/{{profile.profile_pic}}" id="currImage">
+                    <label id="upload-design">
+                        <input type="file" name="profile-picture" accept="image/png, image/jpeg" id="image-file">
+                        <span id="custom-upload">Upload Image</span>
+                    </label>
+                </div>
+                
+                
+
+            </div>
+        </div>
+        <button type="button" id="account-submit">Update Account</button>
+
+        <h2>Profile Settings</h2>
+        <div id="profile-settings">
+            <span>Name</span>
+            <div class="text-inputs">
+                <input type="text" placeholder="Name" id="full-name" maxlength="50" value="{{profile.name}}">
+            </div>
+            <h3>Bio</h3>
+            <textarea id="bio-editor" maxlength="100">{{profile.bio}}</textarea>
+            <button type="button" id="bio-submit">Save Bio</button>
+        </div>
+
+        <p id="message"></p>
+
+    </div>
+</body>
+</html>

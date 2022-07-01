@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>InFeed</title>
+    <link rel="stylesheet" href="/styles/text-editor.css">
+    <link rel="stylesheet" href="/styles/slider.css">
+    <link rel="stylesheet" href="/styles/make-puzzle.css">
+    
+    {{>essentials}}
+
+</head>
+<body>
+        
+    {{>nav}}
+    <!-- Where the rest of the page is: -->
+        <div id="main-editor">
+            <div style="height:50px"></div>
+
+            <div id="main-feed">
+                <div style="height:50px"></div>
+                <p id="editor-line">Join the InFeed Community today!</p>
+                <h1>Create a post</h1>
+                <div id="editor-wrapper">
+                    <h3 class="titles">Title</h3> 
+                    <textarea id="headline"></textarea>
+                    <h4 class="titles">Body</h4>
+                    <textarea id="editor"></textarea>
+                    <div id="editor-options"><button id="submit">Submit</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <h1>Make a Puzzle!</h1>
+
+                <label for="email"><b>Question</b></label>
+                <input type="text" placeholder="Enter Question" id="question" required>
+
+               <label for="psw"><b>Answer</b></label>
+                <input type="text" placeholder="Enter Answer" id="answer" required>
+
+                <button type="submit" class="btn" id="submit-puzzle">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+</body>
+</html>

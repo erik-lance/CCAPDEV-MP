@@ -1,0 +1,296 @@
+/*
+    This file is the CSS of the page of a post. This is viewed
+    upon clicking a post on the feed  to show  the full post
+    content.
+*/
+body {
+    margin: 0;
+    background-color: #111213;
+}
+
+#main-page {
+    margin: auto;
+    padding:20px;
+    height: auto;
+    width: 100%;
+    max-width: 1000px;
+    background-color:#031f2e;
+    font-family: 'Segoe UI';
+    color:white;
+}
+
+#post-wrapper {
+    display: flex;
+    gap: 25px;
+}
+
+.post {
+    width:100%;
+}
+
+.full-post {
+    display: flex;
+}
+
+.post-content-wrapper {
+    display:flex;
+    flex-direction: column;
+    background-color: #163d51;
+    height: auto;
+    width: 100%;
+    
+    padding: 15px 15px 0 15px;
+}
+
+#rate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    min-width: 30px;
+    max-width: 40px;
+    width:100%;
+    background-color: #0e2c3b;
+    height: auto;
+}
+
+#rate button {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    width: 100%;
+}
+
+#rate button:hover{ cursor: pointer;}
+
+#rate div {
+    font-size: 12px;
+}
+
+
+.post-content-wrapper .header {
+    font-size:22px;
+    font-weight: 700;
+    opacity: 82%;
+}
+
+.post-dets {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    font-weight: 300;
+    color: rgb(183, 183, 183);
+    margin: 10px 0;
+
+    max-height: 18.4px;
+}
+
+.post-dets img {
+    vertical-align: middle;
+
+    height:18px;
+    width: 18px;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+.post-dets .author      { color: rgb(183, 183, 183); }
+.post-dets .author:hover{ text-decoration: underline;}
+
+.post-content-wrapper .body {
+    font-family: Rubik;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: justify;
+    min-height: 150px;
+    opacity: 72%;
+}
+
+.body p {
+    white-space: pre-wrap;
+}
+
+#post-interaction {
+    display:flex;
+    height: auto;
+
+    /* background-color:#0e2c3b; */
+    bottom: 0px;
+    width: auto;
+}
+
+#post-interaction button:nth-child(-n + 2) {
+    text-decoration: none;
+    height: 100%;
+    border: none;
+    background-color: #163d51;
+    
+    padding: 4px 8px;
+
+    font-family: 'Segoe UI';
+    font-size: 16px;
+    color: white;
+    opacity: 72%;
+}
+
+#post-interaction button:nth-child(-n + 2):hover {
+    background-color: #1c4b62;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.ui-icon {
+    max-height: 20px;
+    max-width: 20px;
+}
+
+.ui-button {
+    background: none;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+a {
+    text-decoration: none;
+}
+
+/* Author CSS */
+#author-wrapper {
+    background-color: #163d51;
+    padding: 10px;
+    width: 100%;
+    min-width: 100px;
+    max-width: 300px;
+    max-height: 300px;
+
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 4px;
+
+}
+
+#author-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.author-dets {
+    width: 100%;
+    margin-left: 10px;
+}
+
+#author-name {
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #FB8500;
+    opacity: 82%;
+}
+
+#author-id {
+    font-size: 12px;
+    color: #864f10;
+    opacity: 82%;
+}
+
+.author-dets button {
+    background-color: #FFB703;
+    border: none;
+    border-radius: 5px;
+}
+
+.author-dets button:hover {
+    color: white;
+    background-color: #d29e1c;
+}
+
+#author-header img {
+    margin: auto;
+
+    height:100px;
+    width: 100px;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+#author-desc { opacity: 60%;}
+
+/* Comment Section */
+#comment-section {
+    margin-top: 15px;
+    height: auto;
+    background-color: #163d51;
+    font-family: Rubik;
+    font-size: 14px;
+}
+
+#section{
+    color: white;
+    display: block;
+    text-align: center;
+    background-color: black;
+}
+
+.comment-picture{
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    object-position: center center;
+    margin-right: 10;
+}
+
+#comment-post {
+    height: auto;
+    width: 100%;
+    background-color: #163d51;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.commentor-name{
+    margin-top: 0;
+    color: lightgoldenrodyellow;
+}
+
+.comment{
+    display: flex;
+    height: auto;
+
+    padding-left: 10px;
+    padding: 4px 10px;
+}
+
+.comment:hover { background-color: #1c4b62; }
+
+.com-btns {
+    display: flex;
+}
+
+.reply-btn {
+    color: white;
+    opacity: 82%;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    border: none;
+    background-color:#0e2c3b;
+}
+
+.reply-btn:hover { background-color: #184054; cursor:pointer;}
+
+.reply{
+    display: flex;
+    padding: 4px 10px 4px 24px
+}
+
+.reply:hover { background-color: #1c4b62; }
+
+.comment-text{
+    display: inline-block;
+    width: 100%;
+    
+    opacity: 72%;
+}

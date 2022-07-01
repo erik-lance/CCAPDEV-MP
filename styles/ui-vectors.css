@@ -1,7 +1,0 @@
-.ui-icon { max-height: 20px; max-width: 20px; }
-
-.upvote{ stroke:white; fill:transparent; }
-.downvote{ stroke:white; fill:transparent; }
-
-.ui-icon:hover .upvote { stroke: #fb8500; }
-.ui-icon:hover .downvote { stroke: #fb8500; }
