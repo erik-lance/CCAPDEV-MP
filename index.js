@@ -83,6 +83,6 @@ app.use(`/`, routes);
 
 
 
-app.listen(port, function () {
+app.listen(port, '0.0.0.0', function () {
     console.log(`Server is running at: 3000`);
 });
