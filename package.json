@@ -16,6 +16,9 @@
     "url": "https://github.com/erik-lance/CCAPDEV-MP/issues"
   },
   "homepage": "https://github.com/erik-lance/CCAPDEV-MP#readme",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
