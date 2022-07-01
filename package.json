@@ -38,9 +38,7 @@
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.0",
     "nodemon": "^2.0.18",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
+    "path": "^0.12.7",
     "dotenv": "^16.0.1"
   }
 }
