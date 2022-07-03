@@ -67,6 +67,11 @@ $(document).ready(function() {
 
     fixAllDownvotes();
 
+    $('img').on('error', (event) => {
+        event.target.src = "/images/profile-imgs/default-profile-pic.png"
+        event.onerror = null
+    })
+
     
     var isPuzzleSolved = false;
     $('.comment-btn').on('click',function() {
@@ -101,19 +106,6 @@ $(document).ready(function() {
 
 
         }
-    })
-
-    $('.share-btn').on('click', function() {
-        var link = window.location.pathname;
-        /* Select the text field */
-        var Text = link.toString();
-
-        /* Copy the text inside the text field */
-        navigator.clipboard.write(Text);
-
-        /* Alert the copied text */
-        alert("Copied the text: " + Text);
-
     })
 
     $('.comment-segment').on('click', function(e) 

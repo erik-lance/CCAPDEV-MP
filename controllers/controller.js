@@ -381,14 +381,13 @@ const controller = {
 
     getUserSign: function (req, res) {
         res.render('layouts/user_sign');
-        // window.location.href = "http://localhost:3000/s/user_sign";
     },
 
     getUserReg: function (req, res) {
         res.render('layouts/user_reg');
     },
 
-    getSettings: function (req, res) {//
+    getSettings: function (req, res) {
         db.findOne(User, {username:req.session.user},{}, async function(userRes) {
             if (req.session.user !== undefined) {
                 var profile = await userRes; 
