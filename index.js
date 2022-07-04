@@ -25,8 +25,6 @@ const $ = require( "jquery" )( window );
 const MongoStore = require('connect-mongo');
 
 
-const fileupload = require('express-fileupload');
-
 const app = express();
 app.use(express.json()); // Uses JSON through parsing
 app.use(bodyParser.urlencoded({ extended: true })); // Set to true because we're not only using string as information

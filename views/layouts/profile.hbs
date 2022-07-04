@@ -6,6 +6,7 @@
     {{>essentials}}
 
     <script src="/scripts/post-interact.js"></script>
+    <script src="/scripts/load-cookies.js"></script>
     
 </head>
 <body>
@@ -31,6 +32,7 @@
                     <div class="author-dets">    
                         <a href="/u/{{render.user.username}}"><span id="author-name">{{render.user.name}}</span><br></a>
                         <a href="/u/{{render.user.username}}"><span id="author-id">{{render.user.username}}</span></a> <br><br>
+                        <span id="count-votes">Cookies: <span id="num-votes"></span></span>
                     </div>
                 </div>
                 <p id="author-desc">{{render.user.bio}}</p>

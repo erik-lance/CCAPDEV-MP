@@ -61,68 +61,92 @@ $(document).ready(function() {
         var post_id = $(this).parent().parent().attr('id')
         var num = $(this).parent().find('span')
 
-        if($(this).find('.upvote').length !== 0) 
-        {
-            let num_val = parseInt(num.text())+1
+        var t = $(this)
 
-            $(this).html(filled_upvote)
-            if($('.downvote-filled')[0])
+        $.get('/getSessionUser',{},function (user)
+        {
+            console.log(user)
             {
-                $('.downvote-btn').html(hollow_downvote);
-                num_val += 1
+                
+
+                console.log(t)
+        
+                if(t.find('.upvote').length !== 0) 
+                {
+                    console.log('hi')
+                    let num_val = parseInt(num.text())+1
+        
+                    t.html(filled_upvote)
+                    if($('.downvote-filled')[0])
+                    {
+                        $('.downvote-btn').html(hollow_downvote);
+                        num_val += 1
+                    }
+        
+                    $.get('/upvote', {post_id:post_id}, function(res) {
+        
+                    })
+        
+                    
+                    num.text(num_val)
+                }
+                else 
+                {
+                    console.log(user)
+                    t.html(hollow_upvote)
+                    $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
+        
+                    })
+        
+                    let num_val = parseInt(num.text())-1
+                    num.text(num_val)
+                }
             }
 
-            $.get('/upvote', {post_id:post_id}, function(res) {
+        })
 
-            })
-
-            
-            num.text(num_val)
-        }
-        else 
-        {
-            $(this).html(hollow_upvote)
-            $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
-
-            })
-
-            let num_val = parseInt(num.text())-1
-            num.text(num_val)
-        }
     })
     
     
     $('.downvote-btn').on('click', function() {
         var post_id = $(this).parent().parent().attr('id')
         var num = $(this).parent().find('span')
+        var t = $(this)
 
-        if($(this).find('.downvote').length !== 0) 
+        $.get('/getSessionUser',{},function (user)
         {
-            let num_val = parseInt(num.text())-1
-
-            $(this).html(filled_downvote)
-            if($('.upvote-filled')[0])
+            if (user)
             {
-                $('.upvote-btn').html(hollow_upvote);
-                num_val -= 1;
+                if(t.find('.downvote').length !== 0) 
+                {
+                    let num_val = parseInt(num.text())-1
+        
+                    t.html(filled_downvote)
+                    if($('.upvote-filled')[0])
+                    {
+                        $('.upvote-btn').html(hollow_upvote);
+                        num_val -= 1;
+                    }
+        
+                    
+                    $.get('/downvote', {post_id:post_id}, function(res) {
+                    })
+        
+                    
+                    num.text(num_val)
+                }
+                else 
+                {
+                    t.html(hollow_downvote)
+                    $.get('/removeVote', {is_upvote: false, post_id:post_id}, function(res) {
+                    })
+        
+                    let num_val = parseInt(num.text())+1
+                    num.text(num_val)
+                }
             }
+        })
 
-            
-            $.get('/downvote', {post_id:post_id}, function(res) {
-            })
-
-            
-            num.text(num_val)
-        }
-        else 
-        {
-            $(this).html(hollow_downvote)
-            $.get('/removeVote', {is_upvote: false, post_id:post_id}, function(res) {
-            })
-
-            let num_val = parseInt(num.text())+1
-            num.text(num_val)
-        }
     })
 
 

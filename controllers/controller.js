@@ -11,6 +11,7 @@ const Vote = require('../models/Schemas/vote.js');
 const express = require(`express`);
 const app = express();
 const path = require('path');
+const { ConnectionClosedEvent } = require('mongodb');
 
 app.set('views')
 
@@ -702,11 +703,16 @@ const controller = {
                     {
                         for (var com of comRes)
                         {
-                            const async_c = com;
-                            list.push(com);
+                            const async_c = com.toObject();
 
-                            c_iterations--;
-                            if (c_iterations <= 0) resolve();
+                            db.findOne(Post, {post_id: await async_c.post_id}, {}, async function(titleRes)
+                            {
+                                async_c.title = await titleRes.title
+                                list.push(async_c);
+    
+                                c_iterations--;
+                                if (c_iterations <= 0) resolve();
+                            })
                         }
                     }
                     else {resolve()}
@@ -741,6 +747,29 @@ const controller = {
                 
                 
             })
+        })
+    },
+
+    getVotes: function (req, res) {
+        db.findMany(Post, {username: req.query.user}, {}, async (votes) =>
+        {
+            const posts = await votes;
+            var p_iterations = await votes.length;
+            var votes = 0;
+
+            if (p_iterations > 0)
+            {
+                for (var p of posts)
+                {
+                    const async_p = p;
+                    votes += p.upvotes;
+                    votes -= p.downvotes;
+
+                    p_iterations--;
+                    if (p_iterations <= 0) res.send(String(votes));
+                }   
+            }
+            else (res.send('0'))
         })
     },
 

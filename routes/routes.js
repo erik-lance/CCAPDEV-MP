@@ -29,6 +29,7 @@ app.get('/Logout', controller.getLogout);
 app.get('/upvote', controller.getUpvote);
 app.get('/downvote', controller.getDownvote);
 app.get('/removeVote', controller.getRemoveVote);
+app.get('/countVotes', controller.getVotes);
 
 app.get('/UpdatePass', controller.getUpdatePass)
 app.get('/updateProfile',controller.getUpdateProfile);

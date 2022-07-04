@@ -52,23 +52,26 @@ $(document).ready(function() {
         var pass = $('#pass').val()
         var conf = $('#pass-confirm').val()
 
-        var file = img;
-
-        var freeUsername = true;
-
         var passwordChangeable = (pass && conf && (pass === conf));
-        if (passwordChangeable)
-        {
-            // Change pasword pa hash hehe
-            $.get('/UpdatePass', {password: pass}, function (result) {
-            })
-        }
+ 
 
         if (img)
         {
             updateImage();
+            $('#acc-message').text('Account Settings updated!')
         }
-        
+
+        if (passwordChangeable)
+        {
+            $.get('/UpdatePass', {password: pass}, function (result) {
+            })
+            $('#acc-message').text('Account Settings updated!')
+        }
+
+        if (!img  && !passwordChangeable)
+        {
+            $('#acc-message').text('No changes found.')
+        }
     })
 
     // Checks name AND bio

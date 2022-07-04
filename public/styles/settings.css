@@ -79,6 +79,9 @@ h3 { font-family: 'Segoe UI'; margin-bottom: 4px;}
     opacity:1;
 }
 
+.message-field {
+    min-height: 19.2;
+}
 
 /* Account Settings */
 
