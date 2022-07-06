@@ -21,7 +21,8 @@ $(document).ready(function () {
             if (res !== null) username = res;
             else username = null;
 
-            window.location.href="/u/"+username;
+            if (username) window.location.href="/u/"+username;
+            else window.location.href="/s/user_sign"
         })
             
 

@@ -105,7 +105,6 @@ const controller = {
 
     //add account
     getAddAcc: function(req, res) {
-        var username = req.query.username;
         var password = req.query.password;
 
         let data = {

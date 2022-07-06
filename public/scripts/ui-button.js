@@ -65,26 +65,21 @@ $(document).ready(function() {
 
         $.get('/getSessionUser',{},function (user)
         {
-            console.log(user)
+            if(user)
             {
-                
-
-                console.log(t)
-        
                 if(t.find('.upvote').length !== 0) 
                 {
                     console.log('hi')
                     let num_val = parseInt(num.text())+1
         
                     t.html(filled_upvote)
-                    if($('.downvote-filled')[0])
+                    if(t.parent().find('.downvote-filled'))
                     {
-                        $('.downvote-btn').html(hollow_downvote);
+                        t.parent().find('.downvote-btn').html(hollow_downvote);
                         num_val += 1
                     }
         
                     $.get('/upvote', {post_id:post_id}, function(res) {
-        
                     })
         
                     
@@ -92,7 +87,6 @@ $(document).ready(function() {
                 }
                 else 
                 {
-                    console.log(user)
                     t.html(hollow_upvote)
                     $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
         
@@ -122,9 +116,9 @@ $(document).ready(function() {
                     let num_val = parseInt(num.text())-1
         
                     t.html(filled_downvote)
-                    if($('.upvote-filled')[0])
+                    if(t.parent().find('.upvote-filled'))
                     {
-                        $('.upvote-btn').html(hollow_upvote);
+                        t.parent().find('.upvote-btn').html(hollow_upvote);
                         num_val -= 1;
                     }
         

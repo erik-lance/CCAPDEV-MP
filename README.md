@@ -1,4 +1,5 @@
-![InFeed Logo](https://github.com/erik-lance/CCAPDEV-MP/blob/master/public/images/web-logo-white.png)
+![InFeed Logo](https://github.com/erik-lance/CCAPDEV-MP/blob/master/public/images/web-logo-white.png#gh-dark-mode-only)
+![InFeed Logo](https://github.com/erik-lance/CCAPDEV-MP/blob/master/public/images/web-logo.png#gh-light-mode-only)
 # InFeed
 InFeed is a forum website for people to share opinions or information simply on a feed! There is also a reputation system in the form of cookies to determine credibility, but also an interaction lock based system to avoid misinterpretation or skimming posts!
 
