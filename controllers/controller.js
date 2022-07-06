@@ -4,7 +4,6 @@ const db = require('../models/db.js');
 const Post = require('../models/Schemas/post.js');
 const User = require('../models/Schemas/user.js');
 const Comment = require('../models/Schemas/comment.js');
-const Image = require('../models/Schemas/files.js');
 const Puzzle = require('../models/Schemas/puzzle.js');
 const Vote = require('../models/Schemas/vote.js');
 
@@ -78,7 +77,7 @@ const controller = {
         if (req.session) {
             req.session.destroy(() => {
               res.clearCookie('connect.sid');
-              res.redirect('/Login');
+              res.send(true)
             });
           }
     },
@@ -396,12 +395,6 @@ const controller = {
             await res.render('layouts/settings', {profile});
         })
 
-    },
-
-    getHome: function (req, res) {
-        db.findMany(Post, {}, {}, function(result) {
-            res.render('index', {posts: result, name: result, username:result});
-        });
     },
 
     getPostEditor: function (req, res) {
@@ -792,10 +785,14 @@ const controller = {
                     if(render.first.length != 0 && render.second.length != 0){
                         for(let i=0; i<render.first.length; i++){
                             for(let j=0; j<render.second.length; j++){
-                                if(render.first[i].post_id == render.second[j].post_id){
+                                if(render.first[i].post_id == render.second[j].post_id)
+                                {
                                     delete render.second[j];
+                                    render.second = render.second.filter((el) =>
+                                    {
+                                        return el != null;
+                                    })
                                     j--;
-                                    render.second.length--;
                                 }
                             }
                         }

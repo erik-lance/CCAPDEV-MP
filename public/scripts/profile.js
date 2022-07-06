@@ -9,8 +9,10 @@ function open_editor() {
 
 $(document).ready(function() {
     $('#log-out').on('click',function() {
-        $.get('/Logout');
-        window.location.href = "/";
+        $.get('/Logout',(res) =>
+        {
+            if (res) window.location.href="/"
+        })
     })
 
     $('#profile-settings').on('click', function() {

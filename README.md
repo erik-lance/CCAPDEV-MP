@@ -27,7 +27,11 @@ npm install
 ```
 node index.js
 ```
-5. View the website locally at localhost:3000
+5. You could also use nodemon in place of node to run it without refreshing after edits!
+```
+nodemon index.js
+```
+6. View the website locally at localhost:3000
 
 ## Authors
 * Tiongquico, E.

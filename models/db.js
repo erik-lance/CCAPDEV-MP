@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const userModel = require('./Schemas/user.js');
-const filesModel = require('./Schemas/files.js');
 const postModel = require('./Schemas/post.js');
 const puzzleModel = require('./Schemas/puzzle.js');
 const commentModel = require('./Schemas/comment.js');
