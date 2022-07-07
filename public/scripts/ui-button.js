@@ -69,28 +69,23 @@ $(document).ready(function() {
             {
                 if(t.find('.upvote').length !== 0) 
                 {
-                    console.log('hi')
                     let num_val = parseInt(num.text())+1
         
                     t.html(filled_upvote)
-                    if(t.parent().find('.downvote-filled'))
+                    if(t.parent().find('.downvote-filled')[0])
                     {
                         t.parent().find('.downvote-btn').html(hollow_downvote);
                         num_val += 1
                     }
         
-                    $.get('/upvote', {post_id:post_id}, function(res) {
-                    })
-        
+                    $.get('/upvote', {post_id:post_id}, function(res) {})
                     
                     num.text(num_val)
                 }
                 else 
                 {
                     t.html(hollow_upvote)
-                    $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {
-        
-                    })
+                    $.get('/removeVote', {is_upvote: true, post_id:post_id}, function(res) {})
         
                     let num_val = parseInt(num.text())-1
                     num.text(num_val)
@@ -116,16 +111,14 @@ $(document).ready(function() {
                     let num_val = parseInt(num.text())-1
         
                     t.html(filled_downvote)
-                    if(t.parent().find('.upvote-filled'))
+                    if(t.parent().find('.upvote-filled')[0])
                     {
                         t.parent().find('.upvote-btn').html(hollow_upvote);
                         num_val -= 1;
                     }
         
                     
-                    $.get('/downvote', {post_id:post_id}, function(res) {
-                    })
-        
+                    $.get('/downvote', {post_id:post_id}, function(res) {})
                     
                     num.text(num_val)
                 }
