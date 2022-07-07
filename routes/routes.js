@@ -1,11 +1,10 @@
-const express = require(`express`);
-const controller = require(`../controllers/controller.js`);
+const express = require('express');
+const controller = require('../controllers/controller.js');
 
 const app = express();
 
-app.get(`/favicon.ico`, controller.getFavicon);
-app.get(`/`, controller.getIndex);
-app.get(`/delete`, controller.getDelete);
+app.get('/favicon.ico', controller.getFavicon);
+app.get('/', controller.getIndex);
 
 app.get('/s/user_sign', controller.getUserSign);
 app.get('/s/user_reg', controller.getUserReg);
@@ -41,6 +40,7 @@ app.post('/updateImage', controller.postUpdateImage);
 app.get('/deleteComment', controller.getDeleteComment);
 app.get('/deleteReply', controller.getDeleteReply);
 app.get('/deletePost', controller.getDeletePost);
+app.get('/deleteAccount', controller.getDeleteAcc);
 
 app.get('/getCheckUsername', controller.getCheckUsername);
 app.get('/getCheckAcc', controller.getCheckAcc);

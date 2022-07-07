@@ -52,7 +52,6 @@ $(document).ready(function() {
             }
             $('#message').text('')
             
-            //Check with Erik if this goes to home page
             $.get('/Login', 
             {
                 username: user,

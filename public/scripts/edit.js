@@ -1,12 +1,5 @@
 $(document).ready(function() {
 
-    //console.log('Edit type:')
-    //console.log($('#edit-type').text() === 'Editing Body')
-
-    // Reminder: we have /e/:post_id
-    // and we also have  /e/:post_id/:comment_id
-
-
     //Post Edit
     $('#text-submit').on('click', function() {
         var edit_post = false;

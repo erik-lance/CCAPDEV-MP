@@ -1,8 +1,8 @@
-const express = require(`express`);
-const hbs = require(`hbs`);
-const bodyParser = require(`body-parser`);
-const routes = require(`./routes/routes.js`);
-const db = require(`./models/db.js`);
+const express = require('express');
+const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const routes = require('./routes/routes.js');
+const db = require('./models/db.js');
 const session = require('express-session');
 const flash = require('connect-flash');
 const moment = require('moment');
@@ -29,8 +29,8 @@ const app = express();
 app.use(express.json()); // Uses JSON through parsing
 app.use(bodyParser.urlencoded({ extended: true })); // Set to true because we're not only using string as information
 
-app.set(`view engine`, `hbs`);
-hbs.registerPartials(__dirname + `/views/partials`);
+app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 // Handlebars Helpers
 
@@ -55,9 +55,7 @@ hbs.registerHelper('time', function(object) {
 })
 
 
-
-
-app.use(express.static(`public`));
+app.use(express.static('public'));
 
 db.connect(url);
 
@@ -74,13 +72,9 @@ app.use(session({
 
 app.use(fileUpload()); // for fileuploading
 
-app.use(`/`, routes);
-
-
-
-
+app.use('/', routes);
 
 
 app.listen(port, '0.0.0.0', function () {
-    console.log(`Server is running at: `+port);
+    console.log('Server is running at: '+port);
 });

@@ -372,11 +372,37 @@ const controller = {
         })
     },
 
-    getDelete: function (req, res) {
-        db.deleteOne(Post, {post_id: req.query.post_id}, function(result) {
-            res.redirect('/');
-        });
-    },
+    // getDeleteAcc: function(req, res) {
+
+    //     function del_post(pst) {
+    //         return new Promise(resolve =>
+    //         {
+    //             for (var p in pst)
+    //             {
+    //                 db.deleteOne(Post, {post_id: p.post_id}, function (posresult){   
+    //                     db.deleteOne(Puzzle, {post_id: p.post_id}, function (puzzresult){
+    //                         db.deleteMany(Vote, {post_id: p.post_id}, function (voteresult){
+    //                             db.deleteMany(Comment, {post_id: p.post_id}, async function(comresult){
+                                        
+    //                             })
+    //                         })
+    //                     })
+    //                 })
+    //                 resolve();
+    //             }
+    //         })
+    //     }
+
+    //     db.findMany(Post, {username:req.query.user},{}, async function (posts)
+    //     {
+    //         let p = await posts;
+    //         del_post(pst).then(() =>
+    //         {
+    //             db.findMany(Comment, {})
+    //         })
+            
+    //     })
+    // },
 
     getUserSign: function (req, res) {
         res.render('layouts/user_sign');

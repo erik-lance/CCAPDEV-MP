@@ -10,8 +10,6 @@ $(document).ready(function () {
         if(word != ""){
            window.location.href="/search/" + word;
         }
-        
-        
     })
 
     $('#go-to-profile').on('click', function() {
@@ -24,7 +22,5 @@ $(document).ready(function () {
             if (username) window.location.href="/u/"+username;
             else window.location.href="/s/user_sign"
         })
-            
-
     })
 });
