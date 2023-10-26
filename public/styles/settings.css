@@ -184,3 +184,20 @@ h3 { font-family: 'Segoe UI'; margin-bottom: 4px;}
 }
 
 #bio-editor:focus { border: 1px solid white; outline: none }
+
+#delete-field button{
+    height: 35  px;
+}
+
+#del-user {
+    background-color: #023047;
+    display: inline-block;
+    border-style: none;
+    outline: none;
+    color: white;
+    opacity: 72%;
+
+    height: 40px;
+
+    padding-left: 10px;
+}
